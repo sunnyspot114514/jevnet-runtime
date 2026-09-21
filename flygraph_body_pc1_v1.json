@@ -1,0 +1,649 @@
+{
+  "version": "male-cns-body-pc1-v1",
+  "dataset": "male-cns:v1.0",
+  "api": "https://neuprint.janelia.org/api/custom/custom",
+  "seed_body": 13562,
+  "seed_metadata": {
+    "bodyId": 13562,
+    "type": "pC1_12b",
+    "instance": "pC1_12b_L"
+  },
+  "top_each_direction": 20,
+  "candidate_count": 41,
+  "candidate_bodies": [
+    {
+      "bodyId": 10348,
+      "type": "AVLP501",
+      "instance": "AVLP501_L"
+    },
+    {
+      "bodyId": 10983,
+      "type": "PVLP211m_a",
+      "instance": "PVLP211m_a_R"
+    },
+    {
+      "bodyId": 11250,
+      "type": "AVLP501",
+      "instance": "AVLP501_R"
+    },
+    {
+      "bodyId": 11470,
+      "type": "SMP550",
+      "instance": "SMP550_L"
+    },
+    {
+      "bodyId": 11799,
+      "type": "AVLP715m",
+      "instance": "AVLP715m_L"
+    },
+    {
+      "bodyId": 12857,
+      "type": "AVLP721m",
+      "instance": "AVLP721m_R"
+    },
+    {
+      "bodyId": 12952,
+      "type": "AVLP714m",
+      "instance": "AVLP714m_R"
+    },
+    {
+      "bodyId": 13038,
+      "type": "AVLP720m",
+      "instance": "AVLP720m_R"
+    },
+    {
+      "bodyId": 13235,
+      "type": "AVLP720m",
+      "instance": "AVLP720m_L"
+    },
+    {
+      "bodyId": 13244,
+      "type": "SMP550",
+      "instance": "SMP550_R"
+    },
+    {
+      "bodyId": 13337,
+      "type": "AN08B020",
+      "instance": "AN08B020_L"
+    },
+    {
+      "bodyId": 13438,
+      "type": "AVLP724m",
+      "instance": "AVLP724m_R"
+    },
+    {
+      "bodyId": 13562,
+      "type": "pC1_12b",
+      "instance": "pC1_12b_L"
+    },
+    {
+      "bodyId": 14016,
+      "type": "AN08B020",
+      "instance": "AN08B020_R"
+    },
+    {
+      "bodyId": 14717,
+      "type": "LAL304m",
+      "instance": "LAL304m_R"
+    },
+    {
+      "bodyId": 14935,
+      "type": "SMP551",
+      "instance": "SMP551_R"
+    },
+    {
+      "bodyId": 15493,
+      "type": "AVLP715m",
+      "instance": "AVLP715m_R"
+    },
+    {
+      "bodyId": 15866,
+      "type": "AVLP714m",
+      "instance": "AVLP714m_R"
+    },
+    {
+      "bodyId": 16719,
+      "type": "pC1_4b",
+      "instance": "pC1_4b_R"
+    },
+    {
+      "bodyId": 16933,
+      "type": "aIPg5",
+      "instance": "aIPg5_L"
+    },
+    {
+      "bodyId": 16961,
+      "type": "aIPg10",
+      "instance": "aIPg10_L"
+    },
+    {
+      "bodyId": 17089,
+      "type": "pC1_12b",
+      "instance": "pC1_12b_R"
+    },
+    {
+      "bodyId": 17279,
+      "type": "AVLP567",
+      "instance": "AVLP567_R"
+    },
+    {
+      "bodyId": 17940,
+      "type": "SMP193",
+      "instance": "SMP193_R"
+    },
+    {
+      "bodyId": 22839,
+      "type": "aIPg5",
+      "instance": "aIPg5_R"
+    },
+    {
+      "bodyId": 27690,
+      "type": "SIP115m",
+      "instance": "SIP115m_L"
+    },
+    {
+      "bodyId": 29416,
+      "type": "aIPg5",
+      "instance": "aIPg5_L"
+    },
+    {
+      "bodyId": 30175,
+      "type": "SMP193",
+      "instance": "SMP193_R"
+    },
+    {
+      "bodyId": 36750,
+      "type": "SMP172",
+      "instance": "SMP172_R"
+    },
+    {
+      "bodyId": 45633,
+      "type": "SMP493",
+      "instance": "SMP493_R"
+    },
+    {
+      "bodyId": 69407,
+      "type": "SIP103m",
+      "instance": "SIP103m_R"
+    },
+    {
+      "bodyId": 71389,
+      "type": "CB4166",
+      "instance": "CB4166_L"
+    },
+    {
+      "bodyId": 512660,
+      "type": "AVLP062",
+      "instance": "AVLP062_L"
+    },
+    {
+      "bodyId": 519753,
+      "type": "SMP720m",
+      "instance": "SMP720m_R"
+    },
+    {
+      "bodyId": 519862,
+      "type": "AVLP029",
+      "instance": "AVLP029_L"
+    },
+    {
+      "bodyId": 520039,
+      "type": "SMP493",
+      "instance": "SMP493_L"
+    },
+    {
+      "bodyId": 521490,
+      "type": "AVLP721m",
+      "instance": "AVLP721m_L"
+    },
+    {
+      "bodyId": 521783,
+      "type": "AVLP712m",
+      "instance": "AVLP712m_L"
+    },
+    {
+      "bodyId": 522344,
+      "type": "AVLP746m",
+      "instance": "AVLP746m_L"
+    },
+    {
+      "bodyId": 529457,
+      "type": "AVLP062",
+      "instance": "AVLP062_L"
+    },
+    {
+      "bodyId": 578194,
+      "type": "SIP140m",
+      "instance": "SIP140m_R"
+    }
+  ],
+  "full_candidate_metrics": {
+    "n_nodes": 41,
+    "n_edges": 508,
+    "density": 0.3097560975609756,
+    "reciprocity": 0.4763779527559055,
+    "largest_wcc": 41,
+    "largest_scc": 41,
+    "strongly_connected": true,
+    "total_weight": 5363
+  },
+  "threshold_metrics": {
+    "1": {
+      "n_nodes": 41,
+      "n_edges": 508,
+      "density": 0.3097560975609756,
+      "reciprocity": 0.4763779527559055,
+      "largest_wcc": 41,
+      "largest_scc": 41,
+      "strongly_connected": true,
+      "total_weight": 5363
+    },
+    "2": {
+      "n_nodes": 41,
+      "n_edges": 370,
+      "density": 0.22560975609756098,
+      "reciprocity": 0.33513513513513515,
+      "largest_wcc": 41,
+      "largest_scc": 40,
+      "strongly_connected": false,
+      "total_weight": 5225
+    },
+    "3": {
+      "n_nodes": 41,
+      "n_edges": 312,
+      "density": 0.1902439024390244,
+      "reciprocity": 0.26282051282051283,
+      "largest_wcc": 41,
+      "largest_scc": 39,
+      "strongly_connected": false,
+      "total_weight": 5109
+    },
+    "5": {
+      "n_nodes": 41,
+      "n_edges": 227,
+      "density": 0.13841463414634148,
+      "reciprocity": 0.18502202643171806,
+      "largest_wcc": 41,
+      "largest_scc": 32,
+      "strongly_connected": false,
+      "total_weight": 4818
+    },
+    "8": {
+      "n_nodes": 41,
+      "n_edges": 181,
+      "density": 0.11036585365853659,
+      "reciprocity": 0.15469613259668508,
+      "largest_wcc": 41,
+      "largest_scc": 29,
+      "strongly_connected": false,
+      "total_weight": 4551
+    },
+    "10": {
+      "n_nodes": 41,
+      "n_edges": 162,
+      "density": 0.09878048780487805,
+      "reciprocity": 0.13580246913580246,
+      "largest_wcc": 41,
+      "largest_scc": 27,
+      "strongly_connected": false,
+      "total_weight": 4390
+    },
+    "12": {
+      "n_nodes": 41,
+      "n_edges": 146,
+      "density": 0.08902439024390243,
+      "reciprocity": 0.1232876712328767,
+      "largest_wcc": 41,
+      "largest_scc": 25,
+      "strongly_connected": false,
+      "total_weight": 4221
+    },
+    "15": {
+      "n_nodes": 41,
+      "n_edges": 128,
+      "density": 0.07804878048780488,
+      "reciprocity": 0.125,
+      "largest_wcc": 41,
+      "largest_scc": 23,
+      "strongly_connected": false,
+      "total_weight": 3984
+    },
+    "20": {
+      "n_nodes": 41,
+      "n_edges": 90,
+      "density": 0.054878048780487805,
+      "reciprocity": 0.1111111111111111,
+      "largest_wcc": 39,
+      "largest_scc": 20,
+      "strongly_connected": false,
+      "total_weight": 3325
+    }
+  },
+  "chosen_threshold": 20,
+  "core_metrics": {
+    "n_nodes": 16,
+    "n_edges": 38,
+    "density": 0.15833333333333333,
+    "reciprocity": 0.2631578947368421,
+    "largest_wcc": 16,
+    "largest_scc": 16,
+    "strongly_connected": true,
+    "total_weight": 1636
+  },
+  "readout_body": 13244,
+  "readout_metadata": {
+    "bodyId": 13244,
+    "type": "SMP550",
+    "instance": "SMP550_R"
+  },
+  "readout_score": {
+    "max_inbound_distance": 3,
+    "mean_inbound_distance": 2.0625
+  },
+  "nodes": [
+    {
+      "bodyId": 10348,
+      "type": "AVLP501",
+      "instance": "AVLP501_L",
+      "in_degree": 3,
+      "out_degree": 2
+    },
+    {
+      "bodyId": 11250,
+      "type": "AVLP501",
+      "instance": "AVLP501_R",
+      "in_degree": 2,
+      "out_degree": 3
+    },
+    {
+      "bodyId": 11799,
+      "type": "AVLP715m",
+      "instance": "AVLP715m_L",
+      "in_degree": 1,
+      "out_degree": 1
+    },
+    {
+      "bodyId": 12857,
+      "type": "AVLP721m",
+      "instance": "AVLP721m_R",
+      "in_degree": 1,
+      "out_degree": 2
+    },
+    {
+      "bodyId": 13235,
+      "type": "AVLP720m",
+      "instance": "AVLP720m_L",
+      "in_degree": 1,
+      "out_degree": 3
+    },
+    {
+      "bodyId": 13244,
+      "type": "SMP550",
+      "instance": "SMP550_R",
+      "in_degree": 2,
+      "out_degree": 2
+    },
+    {
+      "bodyId": 13337,
+      "type": "AN08B020",
+      "instance": "AN08B020_L",
+      "in_degree": 1,
+      "out_degree": 3
+    },
+    {
+      "bodyId": 13562,
+      "type": "pC1_12b",
+      "instance": "pC1_12b_L",
+      "in_degree": 4,
+      "out_degree": 2
+    },
+    {
+      "bodyId": 14016,
+      "type": "AN08B020",
+      "instance": "AN08B020_R",
+      "in_degree": 2,
+      "out_degree": 3
+    },
+    {
+      "bodyId": 14935,
+      "type": "SMP551",
+      "instance": "SMP551_R",
+      "in_degree": 1,
+      "out_degree": 2
+    },
+    {
+      "bodyId": 17089,
+      "type": "pC1_12b",
+      "instance": "pC1_12b_R",
+      "in_degree": 7,
+      "out_degree": 2
+    },
+    {
+      "bodyId": 27690,
+      "type": "SIP115m",
+      "instance": "SIP115m_L",
+      "in_degree": 2,
+      "out_degree": 2
+    },
+    {
+      "bodyId": 45633,
+      "type": "SMP493",
+      "instance": "SMP493_R",
+      "in_degree": 4,
+      "out_degree": 3
+    },
+    {
+      "bodyId": 519862,
+      "type": "AVLP029",
+      "instance": "AVLP029_L",
+      "in_degree": 2,
+      "out_degree": 1
+    },
+    {
+      "bodyId": 520039,
+      "type": "SMP493",
+      "instance": "SMP493_L",
+      "in_degree": 3,
+      "out_degree": 3
+    },
+    {
+      "bodyId": 521490,
+      "type": "AVLP721m",
+      "instance": "AVLP721m_L",
+      "in_degree": 2,
+      "out_degree": 4
+    }
+  ],
+  "edges": [
+    {
+      "source": 10348,
+      "target": 45633,
+      "weight": 22
+    },
+    {
+      "source": 10348,
+      "target": 520039,
+      "weight": 30
+    },
+    {
+      "source": 11250,
+      "target": 45633,
+      "weight": 22
+    },
+    {
+      "source": 11250,
+      "target": 519862,
+      "weight": 33
+    },
+    {
+      "source": 11250,
+      "target": 520039,
+      "weight": 30
+    },
+    {
+      "source": 11799,
+      "target": 13562,
+      "weight": 28
+    },
+    {
+      "source": 12857,
+      "target": 17089,
+      "weight": 52
+    },
+    {
+      "source": 12857,
+      "target": 521490,
+      "weight": 159
+    },
+    {
+      "source": 13235,
+      "target": 13562,
+      "weight": 47
+    },
+    {
+      "source": 13235,
+      "target": 17089,
+      "weight": 45
+    },
+    {
+      "source": 13235,
+      "target": 521490,
+      "weight": 20
+    },
+    {
+      "source": 13244,
+      "target": 14935,
+      "weight": 26
+    },
+    {
+      "source": 13244,
+      "target": 45633,
+      "weight": 53
+    },
+    {
+      "source": 13337,
+      "target": 13562,
+      "weight": 33
+    },
+    {
+      "source": 13337,
+      "target": 14016,
+      "weight": 22
+    },
+    {
+      "source": 13337,
+      "target": 17089,
+      "weight": 78
+    },
+    {
+      "source": 13562,
+      "target": 13244,
+      "weight": 50
+    },
+    {
+      "source": 13562,
+      "target": 27690,
+      "weight": 24
+    },
+    {
+      "source": 14016,
+      "target": 11799,
+      "weight": 58
+    },
+    {
+      "source": 14016,
+      "target": 13562,
+      "weight": 40
+    },
+    {
+      "source": 14016,
+      "target": 17089,
+      "weight": 47
+    },
+    {
+      "source": 14935,
+      "target": 45633,
+      "weight": 33
+    },
+    {
+      "source": 14935,
+      "target": 520039,
+      "weight": 39
+    },
+    {
+      "source": 17089,
+      "target": 13244,
+      "weight": 27
+    },
+    {
+      "source": 17089,
+      "target": 27690,
+      "weight": 27
+    },
+    {
+      "source": 27690,
+      "target": 13337,
+      "weight": 22
+    },
+    {
+      "source": 27690,
+      "target": 14016,
+      "weight": 21
+    },
+    {
+      "source": 45633,
+      "target": 10348,
+      "weight": 75
+    },
+    {
+      "source": 45633,
+      "target": 11250,
+      "weight": 56
+    },
+    {
+      "source": 45633,
+      "target": 17089,
+      "weight": 23
+    },
+    {
+      "source": 519862,
+      "target": 13235,
+      "weight": 21
+    },
+    {
+      "source": 520039,
+      "target": 10348,
+      "weight": 60
+    },
+    {
+      "source": 520039,
+      "target": 11250,
+      "weight": 62
+    },
+    {
+      "source": 520039,
+      "target": 17089,
+      "weight": 20
+    },
+    {
+      "source": 521490,
+      "target": 10348,
+      "weight": 36
+    },
+    {
+      "source": 521490,
+      "target": 12857,
+      "weight": 141
+    },
+    {
+      "source": 521490,
+      "target": 17089,
+      "weight": 27
+    },
+    {
+      "source": 521490,
+      "target": 519862,
+      "weight": 27
+    }
+  ]
+}

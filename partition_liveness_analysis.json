@@ -1,0 +1,8208 @@
+{
+  "nodes": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "quorum": 3,
+  "unique_partition_count": 52,
+  "leader_partition_state_count": 260,
+  "classification_counts": {
+    "NO_QUORUM_FAIL_STOP": 130,
+    "CURRENT_LEADER_CAN_PROGRESS": 85,
+    "ELECTION_NEEDED_IN_MAJORITY_COMPONENT": 45
+  },
+  "shape_counts": {
+    "1-1-1-1-1": {
+      "NO_QUORUM_FAIL_STOP": 5
+    },
+    "2-1-1-1": {
+      "NO_QUORUM_FAIL_STOP": 50
+    },
+    "3-1-1": {
+      "CURRENT_LEADER_CAN_PROGRESS": 30,
+      "ELECTION_NEEDED_IN_MAJORITY_COMPONENT": 20
+    },
+    "2-2-1": {
+      "NO_QUORUM_FAIL_STOP": 75
+    },
+    "4-1": {
+      "CURRENT_LEADER_CAN_PROGRESS": 20,
+      "ELECTION_NEEDED_IN_MAJORITY_COMPONENT": 5
+    },
+    "3-2": {
+      "ELECTION_NEEDED_IN_MAJORITY_COMPONENT": 20,
+      "CURRENT_LEADER_CAN_PROGRESS": 30
+    },
+    "5": {
+      "CURRENT_LEADER_CAN_PROGRESS": 5
+    }
+  },
+  "examples": {
+    "NO_QUORUM_FAIL_STOP": {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ]
+      ],
+      "shape": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    "CURRENT_LEADER_CAN_PROGRESS": {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "C"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    "ELECTION_NEEDED_IN_MAJORITY_COMPONENT": {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    }
+  },
+  "rows": [
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ]
+      ],
+      "shape": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ]
+      ],
+      "shape": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ]
+      ],
+      "shape": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ]
+      ],
+      "shape": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ]
+      ],
+      "shape": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "B",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "C"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B",
+        "C"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "B",
+        "C"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "B",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "B",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "B",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "B",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "B",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "B",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "B",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "B",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "B",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "B",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "C",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "C",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "C",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "B",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "B",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "C",
+      "leader_component": [
+        "B",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "D",
+      "leader_component": [
+        "B",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "C",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "B",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "C",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "E"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "E",
+      "leader_component": [
+        "B",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "D",
+      "leader_component": [
+        "C",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "B",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "C",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "C",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "C",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "B",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "C",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "C",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "B",
+        "D"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "E",
+      "leader_component": [
+        "C",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "D",
+      "leader_component": [
+        "B",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "B",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "B",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "C",
+      "leader_component": [
+        "B",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "E",
+      "leader_component": [
+        "B",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "D",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "D",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "D",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "B",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "D",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [],
+      "classification": "NO_QUORUM_FAIL_STOP"
+    },
+    {
+      "partition": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "C"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B",
+        "C"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "B",
+        "C"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "D",
+      "leader_component": [
+        "D",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "E",
+      "leader_component": [
+        "D",
+        "E"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "C",
+      "leader_component": [
+        "B",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "B",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "B",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "D",
+      "leader_component": [
+        "B",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "E",
+      "leader_component": [
+        "B",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "B",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "B",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "C",
+      "leader_component": [
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "D",
+      "leader_component": [
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        3,
+        2
+      ],
+      "leader": "E",
+      "leader_component": [
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "B"
+        ],
+        [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A"
+      ],
+      "leader_can_progress": false,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "ELECTION_NEEDED_IN_MAJORITY_COMPONENT"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "B",
+      "leader_component": [
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "C",
+      "leader_component": [
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "D",
+      "leader_component": [
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        4,
+        1
+      ],
+      "leader": "E",
+      "leader_component": [
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        5
+      ],
+      "leader": "A",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        5
+      ],
+      "leader": "B",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        5
+      ],
+      "leader": "C",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        5
+      ],
+      "leader": "D",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    },
+    {
+      "partition": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "shape": [
+        5
+      ],
+      "leader": "E",
+      "leader_component": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "leader_can_progress": true,
+      "quorum_components": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "classification": "CURRENT_LEADER_CAN_PROGRESS"
+    }
+  ]
+}

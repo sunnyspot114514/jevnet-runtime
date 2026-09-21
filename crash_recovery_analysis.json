@@ -1,0 +1,187 @@
+{
+  "steps": [
+    "PROPOSAL",
+    "DAR",
+    "DISPATCH_INTENT",
+    "PROVIDER_EFFECT",
+    "OBSERVATION",
+    "COC"
+  ],
+  "crash_rows": [
+    {
+      "cut": 0,
+      "after_step": "START",
+      "before_records": 0,
+      "before_effects": 0,
+      "before_provider_calls": 0,
+      "after_records": 0,
+      "after_effects": 0,
+      "after_provider_calls": 0,
+      "canonical": null,
+      "record_kinds": []
+    },
+    {
+      "cut": 1,
+      "after_step": "PROPOSAL",
+      "before_records": 1,
+      "before_effects": 0,
+      "before_provider_calls": 0,
+      "after_records": 1,
+      "after_effects": 0,
+      "after_provider_calls": 0,
+      "canonical": null,
+      "record_kinds": [
+        "PROPOSAL"
+      ]
+    },
+    {
+      "cut": 2,
+      "after_step": "DAR",
+      "before_records": 2,
+      "before_effects": 0,
+      "before_provider_calls": 0,
+      "after_records": 5,
+      "after_effects": 1,
+      "after_provider_calls": 1,
+      "canonical": [
+        "SUCCEEDED",
+        "SET",
+        "MODE",
+        "SAFE",
+        "R-1"
+      ],
+      "record_kinds": [
+        "PROPOSAL",
+        "DAR",
+        "DISPATCH_INTENT",
+        "OBSERVATION",
+        "COC"
+      ]
+    },
+    {
+      "cut": 3,
+      "after_step": "DISPATCH_INTENT",
+      "before_records": 3,
+      "before_effects": 0,
+      "before_provider_calls": 0,
+      "after_records": 5,
+      "after_effects": 1,
+      "after_provider_calls": 1,
+      "canonical": [
+        "SUCCEEDED",
+        "SET",
+        "MODE",
+        "SAFE",
+        "R-1"
+      ],
+      "record_kinds": [
+        "PROPOSAL",
+        "DAR",
+        "DISPATCH_INTENT",
+        "OBSERVATION",
+        "COC"
+      ]
+    },
+    {
+      "cut": 4,
+      "after_step": "PROVIDER_EFFECT",
+      "before_records": 3,
+      "before_effects": 1,
+      "before_provider_calls": 1,
+      "after_records": 5,
+      "after_effects": 1,
+      "after_provider_calls": 1,
+      "canonical": [
+        "SUCCEEDED",
+        "SET",
+        "MODE",
+        "SAFE",
+        "R-1"
+      ],
+      "record_kinds": [
+        "PROPOSAL",
+        "DAR",
+        "DISPATCH_INTENT",
+        "OBSERVATION",
+        "COC"
+      ]
+    },
+    {
+      "cut": 5,
+      "after_step": "OBSERVATION",
+      "before_records": 4,
+      "before_effects": 1,
+      "before_provider_calls": 1,
+      "after_records": 5,
+      "after_effects": 1,
+      "after_provider_calls": 1,
+      "canonical": [
+        "SUCCEEDED",
+        "SET",
+        "MODE",
+        "SAFE",
+        "R-1"
+      ],
+      "record_kinds": [
+        "PROPOSAL",
+        "DAR",
+        "DISPATCH_INTENT",
+        "OBSERVATION",
+        "COC"
+      ]
+    },
+    {
+      "cut": 6,
+      "after_step": "COC",
+      "before_records": 5,
+      "before_effects": 1,
+      "before_provider_calls": 1,
+      "after_records": 5,
+      "after_effects": 1,
+      "after_provider_calls": 1,
+      "canonical": [
+        "SUCCEEDED",
+        "SET",
+        "MODE",
+        "SAFE",
+        "R-1"
+      ],
+      "record_kinds": [
+        "PROPOSAL",
+        "DAR",
+        "DISPATCH_INTENT",
+        "OBSERVATION",
+        "COC"
+      ]
+    }
+  ],
+  "duplicate_record_case": {
+    "canonical": [
+      "SUCCEEDED",
+      "SET",
+      "MODE",
+      "SAFE",
+      "R-1"
+    ],
+    "effects": 1,
+    "provider_calls": 1,
+    "record_kinds": [
+      "PROPOSAL",
+      "DAR",
+      "DISPATCH_INTENT",
+      "OBSERVATION",
+      "DAR",
+      "DISPATCH_INTENT",
+      "OBSERVATION",
+      "COC"
+    ]
+  },
+  "unauthorized_case": {
+    "effects": 0,
+    "provider_calls": 0,
+    "canonical": null,
+    "record_kinds": [
+      "PROPOSAL"
+    ]
+  }
+}

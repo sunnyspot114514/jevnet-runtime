@@ -1,0 +1,41 @@
+{
+  "model": {
+    "nodes": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "quorum": 3,
+    "ballots": [
+      1,
+      2,
+      3
+    ],
+    "leaders": {
+      "1": "A",
+      "2": "C",
+      "3": "E"
+    },
+    "values": [
+      "X",
+      "Y"
+    ],
+    "reductions": [
+      "ballot1 value fixed to X by value symmetry",
+      "durable crash/restart omitted as state-equivalent for safety",
+      "stale pending accepts dropped because promise numbers only increase",
+      "partition changes only at prepare boundaries",
+      "each non-stale accept delivered at most once"
+    ]
+  },
+  "result": {
+    "states_explored": 442524,
+    "transitions_explored": 1818882,
+    "hit_state_limit": false,
+    "safety_holds": true,
+    "counterexample_trace": [],
+    "max_frontier": 96789
+  }
+}

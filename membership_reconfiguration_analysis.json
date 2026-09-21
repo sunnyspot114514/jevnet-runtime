@@ -1,0 +1,215 @@
+{
+  "old_config": [
+    "A",
+    "B",
+    "C"
+  ],
+  "new_config": [
+    "C",
+    "D",
+    "E"
+  ],
+  "old_majorities": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "A",
+      "C"
+    ],
+    [
+      "B",
+      "C"
+    ],
+    [
+      "A",
+      "B",
+      "C"
+    ]
+  ],
+  "new_majorities": [
+    [
+      "C",
+      "D"
+    ],
+    [
+      "C",
+      "E"
+    ],
+    [
+      "D",
+      "E"
+    ],
+    [
+      "C",
+      "D",
+      "E"
+    ]
+  ],
+  "direct_switch_disjoint_pairs": [
+    {
+      "old_quorum": [
+        "A",
+        "B"
+      ],
+      "new_quorum": [
+        "C",
+        "D"
+      ],
+      "intersection": [],
+      "old_value": "X",
+      "new_value": "Y",
+      "conflict_possible": true
+    },
+    {
+      "old_quorum": [
+        "A",
+        "B"
+      ],
+      "new_quorum": [
+        "C",
+        "E"
+      ],
+      "intersection": [],
+      "old_value": "X",
+      "new_value": "Y",
+      "conflict_possible": true
+    },
+    {
+      "old_quorum": [
+        "A",
+        "B"
+      ],
+      "new_quorum": [
+        "D",
+        "E"
+      ],
+      "intersection": [],
+      "old_value": "X",
+      "new_value": "Y",
+      "conflict_possible": true
+    },
+    {
+      "old_quorum": [
+        "A",
+        "B"
+      ],
+      "new_quorum": [
+        "C",
+        "D",
+        "E"
+      ],
+      "intersection": [],
+      "old_value": "X",
+      "new_value": "Y",
+      "conflict_possible": true
+    },
+    {
+      "old_quorum": [
+        "A",
+        "C"
+      ],
+      "new_quorum": [
+        "D",
+        "E"
+      ],
+      "intersection": [],
+      "old_value": "X",
+      "new_value": "Y",
+      "conflict_possible": true
+    },
+    {
+      "old_quorum": [
+        "B",
+        "C"
+      ],
+      "new_quorum": [
+        "D",
+        "E"
+      ],
+      "intersection": [],
+      "old_value": "X",
+      "new_value": "Y",
+      "conflict_possible": true
+    },
+    {
+      "old_quorum": [
+        "A",
+        "B",
+        "C"
+      ],
+      "new_quorum": [
+        "D",
+        "E"
+      ],
+      "intersection": [],
+      "old_value": "X",
+      "new_value": "Y",
+      "conflict_possible": true
+    }
+  ],
+  "joint_quorums": [
+    [
+      "A",
+      "C",
+      "D"
+    ],
+    [
+      "A",
+      "C",
+      "E"
+    ],
+    [
+      "B",
+      "C",
+      "D"
+    ],
+    [
+      "B",
+      "C",
+      "E"
+    ],
+    [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    [
+      "A",
+      "B",
+      "C",
+      "E"
+    ],
+    [
+      "A",
+      "B",
+      "D",
+      "E"
+    ],
+    [
+      "A",
+      "C",
+      "D",
+      "E"
+    ],
+    [
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ]
+  ],
+  "joint_vs_old_disjoint": [],
+  "joint_vs_new_disjoint": [],
+  "transition_combinations_checked": 160,
+  "joint_transition_violations": []
+}

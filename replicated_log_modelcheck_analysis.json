@@ -1,0 +1,291 @@
+{
+  "model": {
+    "nodes": [
+      "A",
+      "B",
+      "C"
+    ],
+    "quorum": 2,
+    "ballots": [
+      1,
+      2
+    ],
+    "leaders": {
+      "1": "A",
+      "2": "C"
+    },
+    "values": [
+      "X",
+      "Y"
+    ],
+    "partitions": {
+      "FULL": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "AB_C": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "AC_B": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "BC_A": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A"
+        ]
+      ]
+    },
+    "property": "never choose both X and Y for the same canonical outcome slot"
+  },
+  "naive": {
+    "protocol": "naive",
+    "states_explored": 1442,
+    "transitions_explored": 5504,
+    "stale_rejection_opportunities": 1402,
+    "safety_holds": false,
+    "chosen_state_histogram": {
+      "NONE": 660,
+      "X": 376,
+      "Y": 376,
+      "X,Y": 30
+    },
+    "counterexample_trace": [
+      {
+        "action": "A PREPARE b1 candidate=X quorum=AB selected=X",
+        "state": {
+          "partition": "FULL",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": null
+          },
+          "chosen": []
+        }
+      },
+      {
+        "action": "A b1 -> A value=X: ACCEPT",
+        "state": {
+          "partition": "FULL",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": null
+          },
+          "chosen": []
+        }
+      },
+      {
+        "action": "C PREPARE b2 candidate=Y quorum=AC selected=Y",
+        "state": {
+          "partition": "FULL",
+          "replicas": {
+            "A": {
+              "promised": 2,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "C": {
+              "promised": 2,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": "Y"
+          },
+          "chosen": []
+        }
+      },
+      {
+        "action": "A b1 -> B value=X: ACCEPT",
+        "state": {
+          "partition": "FULL",
+          "replicas": {
+            "A": {
+              "promised": 2,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "C": {
+              "promised": 2,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": "Y"
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      },
+      {
+        "action": "C b2 -> A value=Y: ACCEPT",
+        "state": {
+          "partition": "FULL",
+          "replicas": {
+            "A": {
+              "promised": 2,
+              "accepted_ballot": 2,
+              "accepted_value": "Y"
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "C": {
+              "promised": 2,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": "Y"
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      },
+      {
+        "action": "C b2 -> B value=Y: ACCEPT",
+        "state": {
+          "partition": "FULL",
+          "replicas": {
+            "A": {
+              "promised": 2,
+              "accepted_ballot": 2,
+              "accepted_value": "Y"
+            },
+            "B": {
+              "promised": 2,
+              "accepted_ballot": 2,
+              "accepted_value": "Y"
+            },
+            "C": {
+              "promised": 2,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": "Y"
+          },
+          "chosen": [
+            "X",
+            "Y"
+          ]
+        }
+      }
+    ],
+    "violation_state": {
+      "partition": "FULL",
+      "replicas": {
+        "A": {
+          "promised": 2,
+          "accepted_ballot": 2,
+          "accepted_value": "Y"
+        },
+        "B": {
+          "promised": 2,
+          "accepted_ballot": 2,
+          "accepted_value": "Y"
+        },
+        "C": {
+          "promised": 2,
+          "accepted_ballot": 0,
+          "accepted_value": null
+        }
+      },
+      "ballot_values": {
+        "1": "X",
+        "2": "Y"
+      },
+      "chosen": [
+        "X",
+        "Y"
+      ]
+    }
+  },
+  "safe": {
+    "protocol": "safe",
+    "states_explored": 1028,
+    "transitions_explored": 4860,
+    "stale_rejection_opportunities": 1180,
+    "safety_holds": true,
+    "chosen_state_histogram": {
+      "NONE": 532,
+      "X": 248,
+      "Y": 248
+    },
+    "counterexample_trace": [],
+    "violation_state": null
+  }
+}

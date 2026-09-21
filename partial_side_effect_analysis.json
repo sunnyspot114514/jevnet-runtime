@@ -1,0 +1,126 @@
+{
+  "naive": {
+    "success_timeout": {
+      "active_reservations": 1,
+      "successful_charges": 2,
+      "charge_ids": [
+        "NCHG-1",
+        "NCHG-2"
+      ],
+      "reservation_id": "RES-1"
+    },
+    "hard_failure": {
+      "active_reservations": 1,
+      "successful_charges": 0,
+      "payment_status": "FAILED",
+      "reservation_id": "RES-1"
+    }
+  },
+  "robust": {
+    "success": {
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_OBS",
+        "COC_SUCCESS"
+      ],
+      "success": true,
+      "failed": false,
+      "canonical": {
+        "kind": "COC_SUCCESS",
+        "order_id": "ORDER-7",
+        "reservation_id": "RES-1",
+        "charge_id": "CHG-1"
+      },
+      "active_reservations": 1,
+      "idempotent_charges": 1,
+      "payment_calls": 1,
+      "reserve_effects": 1,
+      "release_effects": 0,
+      "reserve_calls": 1,
+      "release_calls": 0
+    },
+    "success_timeout": {
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_OBS",
+        "COC_SUCCESS"
+      ],
+      "success": true,
+      "failed": false,
+      "canonical": {
+        "kind": "COC_SUCCESS",
+        "order_id": "ORDER-7",
+        "reservation_id": "RES-1",
+        "charge_id": "CHG-1"
+      },
+      "active_reservations": 1,
+      "idempotent_charges": 1,
+      "payment_calls": 1,
+      "reserve_effects": 1,
+      "release_effects": 0,
+      "reserve_calls": 1,
+      "release_calls": 0
+    },
+    "hard_failure": {
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_FAILED",
+        "RELEASE_INTENT",
+        "RELEASE_OBS",
+        "COC_FAILED"
+      ],
+      "success": false,
+      "failed": true,
+      "canonical": {
+        "kind": "COC_FAILED",
+        "order_id": "ORDER-7",
+        "reason": "PAYMENT_FAILED_COMPENSATED",
+        "release_id": "REL-1"
+      },
+      "active_reservations": 0,
+      "idempotent_charges": 0,
+      "payment_calls": 1,
+      "reserve_effects": 1,
+      "release_effects": 1,
+      "reserve_calls": 1,
+      "release_calls": 1
+    },
+    "hard_failure_release_timeout": {
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_FAILED",
+        "RELEASE_INTENT",
+        "RELEASE_TIMEOUT_SEEN",
+        "RELEASE_OBS",
+        "COC_FAILED"
+      ],
+      "success": false,
+      "failed": true,
+      "canonical": {
+        "kind": "COC_FAILED",
+        "order_id": "ORDER-7",
+        "reason": "PAYMENT_FAILED_COMPENSATED",
+        "release_id": "REL-1"
+      },
+      "active_reservations": 0,
+      "idempotent_charges": 0,
+      "payment_calls": 1,
+      "reserve_effects": 1,
+      "release_effects": 1,
+      "reserve_calls": 1,
+      "release_calls": 1
+    }
+  }
+}

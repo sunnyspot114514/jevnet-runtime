@@ -1,0 +1,74 @@
+{
+  "revocation_before_validation": {
+    "locally_valid": false,
+    "receipt": null,
+    "effects": 0,
+    "final_value": "INIT"
+  },
+  "toctou_local_check_only": {
+    "locally_valid_before_race": true,
+    "revoke_generation": 2,
+    "dar_generation": 1,
+    "receipt": {
+      "status": "APPLIED",
+      "auth_id": "AUTH-R",
+      "auth_generation": 1,
+      "old_value": "INIT",
+      "new_value": "NEW",
+      "effect_id": "E1"
+    },
+    "effects": 1,
+    "final_value": "NEW"
+  },
+  "toctou_provider_fenced": {
+    "locally_valid_before_race": true,
+    "revoke_generation": 2,
+    "dar_generation": 1,
+    "receipt": {
+      "status": "REJECTED_REVOKED_AUTH",
+      "auth_id": "AUTH-R",
+      "auth_generation": 1,
+      "provider_min_generation": 2
+    },
+    "effects": 0,
+    "final_value": "INIT"
+  },
+  "revocation_after_effect_compensatable": {
+    "effect": {
+      "status": "APPLIED",
+      "auth_id": "AUTH-R",
+      "auth_generation": 1,
+      "old_value": "INIT",
+      "new_value": "NEW",
+      "effect_id": "E1"
+    },
+    "revocation_generation": 2,
+    "compensatable": true,
+    "compensations": 1,
+    "canonical": {
+      "status": "REVOKED_COMPENSATED",
+      "effect_id": "E1",
+      "compensation_id": "C1",
+      "final_value": "INIT"
+    }
+  },
+  "revocation_after_effect_noncompensatable": {
+    "effect": {
+      "status": "APPLIED",
+      "auth_id": "AUTH-R",
+      "auth_generation": 1,
+      "old_value": "INIT",
+      "new_value": "NEW",
+      "effect_id": "E1"
+    },
+    "revocation_generation": 2,
+    "compensatable": false,
+    "compensations": 0,
+    "canonical": {
+      "status": "REVOKED_AFTER_EFFECT_ESCALATE",
+      "effect_id": "E1",
+      "compensation_id": "NONE",
+      "final_value": "NEW"
+    }
+  }
+}

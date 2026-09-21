@@ -1,0 +1,234 @@
+{
+  "model": {
+    "nodes": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "quorum": 3,
+    "ballots": [
+      1,
+      2,
+      3
+    ],
+    "quorum_count": 10,
+    "reduction": [
+      "Phase-2 message permutations -> quorum certificate",
+      "network schedule -> adversarial legal quorum choice",
+      "X/Y semantic value symmetry canonicalized",
+      "non-quorum partial accepts omitted (conservative after a chosen certificate)"
+    ]
+  },
+  "results": {
+    "naive": {
+      "protocol": "naive",
+      "states_explored": 171,
+      "transitions_explored": 4200,
+      "safety_holds": false,
+      "counterexample": [
+        {
+          "action": "b1 crash=- P1=ABC candidate=X selected=X P2=ABC",
+          "state": {
+            "phase": 1,
+            "accepted": {
+              "A": {
+                "ballot": 1,
+                "value": "X"
+              },
+              "B": {
+                "ballot": 1,
+                "value": "X"
+              },
+              "C": {
+                "ballot": 1,
+                "value": "X"
+              },
+              "D": {
+                "ballot": 0,
+                "value": null
+              },
+              "E": {
+                "ballot": 0,
+                "value": null
+              }
+            },
+            "chosen": [
+              "X"
+            ]
+          }
+        },
+        {
+          "action": "b2 crash=- P1=ABC candidate=Y selected=Y P2=ABC",
+          "state": {
+            "phase": 2,
+            "accepted": {
+              "A": {
+                "ballot": 2,
+                "value": "X"
+              },
+              "B": {
+                "ballot": 2,
+                "value": "X"
+              },
+              "C": {
+                "ballot": 2,
+                "value": "X"
+              },
+              "D": {
+                "ballot": 0,
+                "value": null
+              },
+              "E": {
+                "ballot": 0,
+                "value": null
+              }
+            },
+            "chosen": [
+              "X",
+              "Y"
+            ]
+          }
+        }
+      ],
+      "violation_state": {
+        "phase": 2,
+        "accepted": {
+          "A": {
+            "ballot": 2,
+            "value": "X"
+          },
+          "B": {
+            "ballot": 2,
+            "value": "X"
+          },
+          "C": {
+            "ballot": 2,
+            "value": "X"
+          },
+          "D": {
+            "ballot": 0,
+            "value": null
+          },
+          "E": {
+            "ballot": 0,
+            "value": null
+          }
+        },
+        "chosen": [
+          "X",
+          "Y"
+        ]
+      }
+    },
+    "safe_durable": {
+      "protocol": "safe_durable",
+      "states_explored": 141,
+      "transitions_explored": 10200,
+      "safety_holds": true,
+      "counterexample": [],
+      "violation_state": null
+    },
+    "safe_volatile": {
+      "protocol": "safe_volatile",
+      "states_explored": 225,
+      "transitions_explored": 65800,
+      "safety_holds": false,
+      "counterexample": [
+        {
+          "action": "b1 crash=- P1=ABC candidate=X selected=X P2=ABC",
+          "state": {
+            "phase": 1,
+            "accepted": {
+              "A": {
+                "ballot": 1,
+                "value": "X"
+              },
+              "B": {
+                "ballot": 1,
+                "value": "X"
+              },
+              "C": {
+                "ballot": 1,
+                "value": "X"
+              },
+              "D": {
+                "ballot": 0,
+                "value": null
+              },
+              "E": {
+                "ballot": 0,
+                "value": null
+              }
+            },
+            "chosen": [
+              "X"
+            ]
+          }
+        },
+        {
+          "action": "b2 crash=A P1=ADE candidate=Y selected=Y P2=ABC",
+          "state": {
+            "phase": 2,
+            "accepted": {
+              "A": {
+                "ballot": 2,
+                "value": "X"
+              },
+              "B": {
+                "ballot": 2,
+                "value": "X"
+              },
+              "C": {
+                "ballot": 2,
+                "value": "X"
+              },
+              "D": {
+                "ballot": 0,
+                "value": null
+              },
+              "E": {
+                "ballot": 0,
+                "value": null
+              }
+            },
+            "chosen": [
+              "X",
+              "Y"
+            ]
+          }
+        }
+      ],
+      "violation_state": {
+        "phase": 2,
+        "accepted": {
+          "A": {
+            "ballot": 2,
+            "value": "X"
+          },
+          "B": {
+            "ballot": 2,
+            "value": "X"
+          },
+          "C": {
+            "ballot": 2,
+            "value": "X"
+          },
+          "D": {
+            "ballot": 0,
+            "value": null
+          },
+          "E": {
+            "ballot": 0,
+            "value": null
+          }
+        },
+        "chosen": [
+          "X",
+          "Y"
+        ]
+      }
+    }
+  }
+}

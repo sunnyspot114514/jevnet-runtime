@@ -1,0 +1,536 @@
+{
+  "naive": {
+    "protocol": "naive",
+    "trace": [
+      {
+        "action": "network -> AB_C",
+        "state": {
+          "partition": "AB_C",
+          "replicas": {
+            "A": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "B": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": null,
+            "2": null
+          },
+          "chosen": []
+        }
+      },
+      {
+        "action": "A PREPARE b1 candidate=X quorum=AB selected=X",
+        "state": {
+          "partition": "AB_C",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": null
+          },
+          "chosen": []
+        }
+      },
+      {
+        "action": "A b1 -> A value=X: ACCEPT",
+        "state": {
+          "partition": "AB_C",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": null
+          },
+          "chosen": []
+        }
+      },
+      {
+        "action": "A b1 -> B value=X: ACCEPT",
+        "state": {
+          "partition": "AB_C",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": null
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      },
+      {
+        "action": "network -> BC_A",
+        "state": {
+          "partition": "BC_A",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": null
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      },
+      {
+        "action": "C PREPARE b2 candidate=Y quorum=BC selected=Y",
+        "state": {
+          "partition": "BC_A",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 2,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "C": {
+              "promised": 2,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": "Y"
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      },
+      {
+        "action": "C b2 -> B value=Y: ACCEPT",
+        "state": {
+          "partition": "BC_A",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 2,
+              "accepted_ballot": 2,
+              "accepted_value": "Y"
+            },
+            "C": {
+              "promised": 2,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": "Y"
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      },
+      {
+        "action": "C b2 -> C value=Y: ACCEPT",
+        "state": {
+          "partition": "BC_A",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 2,
+              "accepted_ballot": 2,
+              "accepted_value": "Y"
+            },
+            "C": {
+              "promised": 2,
+              "accepted_ballot": 2,
+              "accepted_value": "Y"
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": "Y"
+          },
+          "chosen": [
+            "X",
+            "Y"
+          ]
+        }
+      }
+    ],
+    "final": {
+      "partition": "BC_A",
+      "replicas": {
+        "A": {
+          "promised": 1,
+          "accepted_ballot": 1,
+          "accepted_value": "X"
+        },
+        "B": {
+          "promised": 2,
+          "accepted_ballot": 2,
+          "accepted_value": "Y"
+        },
+        "C": {
+          "promised": 2,
+          "accepted_ballot": 2,
+          "accepted_value": "Y"
+        }
+      },
+      "ballot_values": {
+        "1": "X",
+        "2": "Y"
+      },
+      "chosen": [
+        "X",
+        "Y"
+      ]
+    }
+  },
+  "safe": {
+    "protocol": "safe",
+    "trace": [
+      {
+        "action": "network -> AB_C",
+        "state": {
+          "partition": "AB_C",
+          "replicas": {
+            "A": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "B": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": null,
+            "2": null
+          },
+          "chosen": []
+        }
+      },
+      {
+        "action": "A PREPARE b1 candidate=X quorum=AB selected=X",
+        "state": {
+          "partition": "AB_C",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": null
+          },
+          "chosen": []
+        }
+      },
+      {
+        "action": "A b1 -> A value=X: ACCEPT",
+        "state": {
+          "partition": "AB_C",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": null
+          },
+          "chosen": []
+        }
+      },
+      {
+        "action": "A b1 -> B value=X: ACCEPT",
+        "state": {
+          "partition": "AB_C",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": null
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      },
+      {
+        "action": "network -> BC_A",
+        "state": {
+          "partition": "BC_A",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "C": {
+              "promised": 0,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": null
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      },
+      {
+        "action": "C PREPARE b2 candidate=Y quorum=BC selected=X",
+        "state": {
+          "partition": "BC_A",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 2,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "C": {
+              "promised": 2,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": "X"
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      },
+      {
+        "action": "C b2 -> B value=X: ACCEPT",
+        "state": {
+          "partition": "BC_A",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 2,
+              "accepted_ballot": 2,
+              "accepted_value": "X"
+            },
+            "C": {
+              "promised": 2,
+              "accepted_ballot": 0,
+              "accepted_value": null
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": "X"
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      },
+      {
+        "action": "C b2 -> C value=X: ACCEPT",
+        "state": {
+          "partition": "BC_A",
+          "replicas": {
+            "A": {
+              "promised": 1,
+              "accepted_ballot": 1,
+              "accepted_value": "X"
+            },
+            "B": {
+              "promised": 2,
+              "accepted_ballot": 2,
+              "accepted_value": "X"
+            },
+            "C": {
+              "promised": 2,
+              "accepted_ballot": 2,
+              "accepted_value": "X"
+            }
+          },
+          "ballot_values": {
+            "1": "X",
+            "2": "X"
+          },
+          "chosen": [
+            "X"
+          ]
+        }
+      }
+    ],
+    "final": {
+      "partition": "BC_A",
+      "replicas": {
+        "A": {
+          "promised": 1,
+          "accepted_ballot": 1,
+          "accepted_value": "X"
+        },
+        "B": {
+          "promised": 2,
+          "accepted_ballot": 2,
+          "accepted_value": "X"
+        },
+        "C": {
+          "promised": 2,
+          "accepted_ballot": 2,
+          "accepted_value": "X"
+        }
+      },
+      "ballot_values": {
+        "1": "X",
+        "2": "X"
+      },
+      "chosen": [
+        "X"
+      ]
+    }
+  }
+}

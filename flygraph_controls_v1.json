@@ -1,0 +1,318 @@
+{
+  "version": "flygraph-controls-v1",
+  "source_dataset": "MaleCNS v1.0",
+  "source_level": "official type-level connectivity tables",
+  "source_motif": "flygraph_pc1_motif_v1.json",
+  "threshold": 250,
+  "readout_node": "mAL_m8",
+  "construction_seed": 20260921,
+  "fly": {
+    "nodes": [
+      "pC1_12b",
+      "mAL_m8",
+      "SIP103m",
+      "FLA001m",
+      "SIP122m",
+      "SIP100m"
+    ],
+    "edges": [
+      {
+        "source": "FLA001m",
+        "target": "SIP103m",
+        "weight": 583
+      },
+      {
+        "source": "FLA001m",
+        "target": "SIP122m",
+        "weight": 892
+      },
+      {
+        "source": "FLA001m",
+        "target": "mAL_m8",
+        "weight": 937
+      },
+      {
+        "source": "SIP100m",
+        "target": "SIP122m",
+        "weight": 315
+      },
+      {
+        "source": "SIP103m",
+        "target": "mAL_m8",
+        "weight": 1679
+      },
+      {
+        "source": "SIP122m",
+        "target": "mAL_m8",
+        "weight": 336
+      },
+      {
+        "source": "mAL_m8",
+        "target": "FLA001m",
+        "weight": 277
+      },
+      {
+        "source": "mAL_m8",
+        "target": "SIP100m",
+        "weight": 312
+      },
+      {
+        "source": "mAL_m8",
+        "target": "SIP103m",
+        "weight": 657
+      },
+      {
+        "source": "mAL_m8",
+        "target": "SIP122m",
+        "weight": 820
+      },
+      {
+        "source": "mAL_m8",
+        "target": "pC1_12b",
+        "weight": 253
+      },
+      {
+        "source": "pC1_12b",
+        "target": "SIP103m",
+        "weight": 285
+      },
+      {
+        "source": "pC1_12b",
+        "target": "SIP122m",
+        "weight": 267
+      }
+    ],
+    "metrics": {
+      "n_nodes": 6,
+      "n_edges": 13,
+      "density": 0.43333333333333335,
+      "reciprocity": 0.46153846153846156,
+      "strongly_connected": true,
+      "diameter": 3,
+      "readout": "mAL_m8",
+      "max_distance_to_readout": 2,
+      "in_degree_sequence": {
+        "pC1_12b": 1,
+        "mAL_m8": 3,
+        "SIP103m": 3,
+        "FLA001m": 1,
+        "SIP122m": 4,
+        "SIP100m": 1
+      },
+      "out_degree_sequence": {
+        "pC1_12b": 2,
+        "mAL_m8": 5,
+        "SIP103m": 1,
+        "FLA001m": 3,
+        "SIP122m": 1,
+        "SIP100m": 1
+      }
+    }
+  },
+  "rewired": {
+    "nodes": [
+      "pC1_12b",
+      "mAL_m8",
+      "SIP103m",
+      "FLA001m",
+      "SIP122m",
+      "SIP100m"
+    ],
+    "edges": [
+      {
+        "source": "FLA001m",
+        "target": "SIP103m",
+        "weight": 336
+      },
+      {
+        "source": "FLA001m",
+        "target": "SIP122m",
+        "weight": 312
+      },
+      {
+        "source": "FLA001m",
+        "target": "mAL_m8",
+        "weight": 657
+      },
+      {
+        "source": "SIP100m",
+        "target": "SIP122m",
+        "weight": 583
+      },
+      {
+        "source": "SIP103m",
+        "target": "SIP122m",
+        "weight": 285
+      },
+      {
+        "source": "SIP122m",
+        "target": "mAL_m8",
+        "weight": 315
+      },
+      {
+        "source": "mAL_m8",
+        "target": "FLA001m",
+        "weight": 277
+      },
+      {
+        "source": "mAL_m8",
+        "target": "SIP100m",
+        "weight": 892
+      },
+      {
+        "source": "mAL_m8",
+        "target": "SIP103m",
+        "weight": 267
+      },
+      {
+        "source": "mAL_m8",
+        "target": "SIP122m",
+        "weight": 937
+      },
+      {
+        "source": "mAL_m8",
+        "target": "pC1_12b",
+        "weight": 253
+      },
+      {
+        "source": "pC1_12b",
+        "target": "SIP103m",
+        "weight": 1679
+      },
+      {
+        "source": "pC1_12b",
+        "target": "mAL_m8",
+        "weight": 820
+      }
+    ],
+    "metrics": {
+      "n_nodes": 6,
+      "n_edges": 13,
+      "density": 0.43333333333333335,
+      "reciprocity": 0.46153846153846156,
+      "strongly_connected": true,
+      "diameter": 3,
+      "readout": "mAL_m8",
+      "max_distance_to_readout": 2,
+      "in_degree_sequence": {
+        "pC1_12b": 1,
+        "mAL_m8": 3,
+        "SIP103m": 3,
+        "FLA001m": 1,
+        "SIP122m": 4,
+        "SIP100m": 1
+      },
+      "out_degree_sequence": {
+        "pC1_12b": 2,
+        "mAL_m8": 5,
+        "SIP103m": 1,
+        "FLA001m": 3,
+        "SIP122m": 1,
+        "SIP100m": 1
+      }
+    }
+  },
+  "random": {
+    "nodes": [
+      "pC1_12b",
+      "mAL_m8",
+      "SIP103m",
+      "FLA001m",
+      "SIP122m",
+      "SIP100m"
+    ],
+    "edges": [
+      {
+        "source": "FLA001m",
+        "target": "SIP103m",
+        "weight": 336
+      },
+      {
+        "source": "FLA001m",
+        "target": "SIP122m",
+        "weight": 312
+      },
+      {
+        "source": "SIP100m",
+        "target": "SIP103m",
+        "weight": 1679
+      },
+      {
+        "source": "SIP100m",
+        "target": "mAL_m8",
+        "weight": 253
+      },
+      {
+        "source": "SIP103m",
+        "target": "FLA001m",
+        "weight": 892
+      },
+      {
+        "source": "SIP103m",
+        "target": "mAL_m8",
+        "weight": 820
+      },
+      {
+        "source": "SIP103m",
+        "target": "pC1_12b",
+        "weight": 583
+      },
+      {
+        "source": "SIP122m",
+        "target": "mAL_m8",
+        "weight": 277
+      },
+      {
+        "source": "SIP122m",
+        "target": "pC1_12b",
+        "weight": 267
+      },
+      {
+        "source": "mAL_m8",
+        "target": "FLA001m",
+        "weight": 285
+      },
+      {
+        "source": "pC1_12b",
+        "target": "FLA001m",
+        "weight": 657
+      },
+      {
+        "source": "pC1_12b",
+        "target": "SIP100m",
+        "weight": 315
+      },
+      {
+        "source": "pC1_12b",
+        "target": "SIP122m",
+        "weight": 937
+      }
+    ],
+    "metrics": {
+      "n_nodes": 6,
+      "n_edges": 13,
+      "density": 0.43333333333333335,
+      "reciprocity": 0.3076923076923077,
+      "strongly_connected": true,
+      "diameter": 4,
+      "readout": "mAL_m8",
+      "max_distance_to_readout": 2,
+      "in_degree_sequence": {
+        "pC1_12b": 2,
+        "mAL_m8": 3,
+        "SIP103m": 2,
+        "FLA001m": 3,
+        "SIP122m": 2,
+        "SIP100m": 1
+      },
+      "out_degree_sequence": {
+        "pC1_12b": 3,
+        "mAL_m8": 1,
+        "SIP103m": 3,
+        "FLA001m": 2,
+        "SIP122m": 2,
+        "SIP100m": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,606 @@
+{
+  "dataset": "MaleCNS v1.0",
+  "level": "type-level connectivity from official MaleCNS static tables",
+  "seed": "pC1_12b",
+  "nodes": [
+    {
+      "id": "pC1_12b",
+      "weighted_in": 1120,
+      "weighted_out": 2255,
+      "in_degree": 9,
+      "out_degree": 10
+    },
+    {
+      "id": "mAL_m8",
+      "weighted_in": 3749,
+      "weighted_out": 4402,
+      "in_degree": 9,
+      "out_degree": 10
+    },
+    {
+      "id": "SIP103m",
+      "weighted_in": 2109,
+      "weighted_out": 2607,
+      "in_degree": 9,
+      "out_degree": 11
+    },
+    {
+      "id": "FLA001m",
+      "weighted_in": 954,
+      "weighted_out": 3263,
+      "in_degree": 8,
+      "out_degree": 9
+    },
+    {
+      "id": "SIP122m",
+      "weighted_in": 3094,
+      "weighted_out": 777,
+      "in_degree": 11,
+      "out_degree": 7
+    },
+    {
+      "id": "SIP100m",
+      "weighted_in": 1359,
+      "weighted_out": 1432,
+      "in_degree": 9,
+      "out_degree": 8
+    },
+    {
+      "id": "mAL_m5b",
+      "weighted_in": 1814,
+      "weighted_out": 701,
+      "in_degree": 7,
+      "out_degree": 9
+    },
+    {
+      "id": "VES022",
+      "weighted_in": 699,
+      "weighted_out": 582,
+      "in_degree": 6,
+      "out_degree": 7
+    },
+    {
+      "id": "AVLP721m",
+      "weighted_in": 736,
+      "weighted_out": 1188,
+      "in_degree": 3,
+      "out_degree": 11
+    },
+    {
+      "id": "AVLP714m",
+      "weighted_in": 1171,
+      "weighted_out": 178,
+      "in_degree": 9,
+      "out_degree": 4
+    },
+    {
+      "id": "LH006m",
+      "weighted_in": 456,
+      "weighted_out": 1234,
+      "in_degree": 6,
+      "out_degree": 8
+    },
+    {
+      "id": "AVLP749m",
+      "weighted_in": 1424,
+      "weighted_out": 66,
+      "in_degree": 10,
+      "out_degree": 2
+    }
+  ],
+  "edges": [
+    {
+      "source": "AVLP714m",
+      "target": "AVLP749m",
+      "weight": 13
+    },
+    {
+      "source": "AVLP714m",
+      "target": "SIP122m",
+      "weight": 14
+    },
+    {
+      "source": "AVLP714m",
+      "target": "VES022",
+      "weight": 130
+    },
+    {
+      "source": "AVLP714m",
+      "target": "pC1_12b",
+      "weight": 21
+    },
+    {
+      "source": "AVLP721m",
+      "target": "AVLP714m",
+      "weight": 14
+    },
+    {
+      "source": "AVLP721m",
+      "target": "AVLP749m",
+      "weight": 87
+    },
+    {
+      "source": "AVLP721m",
+      "target": "FLA001m",
+      "weight": 160
+    },
+    {
+      "source": "AVLP721m",
+      "target": "LH006m",
+      "weight": 12
+    },
+    {
+      "source": "AVLP721m",
+      "target": "SIP100m",
+      "weight": 18
+    },
+    {
+      "source": "AVLP721m",
+      "target": "SIP103m",
+      "weight": 83
+    },
+    {
+      "source": "AVLP721m",
+      "target": "SIP122m",
+      "weight": 60
+    },
+    {
+      "source": "AVLP721m",
+      "target": "VES022",
+      "weight": 65
+    },
+    {
+      "source": "AVLP721m",
+      "target": "mAL_m5b",
+      "weight": 27
+    },
+    {
+      "source": "AVLP721m",
+      "target": "mAL_m8",
+      "weight": 502
+    },
+    {
+      "source": "AVLP721m",
+      "target": "pC1_12b",
+      "weight": 160
+    },
+    {
+      "source": "AVLP749m",
+      "target": "SIP122m",
+      "weight": 24
+    },
+    {
+      "source": "AVLP749m",
+      "target": "VES022",
+      "weight": 42
+    },
+    {
+      "source": "FLA001m",
+      "target": "AVLP714m",
+      "weight": 283
+    },
+    {
+      "source": "FLA001m",
+      "target": "AVLP749m",
+      "weight": 89
+    },
+    {
+      "source": "FLA001m",
+      "target": "LH006m",
+      "weight": 54
+    },
+    {
+      "source": "FLA001m",
+      "target": "SIP100m",
+      "weight": 236
+    },
+    {
+      "source": "FLA001m",
+      "target": "SIP103m",
+      "weight": 583
+    },
+    {
+      "source": "FLA001m",
+      "target": "SIP122m",
+      "weight": 892
+    },
+    {
+      "source": "FLA001m",
+      "target": "mAL_m5b",
+      "weight": 162
+    },
+    {
+      "source": "FLA001m",
+      "target": "mAL_m8",
+      "weight": 937
+    },
+    {
+      "source": "FLA001m",
+      "target": "pC1_12b",
+      "weight": 27
+    },
+    {
+      "source": "LH006m",
+      "target": "AVLP714m",
+      "weight": 27
+    },
+    {
+      "source": "LH006m",
+      "target": "AVLP749m",
+      "weight": 216
+    },
+    {
+      "source": "LH006m",
+      "target": "FLA001m",
+      "weight": 107
+    },
+    {
+      "source": "LH006m",
+      "target": "SIP100m",
+      "weight": 404
+    },
+    {
+      "source": "LH006m",
+      "target": "SIP103m",
+      "weight": 102
+    },
+    {
+      "source": "LH006m",
+      "target": "SIP122m",
+      "weight": 343
+    },
+    {
+      "source": "LH006m",
+      "target": "mAL_m8",
+      "weight": 12
+    },
+    {
+      "source": "LH006m",
+      "target": "pC1_12b",
+      "weight": 23
+    },
+    {
+      "source": "SIP100m",
+      "target": "AVLP714m",
+      "weight": 127
+    },
+    {
+      "source": "SIP100m",
+      "target": "FLA001m",
+      "weight": 54
+    },
+    {
+      "source": "SIP100m",
+      "target": "LH006m",
+      "weight": 14
+    },
+    {
+      "source": "SIP100m",
+      "target": "SIP103m",
+      "weight": 238
+    },
+    {
+      "source": "SIP100m",
+      "target": "SIP122m",
+      "weight": 315
+    },
+    {
+      "source": "SIP100m",
+      "target": "mAL_m5b",
+      "weight": 405
+    },
+    {
+      "source": "SIP100m",
+      "target": "mAL_m8",
+      "weight": 73
+    },
+    {
+      "source": "SIP100m",
+      "target": "pC1_12b",
+      "weight": 206
+    },
+    {
+      "source": "SIP103m",
+      "target": "AVLP714m",
+      "weight": 46
+    },
+    {
+      "source": "SIP103m",
+      "target": "AVLP721m",
+      "weight": 12
+    },
+    {
+      "source": "SIP103m",
+      "target": "AVLP749m",
+      "weight": 14
+    },
+    {
+      "source": "SIP103m",
+      "target": "FLA001m",
+      "weight": 55
+    },
+    {
+      "source": "SIP103m",
+      "target": "LH006m",
+      "weight": 11
+    },
+    {
+      "source": "SIP103m",
+      "target": "SIP100m",
+      "weight": 163
+    },
+    {
+      "source": "SIP103m",
+      "target": "SIP122m",
+      "weight": 169
+    },
+    {
+      "source": "SIP103m",
+      "target": "VES022",
+      "weight": 27
+    },
+    {
+      "source": "SIP103m",
+      "target": "mAL_m5b",
+      "weight": 374
+    },
+    {
+      "source": "SIP103m",
+      "target": "mAL_m8",
+      "weight": 1679
+    },
+    {
+      "source": "SIP103m",
+      "target": "pC1_12b",
+      "weight": 57
+    },
+    {
+      "source": "SIP122m",
+      "target": "AVLP749m",
+      "weight": 40
+    },
+    {
+      "source": "SIP122m",
+      "target": "FLA001m",
+      "weight": 40
+    },
+    {
+      "source": "SIP122m",
+      "target": "LH006m",
+      "weight": 29
+    },
+    {
+      "source": "SIP122m",
+      "target": "SIP100m",
+      "weight": 68
+    },
+    {
+      "source": "SIP122m",
+      "target": "SIP103m",
+      "weight": 117
+    },
+    {
+      "source": "SIP122m",
+      "target": "mAL_m5b",
+      "weight": 147
+    },
+    {
+      "source": "SIP122m",
+      "target": "mAL_m8",
+      "weight": 336
+    },
+    {
+      "source": "VES022",
+      "target": "AVLP714m",
+      "weight": 32
+    },
+    {
+      "source": "VES022",
+      "target": "AVLP749m",
+      "weight": 178
+    },
+    {
+      "source": "VES022",
+      "target": "SIP100m",
+      "weight": 53
+    },
+    {
+      "source": "VES022",
+      "target": "SIP103m",
+      "weight": 11
+    },
+    {
+      "source": "VES022",
+      "target": "SIP122m",
+      "weight": 18
+    },
+    {
+      "source": "VES022",
+      "target": "mAL_m8",
+      "weight": 35
+    },
+    {
+      "source": "VES022",
+      "target": "pC1_12b",
+      "weight": 255
+    },
+    {
+      "source": "mAL_m5b",
+      "target": "AVLP714m",
+      "weight": 48
+    },
+    {
+      "source": "mAL_m5b",
+      "target": "AVLP749m",
+      "weight": 99
+    },
+    {
+      "source": "mAL_m5b",
+      "target": "FLA001m",
+      "weight": 15
+    },
+    {
+      "source": "mAL_m5b",
+      "target": "SIP100m",
+      "weight": 22
+    },
+    {
+      "source": "mAL_m5b",
+      "target": "SIP103m",
+      "weight": 33
+    },
+    {
+      "source": "mAL_m5b",
+      "target": "SIP122m",
+      "weight": 172
+    },
+    {
+      "source": "mAL_m5b",
+      "target": "VES022",
+      "weight": 36
+    },
+    {
+      "source": "mAL_m5b",
+      "target": "mAL_m8",
+      "weight": 158
+    },
+    {
+      "source": "mAL_m5b",
+      "target": "pC1_12b",
+      "weight": 118
+    },
+    {
+      "source": "mAL_m8",
+      "target": "AVLP714m",
+      "weight": 194
+    },
+    {
+      "source": "mAL_m8",
+      "target": "AVLP721m",
+      "weight": 712
+    },
+    {
+      "source": "mAL_m8",
+      "target": "AVLP749m",
+      "weight": 131
+    },
+    {
+      "source": "mAL_m8",
+      "target": "FLA001m",
+      "weight": 277
+    },
+    {
+      "source": "mAL_m8",
+      "target": "SIP100m",
+      "weight": 312
+    },
+    {
+      "source": "mAL_m8",
+      "target": "SIP103m",
+      "weight": 657
+    },
+    {
+      "source": "mAL_m8",
+      "target": "SIP122m",
+      "weight": 820
+    },
+    {
+      "source": "mAL_m8",
+      "target": "VES022",
+      "weight": 399
+    },
+    {
+      "source": "mAL_m8",
+      "target": "mAL_m5b",
+      "weight": 647
+    },
+    {
+      "source": "mAL_m8",
+      "target": "pC1_12b",
+      "weight": 253
+    },
+    {
+      "source": "pC1_12b",
+      "target": "AVLP714m",
+      "weight": 400
+    },
+    {
+      "source": "pC1_12b",
+      "target": "AVLP721m",
+      "weight": 12
+    },
+    {
+      "source": "pC1_12b",
+      "target": "AVLP749m",
+      "weight": 557
+    },
+    {
+      "source": "pC1_12b",
+      "target": "FLA001m",
+      "weight": 246
+    },
+    {
+      "source": "pC1_12b",
+      "target": "LH006m",
+      "weight": 336
+    },
+    {
+      "source": "pC1_12b",
+      "target": "SIP100m",
+      "weight": 83
+    },
+    {
+      "source": "pC1_12b",
+      "target": "SIP103m",
+      "weight": 285
+    },
+    {
+      "source": "pC1_12b",
+      "target": "SIP122m",
+      "weight": 267
+    },
+    {
+      "source": "pC1_12b",
+      "target": "mAL_m5b",
+      "weight": 52
+    },
+    {
+      "source": "pC1_12b",
+      "target": "mAL_m8",
+      "weight": 17
+    }
+  ],
+  "metrics": {
+    "n_nodes": 12,
+    "n_edges": 96,
+    "density": 0.7272727272727273,
+    "reciprocity": 0.7083333333333334,
+    "largest_scc": 12,
+    "largest_weak_component": 12,
+    "total_synaptic_weight": 18685
+  },
+  "candidate_nodes": [
+    "pC1_12b",
+    "AVLP749m",
+    "AVLP714m",
+    "SMP557",
+    "LH006m",
+    "SIP115m",
+    "SMP193",
+    "SIP103m",
+    "SIP122m",
+    "FLA001m",
+    "aIPg_m1",
+    "AN08B020",
+    "AVLP720m",
+    "VES022",
+    "mAL_m8",
+    "SIP100m",
+    "AVLP746m",
+    "AVLP721m",
+    "AVLP734m",
+    "mAL_m5b",
+    "AVLP567"
+  ],
+  "source_template": "https://male-cns.janelia.org/build/tables/<type>_connections.html"
+}

@@ -1,0 +1,234 @@
+{
+  "rounds": 3,
+  "trials_per_condition": 5000,
+  "weight_shuffles": 40,
+  "taus": [
+    100,
+    200,
+    400,
+    800,
+    1200,
+    1600,
+    2400
+  ],
+  "readout": "SIP122m",
+  "conditions": {
+    "100": {
+      "fly_real": {
+        "mean_fact_recall": 0.9705,
+        "median_fact_recall": 1.0,
+        "p10": 0.9375,
+        "p01": 0.875,
+        "full_recall_rate": 0.5902
+      },
+      "rewired": {
+        "mean_fact_recall": 0.9758375,
+        "median_fact_recall": 1.0,
+        "p10": 0.9375,
+        "p01": 0.875,
+        "full_recall_rate": 0.6854
+      },
+      "random": {
+        "mean_fact_recall": 0.9949125,
+        "median_fact_recall": 1.0,
+        "p10": 1.0,
+        "p01": 0.9375,
+        "full_recall_rate": 0.9248
+      },
+      "fly_weight_shuffled": {
+        "mean_fact_recall_over_shuffles": 0.980934375,
+        "std_fact_recall_over_shuffles": 0.01129636236734529,
+        "min_shuffle_mean": 0.9570625,
+        "max_shuffle_mean": 0.998,
+        "mean_full_recall_rate": 0.727725,
+        "real_minus_shuffle_mean": -0.010434374999999996
+      }
+    },
+    "200": {
+      "fly_real": {
+        "mean_fact_recall": 0.9123875,
+        "median_fact_recall": 0.9375,
+        "p10": 0.8125,
+        "p01": 0.75,
+        "full_recall_rate": 0.1578
+      },
+      "rewired": {
+        "mean_fact_recall": 0.9238375,
+        "median_fact_recall": 0.9375,
+        "p10": 0.875,
+        "p01": 0.75,
+        "full_recall_rate": 0.2654
+      },
+      "random": {
+        "mean_fact_recall": 0.9563875,
+        "median_fact_recall": 1.0,
+        "p10": 0.875,
+        "p01": 0.75,
+        "full_recall_rate": 0.5388
+      },
+      "fly_weight_shuffled": {
+        "mean_fact_recall_over_shuffles": 0.9340109375,
+        "std_fact_recall_over_shuffles": 0.021566516326584687,
+        "min_shuffle_mean": 0.882625,
+        "max_shuffle_mean": 0.9891875,
+        "mean_full_recall_rate": 0.292275,
+        "real_minus_shuffle_mean": -0.021623437499999953
+      }
+    },
+    "400": {
+      "fly_real": {
+        "mean_fact_recall": 0.819075,
+        "median_fact_recall": 0.8125,
+        "p10": 0.75,
+        "p01": 0.625,
+        "full_recall_rate": 0.011
+      },
+      "rewired": {
+        "mean_fact_recall": 0.8290625,
+        "median_fact_recall": 0.8125,
+        "p10": 0.75,
+        "p01": 0.625,
+        "full_recall_rate": 0.0292
+      },
+      "random": {
+        "mean_fact_recall": 0.79975,
+        "median_fact_recall": 0.8125,
+        "p10": 0.625,
+        "p01": 0.375,
+        "full_recall_rate": 0.0776
+      },
+      "fly_weight_shuffled": {
+        "mean_fact_recall_over_shuffles": 0.8663734375,
+        "std_fact_recall_over_shuffles": 0.01672097232601453,
+        "min_shuffle_mean": 0.8333125,
+        "max_shuffle_mean": 0.898375,
+        "mean_full_recall_rate": 0.051075,
+        "real_minus_shuffle_mean": -0.04729843749999996
+      }
+    },
+    "800": {
+      "fly_real": {
+        "mean_fact_recall": 0.6798125,
+        "median_fact_recall": 0.6875,
+        "p10": 0.5625,
+        "p01": 0.4375,
+        "full_recall_rate": 0.0006
+      },
+      "rewired": {
+        "mean_fact_recall": 0.6857125,
+        "median_fact_recall": 0.6875,
+        "p10": 0.5625,
+        "p01": 0.4375,
+        "full_recall_rate": 0.0018
+      },
+      "random": {
+        "mean_fact_recall": 0.51565,
+        "median_fact_recall": 0.5,
+        "p10": 0.25,
+        "p01": 0.125,
+        "full_recall_rate": 0.0006
+      },
+      "fly_weight_shuffled": {
+        "mean_fact_recall_over_shuffles": 0.7342875,
+        "std_fact_recall_over_shuffles": 0.030241678865846718,
+        "min_shuffle_mean": 0.669625,
+        "max_shuffle_mean": 0.7895625,
+        "mean_full_recall_rate": 0.0025,
+        "real_minus_shuffle_mean": -0.05447499999999994
+      }
+    },
+    "1200": {
+      "fly_real": {
+        "mean_fact_recall": 0.57475,
+        "median_fact_recall": 0.5625,
+        "p10": 0.4375,
+        "p01": 0.3125,
+        "full_recall_rate": 0.0
+      },
+      "rewired": {
+        "mean_fact_recall": 0.5763375,
+        "median_fact_recall": 0.5625,
+        "p10": 0.4375,
+        "p01": 0.25,
+        "full_recall_rate": 0.0
+      },
+      "random": {
+        "mean_fact_recall": 0.3569,
+        "median_fact_recall": 0.375,
+        "p10": 0.125,
+        "p01": 0.0625,
+        "full_recall_rate": 0.0
+      },
+      "fly_weight_shuffled": {
+        "mean_fact_recall_over_shuffles": 0.5924625,
+        "std_fact_recall_over_shuffles": 0.05335556913586903,
+        "min_shuffle_mean": 0.4853125,
+        "max_shuffle_mean": 0.68725,
+        "mean_full_recall_rate": 0.00015000000000000001,
+        "real_minus_shuffle_mean": -0.01771250000000002
+      }
+    },
+    "1600": {
+      "fly_real": {
+        "mean_fact_recall": 0.4930375,
+        "median_fact_recall": 0.5,
+        "p10": 0.3125,
+        "p01": 0.1875,
+        "full_recall_rate": 0.0
+      },
+      "rewired": {
+        "mean_fact_recall": 0.4909375,
+        "median_fact_recall": 0.5,
+        "p10": 0.3125,
+        "p01": 0.1875,
+        "full_recall_rate": 0.0
+      },
+      "random": {
+        "mean_fact_recall": 0.2791875,
+        "median_fact_recall": 0.25,
+        "p10": 0.125,
+        "p01": 0.0625,
+        "full_recall_rate": 0.0
+      },
+      "fly_weight_shuffled": {
+        "mean_fact_recall_over_shuffles": 0.4978296875,
+        "std_fact_recall_over_shuffles": 0.059742100333400515,
+        "min_shuffle_mean": 0.401375,
+        "max_shuffle_mean": 0.6401875,
+        "mean_full_recall_rate": 0.0,
+        "real_minus_shuffle_mean": -0.004792187499999989
+      }
+    },
+    "2400": {
+      "fly_real": {
+        "mean_fact_recall": 0.376125,
+        "median_fact_recall": 0.375,
+        "p10": 0.1875,
+        "p01": 0.125,
+        "full_recall_rate": 0.0
+      },
+      "rewired": {
+        "mean_fact_recall": 0.3641125,
+        "median_fact_recall": 0.375,
+        "p10": 0.1875,
+        "p01": 0.0625,
+        "full_recall_rate": 0.0
+      },
+      "random": {
+        "mean_fact_recall": 0.1974875,
+        "median_fact_recall": 0.1875,
+        "p10": 0.0625,
+        "p01": 0.0625,
+        "full_recall_rate": 0.0
+      },
+      "fly_weight_shuffled": {
+        "mean_fact_recall_over_shuffles": 0.3712375,
+        "std_fact_recall_over_shuffles": 0.042088216971172585,
+        "min_shuffle_mean": 0.2841875,
+        "max_shuffle_mean": 0.473,
+        "mean_full_recall_rate": 0.0,
+        "real_minus_shuffle_mean": 0.004887499999999989
+      }
+    }
+  }
+}

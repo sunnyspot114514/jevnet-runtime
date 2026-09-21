@@ -1,0 +1,15 @@
+{
+  "nodes": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "quorum": 3,
+  "not_yet_chosen_barrier_checks": 40,
+  "barrier_violations": [],
+  "already_chosen_intersection_checks": 100,
+  "intersection_violations": [],
+  "conclusion": "For N=5,q=3, a completed higher-ballot Phase-1 quorum either intersects an already-chosen lower certificate, or\u2014if it saw no lower accepted history\u2014its promises prevent the lower ballot from later reaching quorum."
+}

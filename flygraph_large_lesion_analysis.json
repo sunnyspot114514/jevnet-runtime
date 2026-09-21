@@ -1,0 +1,751 @@
+{
+  "graph_file": "flygraph_large_controls_v1.json",
+  "readout": "SIP122m",
+  "trials_per_condition": 2000,
+  "result": {
+    "fly": {
+      "n_nodes": 16,
+      "n_edges": 77,
+      "edge_random": {
+        "0.1": {
+          "mean_source_reach": 0.9787,
+          "median": 1.0,
+          "p10": 0.9333333333333333,
+          "p01": 0.8666666666666667,
+          "full_reach_rate": 0.7215
+        },
+        "0.2": {
+          "mean_source_reach": 0.9547333333333333,
+          "median": 0.9333333333333333,
+          "p10": 0.8666666666666667,
+          "p01": 0.8,
+          "full_reach_rate": 0.4885
+        },
+        "0.3": {
+          "mean_source_reach": 0.9243,
+          "median": 0.9333333333333333,
+          "p10": 0.8666666666666667,
+          "p01": 0.7333333333333333,
+          "full_reach_rate": 0.2965
+        },
+        "0.4": {
+          "mean_source_reach": 0.8823333333333333,
+          "median": 0.8666666666666667,
+          "p10": 0.8,
+          "p01": 0.6666666666666666,
+          "full_reach_rate": 0.147
+        },
+        "0.5": {
+          "mean_source_reach": 0.8283666666666667,
+          "median": 0.8666666666666667,
+          "p10": 0.7333333333333333,
+          "p01": 0.6,
+          "full_reach_rate": 0.059
+        },
+        "0.6": {
+          "mean_source_reach": 0.7249,
+          "median": 0.7333333333333333,
+          "p10": 0.6,
+          "p01": 0.06666666666666667,
+          "full_reach_rate": 0.008
+        }
+      },
+      "node_random": {
+        "1": {
+          "mean_source_reach": 0.925,
+          "median": 0.9333333333333333,
+          "p10": 0.8666666666666667,
+          "full_reach_rate": 0.0
+        },
+        "2": {
+          "mean_source_reach": 0.8485666666666667,
+          "median": 0.8666666666666667,
+          "p10": 0.8,
+          "full_reach_rate": 0.0
+        },
+        "3": {
+          "mean_source_reach": 0.7717666666666667,
+          "median": 0.8,
+          "p10": 0.7333333333333333,
+          "full_reach_rate": 0.0
+        },
+        "4": {
+          "mean_source_reach": 0.6966,
+          "median": 0.7333333333333333,
+          "p10": 0.6666666666666666,
+          "full_reach_rate": 0.0
+        },
+        "5": {
+          "mean_source_reach": 0.6226666666666666,
+          "median": 0.6666666666666666,
+          "p10": 0.5333333333333333,
+          "full_reach_rate": 0.0
+        }
+      },
+      "targeted": {
+        "high_weight_first": {
+          "1": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "3": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "5": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "10": {
+            "source_reach": 1.0,
+            "strongly_connected": false,
+            "largest_scc": 15
+          },
+          "15": {
+            "source_reach": 1.0,
+            "strongly_connected": false,
+            "largest_scc": 15
+          },
+          "20": {
+            "source_reach": 1.0,
+            "strongly_connected": false,
+            "largest_scc": 15
+          },
+          "30": {
+            "source_reach": 1.0,
+            "strongly_connected": false,
+            "largest_scc": 14
+          }
+        },
+        "low_weight_first": {
+          "1": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "3": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "5": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "10": {
+            "source_reach": 0.9333333333333333,
+            "strongly_connected": false,
+            "largest_scc": 15
+          },
+          "15": {
+            "source_reach": 0.8666666666666667,
+            "strongly_connected": false,
+            "largest_scc": 14
+          },
+          "20": {
+            "source_reach": 0.8666666666666667,
+            "strongly_connected": false,
+            "largest_scc": 14
+          },
+          "30": {
+            "source_reach": 0.7333333333333333,
+            "strongly_connected": false,
+            "largest_scc": 12
+          }
+        }
+      },
+      "top_single_edge_damage": [
+        {
+          "source": "SIP115m",
+          "target": "AN08B020",
+          "weight": 221,
+          "reach_loss": 0.06666666666666665
+        },
+        {
+          "source": "AVLP714m",
+          "target": "VES022",
+          "weight": 130,
+          "reach_loss": 0.06666666666666665
+        },
+        {
+          "source": "SIP121m",
+          "target": "SIP122m",
+          "weight": 113,
+          "reach_loss": 0.06666666666666665
+        },
+        {
+          "source": "SIP103m",
+          "target": "mAL_m8",
+          "weight": 1679,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m1",
+          "target": "mAL_m5b",
+          "weight": 968,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "FLA001m",
+          "target": "mAL_m8",
+          "weight": 937,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "FLA001m",
+          "target": "SIP122m",
+          "weight": 892,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "FLA001m",
+          "target": "SIP121m",
+          "weight": 865,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "SIP103m",
+          "target": "mAL_m1",
+          "weight": 853,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m8",
+          "target": "SIP122m",
+          "weight": 820,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m1",
+          "target": "mAL_m8",
+          "weight": 750,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m8",
+          "target": "SIP121m",
+          "weight": 726,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m8",
+          "target": "AVLP721m",
+          "weight": 712,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m1",
+          "target": "SIP122m",
+          "weight": 704,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m8",
+          "target": "SIP103m",
+          "weight": 657,
+          "reach_loss": 0.0
+        }
+      ]
+    },
+    "rewired": {
+      "n_nodes": 16,
+      "n_edges": 77,
+      "edge_random": {
+        "0.1": {
+          "mean_source_reach": 0.9711666666666666,
+          "median": 1.0,
+          "p10": 0.8666666666666667,
+          "p01": 0.8,
+          "full_reach_rate": 0.7045
+        },
+        "0.2": {
+          "mean_source_reach": 0.9441,
+          "median": 0.9333333333333333,
+          "p10": 0.8666666666666667,
+          "p01": 0.8,
+          "full_reach_rate": 0.4995
+        },
+        "0.3": {
+          "mean_source_reach": 0.9126,
+          "median": 0.9333333333333333,
+          "p10": 0.8,
+          "p01": 0.6666666666666666,
+          "full_reach_rate": 0.3075
+        },
+        "0.4": {
+          "mean_source_reach": 0.8665666666666667,
+          "median": 0.8666666666666667,
+          "p10": 0.7333333333333333,
+          "p01": 0.6666666666666666,
+          "full_reach_rate": 0.1405
+        },
+        "0.5": {
+          "mean_source_reach": 0.8133666666666667,
+          "median": 0.8,
+          "p10": 0.6666666666666666,
+          "p01": 0.5333333333333333,
+          "full_reach_rate": 0.0675
+        },
+        "0.6": {
+          "mean_source_reach": 0.7128,
+          "median": 0.7333333333333333,
+          "p10": 0.5333333333333333,
+          "p01": 0.13333333333333333,
+          "full_reach_rate": 0.0075
+        }
+      },
+      "node_random": {
+        "1": {
+          "mean_source_reach": 0.9165,
+          "median": 0.9333333333333333,
+          "p10": 0.8666666666666667,
+          "full_reach_rate": 0.0
+        },
+        "2": {
+          "mean_source_reach": 0.8319333333333333,
+          "median": 0.8666666666666667,
+          "p10": 0.6666666666666666,
+          "full_reach_rate": 0.0
+        },
+        "3": {
+          "mean_source_reach": 0.7552,
+          "median": 0.8,
+          "p10": 0.6,
+          "full_reach_rate": 0.0
+        },
+        "4": {
+          "mean_source_reach": 0.6758,
+          "median": 0.7333333333333333,
+          "p10": 0.5333333333333333,
+          "full_reach_rate": 0.0
+        },
+        "5": {
+          "mean_source_reach": 0.5995333333333334,
+          "median": 0.6,
+          "p10": 0.4666666666666667,
+          "full_reach_rate": 0.0
+        }
+      },
+      "targeted": {
+        "high_weight_first": {
+          "1": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "3": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "5": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "10": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "15": {
+            "source_reach": 1.0,
+            "strongly_connected": false,
+            "largest_scc": 15
+          },
+          "20": {
+            "source_reach": 1.0,
+            "strongly_connected": false,
+            "largest_scc": 15
+          },
+          "30": {
+            "source_reach": 1.0,
+            "strongly_connected": false,
+            "largest_scc": 14
+          }
+        },
+        "low_weight_first": {
+          "1": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "3": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "5": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "10": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "15": {
+            "source_reach": 0.8666666666666667,
+            "strongly_connected": false,
+            "largest_scc": 14
+          },
+          "20": {
+            "source_reach": 0.8666666666666667,
+            "strongly_connected": false,
+            "largest_scc": 14
+          },
+          "30": {
+            "source_reach": 0.7333333333333333,
+            "strongly_connected": false,
+            "largest_scc": 11
+          }
+        }
+      },
+      "top_single_edge_damage": [
+        {
+          "source": "AVLP714m",
+          "target": "SIP100m",
+          "weight": 137,
+          "reach_loss": 0.1333333333333333
+        },
+        {
+          "source": "SIP115m",
+          "target": "AVLP714m",
+          "weight": 285,
+          "reach_loss": 0.06666666666666665
+        },
+        {
+          "source": "SIP121m",
+          "target": "SIP100m",
+          "weight": 238,
+          "reach_loss": 0.06666666666666665
+        },
+        {
+          "source": "SIP103m",
+          "target": "SIP121m",
+          "weight": 1679,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m8",
+          "target": "FLA001m",
+          "weight": 968,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "SIP122m",
+          "target": "AVLP711m",
+          "weight": 937,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m8",
+          "target": "SIP115m",
+          "weight": 892,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m5b",
+          "target": "SIP121m",
+          "weight": 865,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m1",
+          "target": "FLA001m",
+          "weight": 853,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "FLA001m",
+          "target": "SIP122m",
+          "weight": 820,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "FLA001m",
+          "target": "mAL_m8",
+          "weight": 750,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "SIP103m",
+          "target": "SIP100m",
+          "weight": 726,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "pC1_12b",
+          "target": "SIP122m",
+          "weight": 712,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "SIP100m",
+          "target": "mAL_m1",
+          "weight": 704,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m8",
+          "target": "AN08B020",
+          "weight": 657,
+          "reach_loss": 0.0
+        }
+      ]
+    },
+    "random": {
+      "n_nodes": 16,
+      "n_edges": 77,
+      "edge_random": {
+        "0.1": {
+          "mean_source_reach": 0.9999333333333333,
+          "median": 1.0,
+          "p10": 1.0,
+          "p01": 1.0,
+          "full_reach_rate": 0.999
+        },
+        "0.2": {
+          "mean_source_reach": 0.9984666666666666,
+          "median": 1.0,
+          "p10": 1.0,
+          "p01": 0.9333333333333333,
+          "full_reach_rate": 0.9785
+        },
+        "0.3": {
+          "mean_source_reach": 0.9868666666666667,
+          "median": 1.0,
+          "p10": 1.0,
+          "p01": 0.8666666666666667,
+          "full_reach_rate": 0.913
+        },
+        "0.4": {
+          "mean_source_reach": 0.9544,
+          "median": 1.0,
+          "p10": 0.9333333333333333,
+          "p01": 0.0,
+          "full_reach_rate": 0.739
+        },
+        "0.5": {
+          "mean_source_reach": 0.8689333333333333,
+          "median": 0.9333333333333333,
+          "p10": 0.6666666666666666,
+          "p01": 0.0,
+          "full_reach_rate": 0.4685
+        },
+        "0.6": {
+          "mean_source_reach": 0.6681,
+          "median": 0.8,
+          "p10": 0.0,
+          "p01": 0.0,
+          "full_reach_rate": 0.124
+        }
+      },
+      "node_random": {
+        "1": {
+          "mean_source_reach": 0.9333333333333333,
+          "median": 0.9333333333333333,
+          "p10": 0.9333333333333333,
+          "full_reach_rate": 0.0
+        },
+        "2": {
+          "mean_source_reach": 0.8666666666666667,
+          "median": 0.8666666666666667,
+          "p10": 0.8666666666666667,
+          "full_reach_rate": 0.0
+        },
+        "3": {
+          "mean_source_reach": 0.7995333333333334,
+          "median": 0.8,
+          "p10": 0.8,
+          "full_reach_rate": 0.0
+        },
+        "4": {
+          "mean_source_reach": 0.7322,
+          "median": 0.7333333333333333,
+          "p10": 0.7333333333333333,
+          "full_reach_rate": 0.0
+        },
+        "5": {
+          "mean_source_reach": 0.6616666666666666,
+          "median": 0.6666666666666666,
+          "p10": 0.6666666666666666,
+          "full_reach_rate": 0.0
+        }
+      },
+      "targeted": {
+        "high_weight_first": {
+          "1": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "3": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "5": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "10": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "15": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "20": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "30": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          }
+        },
+        "low_weight_first": {
+          "1": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "3": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "5": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "10": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "15": {
+            "source_reach": 1.0,
+            "strongly_connected": true,
+            "largest_scc": 16
+          },
+          "20": {
+            "source_reach": 1.0,
+            "strongly_connected": false,
+            "largest_scc": 15
+          },
+          "30": {
+            "source_reach": 1.0,
+            "strongly_connected": false,
+            "largest_scc": 15
+          }
+        }
+      },
+      "top_single_edge_damage": [
+        {
+          "source": "VES022",
+          "target": "AVLP711m",
+          "weight": 1679,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m8",
+          "target": "AN08B020",
+          "weight": 968,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "AVLP711m",
+          "target": "VES022",
+          "weight": 937,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "AVLP714m",
+          "target": "SIP122m",
+          "weight": 892,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "VES022",
+          "target": "SIP103m",
+          "weight": 865,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "AVLP714m",
+          "target": "SIP121m",
+          "weight": 853,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "SIP121m",
+          "target": "SIP115m",
+          "weight": 820,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m1",
+          "target": "FLA001m",
+          "weight": 750,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "FLA001m",
+          "target": "SIP100m",
+          "weight": 726,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "SIP100m",
+          "target": "FLA001m",
+          "weight": 712,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "SIP100m",
+          "target": "SIP103m",
+          "weight": 704,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "pC1_12b",
+          "target": "mAL_m8",
+          "weight": 657,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "mAL_m5b",
+          "target": "mAL_m8",
+          "weight": 647,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "SIP115m",
+          "target": "mAL_m8",
+          "weight": 603,
+          "reach_loss": 0.0
+        },
+        {
+          "source": "AN08B020",
+          "target": "FLA001m",
+          "weight": 583,
+          "reach_loss": 0.0
+        }
+      ]
+    }
+  }
+}

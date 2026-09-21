@@ -1,0 +1,94 @@
+{
+  "nodes": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "quorum": 3,
+  "rows": [
+    {
+      "ballots": 2,
+      "leader_schedule": [
+        "A",
+        "C"
+      ],
+      "states": 51,
+      "transitions": 2200,
+      "max_frontier": 40,
+      "safety_holds": true
+    },
+    {
+      "ballots": 3,
+      "leader_schedule": [
+        "A",
+        "C",
+        "E"
+      ],
+      "states": 141,
+      "transitions": 10200,
+      "max_frontier": 90,
+      "safety_holds": true
+    },
+    {
+      "ballots": 4,
+      "leader_schedule": [
+        "A",
+        "C",
+        "E",
+        "B"
+      ],
+      "states": 301,
+      "transitions": 28200,
+      "max_frontier": 160,
+      "safety_holds": true
+    },
+    {
+      "ballots": 5,
+      "leader_schedule": [
+        "A",
+        "C",
+        "E",
+        "B",
+        "D"
+      ],
+      "states": 551,
+      "transitions": 60200,
+      "max_frontier": 250,
+      "safety_holds": true
+    },
+    {
+      "ballots": 6,
+      "leader_schedule": [
+        "A",
+        "C",
+        "E",
+        "B",
+        "D",
+        "A"
+      ],
+      "states": 911,
+      "transitions": 110200,
+      "max_frontier": 360,
+      "safety_holds": true
+    },
+    {
+      "ballots": 7,
+      "leader_schedule": [
+        "A",
+        "C",
+        "E",
+        "B",
+        "D",
+        "A",
+        "C"
+      ],
+      "states": 1401,
+      "transitions": 182200,
+      "max_frontier": 490,
+      "safety_holds": true
+    }
+  ],
+  "note": "Certificate-level safe-durable abstraction; not full message-level liveness model."
+}

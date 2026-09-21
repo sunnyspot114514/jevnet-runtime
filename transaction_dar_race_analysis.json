@@ -1,0 +1,150 @@
+{
+  "n_permutations": 40320,
+  "case": {
+    "family": "transaction",
+    "initial_state": {
+      "version": 5,
+      "values": {
+        "LEFT": "L0",
+        "RIGHT": "R0"
+      },
+      "last_txid": "NONE"
+    },
+    "runtime_config": {
+      "required_keys": [
+        "LEFT",
+        "RIGHT"
+      ]
+    }
+  },
+  "events": [
+    {
+      "event_type": "TX_WRITE",
+      "key": "LEFT",
+      "value": "LA",
+      "version": "NONE",
+      "writer": "A",
+      "txid": "TA",
+      "event_time": "NONE",
+      "expected_version": "5",
+      "auth_seq": "20"
+    },
+    {
+      "event_type": "TX_WRITE",
+      "key": "RIGHT",
+      "value": "RA",
+      "version": "NONE",
+      "writer": "A",
+      "txid": "TA",
+      "event_time": "NONE",
+      "expected_version": "5",
+      "auth_seq": "20"
+    },
+    {
+      "event_type": "AUTH",
+      "key": "NONE",
+      "value": "NONE",
+      "version": "NONE",
+      "writer": "AUTH",
+      "txid": "TA",
+      "event_time": "NONE",
+      "expected_version": "NONE",
+      "auth_seq": "20"
+    },
+    {
+      "event_type": "COMMIT",
+      "key": "NONE",
+      "value": "NONE",
+      "version": "NONE",
+      "writer": "A",
+      "txid": "TA",
+      "event_time": "NONE",
+      "expected_version": "5",
+      "auth_seq": "20"
+    },
+    {
+      "event_type": "TX_WRITE",
+      "key": "LEFT",
+      "value": "LB",
+      "version": "NONE",
+      "writer": "B",
+      "txid": "TB",
+      "event_time": "NONE",
+      "expected_version": "5",
+      "auth_seq": "10"
+    },
+    {
+      "event_type": "TX_WRITE",
+      "key": "RIGHT",
+      "value": "RB",
+      "version": "NONE",
+      "writer": "B",
+      "txid": "TB",
+      "event_time": "NONE",
+      "expected_version": "5",
+      "auth_seq": "10"
+    },
+    {
+      "event_type": "AUTH",
+      "key": "NONE",
+      "value": "NONE",
+      "version": "NONE",
+      "writer": "AUTH",
+      "txid": "TB",
+      "event_time": "NONE",
+      "expected_version": "NONE",
+      "auth_seq": "10"
+    },
+    {
+      "event_type": "COMMIT",
+      "key": "NONE",
+      "value": "NONE",
+      "version": "NONE",
+      "writer": "B",
+      "txid": "TB",
+      "event_time": "NONE",
+      "expected_version": "5",
+      "auth_seq": "10"
+    }
+  ],
+  "old_outcomes": [
+    {
+      "outcome": [
+        6,
+        "LA",
+        "RA",
+        "TA"
+      ],
+      "count": 20160,
+      "fraction": 0.5
+    },
+    {
+      "outcome": [
+        6,
+        "LB",
+        "RB",
+        "TB"
+      ],
+      "count": 20160,
+      "fraction": 0.5
+    }
+  ],
+  "dar_outcomes": [
+    {
+      "outcome": [
+        6,
+        "LB",
+        "RB",
+        "TB"
+      ],
+      "count": 40320,
+      "fraction": 1.0
+    }
+  ],
+  "expected_dar_outcome": [
+    6,
+    "LB",
+    "RB",
+    "TB"
+  ]
+}

@@ -1,0 +1,2025 @@
+{
+  "targeted": {
+    "naive": {
+      "protocol": "naive",
+      "crash_c": false,
+      "trace": [
+        {
+          "action": "phase b1: crash/restart=- network=FULL; A PREPARE candidate=X quorum=ABC selected=X",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 0
+          }
+        },
+        {
+          "action": "deliver b1 A->A value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 1
+          }
+        },
+        {
+          "action": "deliver b1 A->B value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 3
+          }
+        },
+        {
+          "action": "deliver b1 A->C value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 7
+          }
+        },
+        {
+          "action": "phase b2: crash/restart=- network=FULL; C PREPARE candidate=Y quorum=CDE selected=Y",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 7
+          }
+        },
+        {
+          "action": "deliver b2 C->C value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 135
+          }
+        },
+        {
+          "action": "deliver b2 C->D value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 391
+          }
+        },
+        {
+          "action": "deliver b2 C->E value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X",
+              "Y"
+            ],
+            "delivered_mask": 903
+          }
+        }
+      ],
+      "final": {
+        "phase": 2,
+        "partition": "FULL",
+        "replicas": {
+          "A": {
+            "promised": 1,
+            "accepted_ballot": 1,
+            "accepted_value": "X"
+          },
+          "B": {
+            "promised": 1,
+            "accepted_ballot": 1,
+            "accepted_value": "X"
+          },
+          "C": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          },
+          "D": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          },
+          "E": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          }
+        },
+        "ballot_values": {
+          "1": "X",
+          "2": "Y"
+        },
+        "chosen": [
+          "X",
+          "Y"
+        ],
+        "delivered_mask": 903
+      }
+    },
+    "safe_durable_crash_C": {
+      "protocol": "safe_durable",
+      "crash_c": true,
+      "trace": [
+        {
+          "action": "phase b1: crash/restart=- network=FULL; A PREPARE candidate=X quorum=ABC selected=X",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 0
+          }
+        },
+        {
+          "action": "deliver b1 A->A value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 1
+          }
+        },
+        {
+          "action": "deliver b1 A->B value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 3
+          }
+        },
+        {
+          "action": "deliver b1 A->C value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 7
+          }
+        },
+        {
+          "action": "CRASH/RESTART C; durable promised/accepted history preserved",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 7
+          }
+        },
+        {
+          "action": "phase b2: crash/restart=- network=FULL; C PREPARE candidate=Y quorum=CDE selected=X",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "X"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 7
+          }
+        },
+        {
+          "action": "deliver b2 C->C value=X: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "X"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "X"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 135
+          }
+        },
+        {
+          "action": "deliver b2 C->D value=X: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "X"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "X"
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "X"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 391
+          }
+        },
+        {
+          "action": "deliver b2 C->E value=X: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "X"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "X"
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "X"
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "X"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 903
+          }
+        }
+      ],
+      "final": {
+        "phase": 2,
+        "partition": "FULL",
+        "replicas": {
+          "A": {
+            "promised": 1,
+            "accepted_ballot": 1,
+            "accepted_value": "X"
+          },
+          "B": {
+            "promised": 1,
+            "accepted_ballot": 1,
+            "accepted_value": "X"
+          },
+          "C": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "X"
+          },
+          "D": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "X"
+          },
+          "E": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "X"
+          }
+        },
+        "ballot_values": {
+          "1": "X",
+          "2": "X"
+        },
+        "chosen": [
+          "X"
+        ],
+        "delivered_mask": 903
+      }
+    },
+    "safe_volatile_crash_C": {
+      "protocol": "safe_volatile",
+      "crash_c": true,
+      "trace": [
+        {
+          "action": "phase b1: crash/restart=- network=FULL; A PREPARE candidate=X quorum=ABC selected=X",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 0
+          }
+        },
+        {
+          "action": "deliver b1 A->A value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 1
+          }
+        },
+        {
+          "action": "deliver b1 A->B value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 3
+          }
+        },
+        {
+          "action": "deliver b1 A->C value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 7
+          }
+        },
+        {
+          "action": "phase b2: crash/restart=C network=FULL; C PREPARE candidate=Y quorum=CDE selected=Y",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 7
+          }
+        },
+        {
+          "action": "deliver b2 C->C value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 135
+          }
+        },
+        {
+          "action": "deliver b2 C->D value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 391
+          }
+        },
+        {
+          "action": "deliver b2 C->E value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X",
+              "Y"
+            ],
+            "delivered_mask": 903
+          }
+        }
+      ],
+      "final": {
+        "phase": 2,
+        "partition": "FULL",
+        "replicas": {
+          "A": {
+            "promised": 1,
+            "accepted_ballot": 1,
+            "accepted_value": "X"
+          },
+          "B": {
+            "promised": 1,
+            "accepted_ballot": 1,
+            "accepted_value": "X"
+          },
+          "C": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          },
+          "D": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          },
+          "E": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          }
+        },
+        "ballot_values": {
+          "1": "X",
+          "2": "Y"
+        },
+        "chosen": [
+          "X",
+          "Y"
+        ],
+        "delivered_mask": 903
+      }
+    }
+  },
+  "bounded_exhaustive": {
+    "naive": {
+      "protocol": "naive",
+      "states_explored": 70144,
+      "transitions_explored": 321676,
+      "hit_state_limit": false,
+      "safety_holds": false,
+      "counterexample_trace": [
+        {
+          "action": "phase b1: crash/restart=- network=FULL; A PREPARE candidate=X quorum=ABC selected=X",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 0
+          }
+        },
+        {
+          "action": "deliver b1 A->A value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 1
+          }
+        },
+        {
+          "action": "phase b2: crash/restart=- network=FULL; C PREPARE candidate=Y quorum=ABC selected=Y",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 2,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [],
+            "delivered_mask": 1
+          }
+        },
+        {
+          "action": "deliver b1 A->D value=X: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 2,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [],
+            "delivered_mask": 9
+          }
+        },
+        {
+          "action": "deliver b1 A->E value=X: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 2,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "E": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 25
+          }
+        },
+        {
+          "action": "deliver b2 C->A value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "B": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "E": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 57
+          }
+        },
+        {
+          "action": "deliver b2 C->B value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "B": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "E": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 121
+          }
+        },
+        {
+          "action": "deliver b2 C->C value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "B": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "D": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "E": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X",
+              "Y"
+            ],
+            "delivered_mask": 249
+          }
+        }
+      ],
+      "violation_state": {
+        "phase": 2,
+        "partition": "FULL",
+        "replicas": {
+          "A": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          },
+          "B": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          },
+          "C": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          },
+          "D": {
+            "promised": 1,
+            "accepted_ballot": 1,
+            "accepted_value": "X"
+          },
+          "E": {
+            "promised": 1,
+            "accepted_ballot": 1,
+            "accepted_value": "X"
+          }
+        },
+        "ballot_values": {
+          "1": "X",
+          "2": "Y"
+        },
+        "chosen": [
+          "X",
+          "Y"
+        ],
+        "delivered_mask": 249
+      }
+    },
+    "safe_durable": {
+      "protocol": "safe_durable",
+      "states_explored": 51081,
+      "transitions_explored": 263898,
+      "hit_state_limit": false,
+      "safety_holds": true,
+      "counterexample_trace": [],
+      "violation_state": null
+    },
+    "safe_volatile": {
+      "protocol": "safe_volatile",
+      "states_explored": 118303,
+      "transitions_explored": 603112,
+      "hit_state_limit": false,
+      "safety_holds": false,
+      "counterexample_trace": [
+        {
+          "action": "phase b1: crash/restart=- network=FULL; A PREPARE candidate=X quorum=ABC selected=X",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 0
+          }
+        },
+        {
+          "action": "deliver b1 A->A value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 1
+          }
+        },
+        {
+          "action": "deliver b1 A->B value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [],
+            "delivered_mask": 3
+          }
+        },
+        {
+          "action": "deliver b1 A->C value=X: ACCEPT",
+          "state": {
+            "phase": 1,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "D": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 0,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": null
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 7
+          }
+        },
+        {
+          "action": "phase b2: crash/restart=C network=FULL; C PREPARE candidate=Y quorum=CDE selected=Y",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 7
+          }
+        },
+        {
+          "action": "deliver b2 C->A value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "B": {
+                "promised": 1,
+                "accepted_ballot": 1,
+                "accepted_value": "X"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 39
+          }
+        },
+        {
+          "action": "deliver b2 C->B value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "B": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X"
+            ],
+            "delivered_mask": 103
+          }
+        },
+        {
+          "action": "deliver b2 C->C value=Y: ACCEPT",
+          "state": {
+            "phase": 2,
+            "partition": "FULL",
+            "replicas": {
+              "A": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "B": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "C": {
+                "promised": 2,
+                "accepted_ballot": 2,
+                "accepted_value": "Y"
+              },
+              "D": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              },
+              "E": {
+                "promised": 2,
+                "accepted_ballot": 0,
+                "accepted_value": null
+              }
+            },
+            "ballot_values": {
+              "1": "X",
+              "2": "Y"
+            },
+            "chosen": [
+              "X",
+              "Y"
+            ],
+            "delivered_mask": 231
+          }
+        }
+      ],
+      "violation_state": {
+        "phase": 2,
+        "partition": "FULL",
+        "replicas": {
+          "A": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          },
+          "B": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          },
+          "C": {
+            "promised": 2,
+            "accepted_ballot": 2,
+            "accepted_value": "Y"
+          },
+          "D": {
+            "promised": 2,
+            "accepted_ballot": 0,
+            "accepted_value": null
+          },
+          "E": {
+            "promised": 2,
+            "accepted_ballot": 0,
+            "accepted_value": null
+          }
+        },
+        "ballot_values": {
+          "1": "X",
+          "2": "Y"
+        },
+        "chosen": [
+          "X",
+          "Y"
+        ],
+        "delivered_mask": 231
+      }
+    }
+  },
+  "model": {
+    "nodes": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "quorum": 3,
+    "ballots": [
+      1,
+      2
+    ],
+    "partitions": {
+      "FULL": [
+        [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      ],
+      "ABC_DE": [
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "CDE_AB": [
+        [
+          "C",
+          "D",
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "ACE_BD": [
+        [
+          "A",
+          "C",
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "ABD_CE": [
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "BCE_AD": [
+        [
+          "B",
+          "C",
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ]
+    },
+    "fault_model": "crash/restart only at ballot phase boundaries; message delivery once; partition changes only at prepare"
+  }
+}

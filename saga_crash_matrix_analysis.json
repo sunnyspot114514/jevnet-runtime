@@ -1,0 +1,244 @@
+{
+  "success_cuts": [
+    {
+      "cut": 0,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_OBS",
+        "COC_SUCCESS"
+      ],
+      "charge_effects": 1,
+      "reserve_effects": 1,
+      "release_effects": 0,
+      "active_reservations": 1,
+      "success": true,
+      "failed": false,
+      "payment_calls": 1,
+      "reserve_calls": 1
+    },
+    {
+      "cut": 1,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_OBS",
+        "COC_SUCCESS"
+      ],
+      "charge_effects": 1,
+      "reserve_effects": 1,
+      "release_effects": 0,
+      "active_reservations": 1,
+      "success": true,
+      "failed": false,
+      "payment_calls": 1,
+      "reserve_calls": 1
+    },
+    {
+      "cut": 2,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_OBS",
+        "COC_SUCCESS"
+      ],
+      "charge_effects": 1,
+      "reserve_effects": 1,
+      "release_effects": 0,
+      "active_reservations": 1,
+      "success": true,
+      "failed": false,
+      "payment_calls": 1,
+      "reserve_calls": 1
+    },
+    {
+      "cut": 3,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_OBS",
+        "COC_SUCCESS"
+      ],
+      "charge_effects": 1,
+      "reserve_effects": 1,
+      "release_effects": 0,
+      "active_reservations": 1,
+      "success": true,
+      "failed": false,
+      "payment_calls": 1,
+      "reserve_calls": 1
+    },
+    {
+      "cut": 4,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_OBS",
+        "COC_SUCCESS"
+      ],
+      "charge_effects": 1,
+      "reserve_effects": 1,
+      "release_effects": 0,
+      "active_reservations": 1,
+      "success": true,
+      "failed": false,
+      "payment_calls": 1,
+      "reserve_calls": 1
+    },
+    {
+      "cut": 5,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_OBS",
+        "COC_SUCCESS"
+      ],
+      "charge_effects": 1,
+      "reserve_effects": 1,
+      "release_effects": 0,
+      "active_reservations": 1,
+      "success": true,
+      "failed": false,
+      "payment_calls": 1,
+      "reserve_calls": 1
+    },
+    {
+      "cut": 6,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_OBS",
+        "COC_SUCCESS"
+      ],
+      "charge_effects": 1,
+      "reserve_effects": 1,
+      "release_effects": 0,
+      "active_reservations": 1,
+      "success": true,
+      "failed": false,
+      "payment_calls": 1,
+      "reserve_calls": 1
+    }
+  ],
+  "failure_cuts": [
+    {
+      "cut": 0,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_FAILED",
+        "RELEASE_INTENT",
+        "RELEASE_OBS",
+        "COC_FAILED"
+      ],
+      "charge_effects": 0,
+      "reserve_effects": 1,
+      "release_effects": 1,
+      "active_reservations": 0,
+      "success": false,
+      "failed": true,
+      "payment_calls": 1,
+      "release_calls": 1
+    },
+    {
+      "cut": 1,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_FAILED",
+        "RELEASE_INTENT",
+        "RELEASE_OBS",
+        "COC_FAILED"
+      ],
+      "charge_effects": 0,
+      "reserve_effects": 1,
+      "release_effects": 1,
+      "active_reservations": 0,
+      "success": false,
+      "failed": true,
+      "payment_calls": 1,
+      "release_calls": 1
+    },
+    {
+      "cut": 2,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_FAILED",
+        "RELEASE_INTENT",
+        "RELEASE_OBS",
+        "COC_FAILED"
+      ],
+      "charge_effects": 0,
+      "reserve_effects": 1,
+      "release_effects": 1,
+      "active_reservations": 0,
+      "success": false,
+      "failed": true,
+      "payment_calls": 1,
+      "release_calls": 1
+    },
+    {
+      "cut": 3,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_FAILED",
+        "RELEASE_INTENT",
+        "RELEASE_OBS",
+        "COC_FAILED"
+      ],
+      "charge_effects": 0,
+      "reserve_effects": 1,
+      "release_effects": 1,
+      "active_reservations": 0,
+      "success": false,
+      "failed": true,
+      "payment_calls": 1,
+      "release_calls": 1
+    },
+    {
+      "cut": 4,
+      "record_kinds": [
+        "DAR",
+        "RESERVE_INTENT",
+        "RESERVE_OBS",
+        "CHARGE_INTENT",
+        "CHARGE_FAILED",
+        "RELEASE_INTENT",
+        "RELEASE_OBS",
+        "COC_FAILED"
+      ],
+      "charge_effects": 0,
+      "reserve_effects": 1,
+      "release_effects": 1,
+      "active_reservations": 0,
+      "success": false,
+      "failed": true,
+      "payment_calls": 1,
+      "release_calls": 1
+    }
+  ]
+}

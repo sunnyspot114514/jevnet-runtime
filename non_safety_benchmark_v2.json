@@ -1,0 +1,124 @@
+[
+  {
+    "id": "M01",
+    "category": "set_majority",
+    "question": "Which color occurs most often across the six source slots?",
+    "slot_options": ["RED", "BLUE", "GREEN"],
+    "slot_values": ["GREEN", "RED", "GREEN", "BLUE", "GREEN", "BLUE"],
+    "answer_options": {
+      "RED": "RED occurs most often.",
+      "BLUE": "BLUE occurs most often.",
+      "GREEN": "GREEN occurs most often."
+    },
+    "expected": "GREEN"
+  },
+  {
+    "id": "M02",
+    "category": "arithmetic_modulo",
+    "question": "Add the six slot digits as ordinary integers and report the total modulo 4.",
+    "slot_options": ["0", "1", "2", "3"],
+    "slot_values": ["3", "3", "1", "2", "0", "2"],
+    "answer_options": {
+      "M0": "The sum modulo 4 is 0.",
+      "M1": "The sum modulo 4 is 1.",
+      "M2": "The sum modulo 4 is 2.",
+      "M3": "The sum modulo 4 is 3."
+    },
+    "expected": "M3"
+  },
+  {
+    "id": "M03",
+    "category": "long_range_key_value",
+    "question": "What value is assigned to TARGET?",
+    "slot_options": [
+      "ALPHA=CEDAR",
+      "TARGET=FALCON",
+      "GAMMA=SILVER",
+      "DELTA=RIVER",
+      "EPSILON=AMBER",
+      "ZETA=CLOUD"
+    ],
+    "slot_values": [
+      "ALPHA=CEDAR",
+      "TARGET=FALCON",
+      "GAMMA=SILVER",
+      "DELTA=RIVER",
+      "EPSILON=AMBER",
+      "ZETA=CLOUD"
+    ],
+    "answer_options": {
+      "CEDAR": "TARGET is assigned CEDAR.",
+      "FALCON": "TARGET is assigned FALCON.",
+      "SILVER": "TARGET is assigned SILVER.",
+      "RIVER": "TARGET is assigned RIVER.",
+      "AMBER": "TARGET is assigned AMBER.",
+      "CLOUD": "TARGET is assigned CLOUD."
+    },
+    "expected": "FALCON"
+  },
+  {
+    "id": "M04",
+    "category": "sequence_state",
+    "question": "Start from x=1. Apply the six tagged operations in numerical step order. What is the final value of x?",
+    "slot_options": ["1:*3", "2:+2", "3:*2", "4:-3", "5:+4", "6:*2"],
+    "slot_values": ["1:*3", "2:+2", "3:*2", "4:-3", "5:+4", "6:*2"],
+    "answer_options": {
+      "18": "The final value is 18.",
+      "20": "The final value is 20.",
+      "22": "The final value is 22.",
+      "24": "The final value is 24."
+    },
+    "expected": "22"
+  },
+  {
+    "id": "M05",
+    "category": "graph_reachability",
+    "question": "The six slots are directed edges of another abstract graph. Is node E reachable from node A?",
+    "slot_options": ["A->B", "B->C", "C->B", "D->E", "E->F", "F->D"],
+    "slot_values": ["A->B", "B->C", "C->B", "D->E", "E->F", "F->D"],
+    "answer_options": {
+      "YES": "E is reachable from A.",
+      "NO": "E is not reachable from A."
+    },
+    "expected": "NO"
+  },
+  {
+    "id": "M06",
+    "category": "distributed_logic",
+    "question": "Treat the slots as propositional facts/rules. Is S logically entailed by the supplied facts and implication rules?",
+    "slot_options": ["P", "P->Q", "Q->R", "R->V", "T", "T->U"],
+    "slot_values": ["P", "P->Q", "Q->R", "R->V", "T", "T->U"],
+    "answer_options": {
+      "YES": "S is logically entailed.",
+      "NO": "S is not logically entailed."
+    },
+    "expected": "NO"
+  },
+  {
+    "id": "M07",
+    "category": "motif_detection",
+    "question": "The six slots are directed edges. Does the represented graph contain a directed 3-cycle?",
+    "slot_options": ["A->B", "B->C", "A->C", "D->E", "E->F", "D->F"],
+    "slot_values": ["A->B", "B->C", "A->C", "D->E", "E->F", "D->F"],
+    "answer_options": {
+      "CYCLE": "A directed 3-cycle exists.",
+      "NO_CYCLE": "No directed 3-cycle exists."
+    },
+    "expected": "NO_CYCLE"
+  },
+  {
+    "id": "M08",
+    "category": "set_frequency",
+    "question": "Each slot is a set. Which symbol appears in at least four of the six sets?",
+    "slot_options": ["{A,E}", "{B,E}", "{C,E}", "{D,E}", "{A,B}", "{C,D}"],
+    "slot_values": ["{A,E}", "{B,E}", "{C,E}", "{D,E}", "{A,B}", "{C,D}"],
+    "answer_options": {
+      "A": "A appears in at least four sets.",
+      "B": "B appears in at least four sets.",
+      "C": "C appears in at least four sets.",
+      "D": "D appears in at least four sets.",
+      "E": "E appears in at least four sets."
+    },
+    "expected": "E"
+  }
+]

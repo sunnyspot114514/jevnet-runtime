@@ -1,0 +1,1085 @@
+[
+  {
+    "id": "R01",
+    "family": "conflict_write",
+    "runtime_rules": [
+      "A write is eligible only for the configured key and if key/value/writer/version are all present.",
+      "Higher version always wins.",
+      "For equal version, higher writer_priority wins.",
+      "Lower version never overrides canonical state."
+    ],
+    "runtime_config": {
+      "writer_priority": {
+        "A": 3,
+        "B": 2,
+        "C": 1
+      }
+    },
+    "initial_state": {
+      "key": "MODE",
+      "value": "BASE",
+      "version": 5,
+      "writer": "B"
+    },
+    "events": [
+      "Writer C proposes MODE = FAST at version 6.",
+      "Writer B then writes MODE = ECO, also at version 6.",
+      "Writer A finally submits MODE = SAFE at version 6."
+    ],
+    "oracle_events": [
+      {
+        "event_type": "WRITE",
+        "key": "MODE",
+        "value": "FAST",
+        "version": 6,
+        "writer": "C",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "WRITE",
+        "key": "MODE",
+        "value": "ECO",
+        "version": 6,
+        "writer": "B",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "WRITE",
+        "key": "MODE",
+        "value": "SAFE",
+        "version": 6,
+        "writer": "A",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      }
+    ],
+    "domains": {
+      "event_type": [
+        "WRITE",
+        "NONE"
+      ],
+      "key": [
+        "MODE",
+        "NONE"
+      ],
+      "value": [
+        "BASE",
+        "FAST",
+        "ECO",
+        "SAFE",
+        "NONE"
+      ],
+      "version": [
+        "5",
+        "6",
+        "NONE"
+      ],
+      "writer": [
+        "A",
+        "B",
+        "C",
+        "NONE"
+      ],
+      "txid": [
+        "NONE"
+      ],
+      "event_time": [
+        "NONE"
+      ],
+      "expected_version": [
+        "NONE"
+      ]
+    },
+    "candidate_states": {
+      "S0": {
+        "key": "MODE",
+        "value": "BASE",
+        "version": 5,
+        "writer": "B"
+      },
+      "S1": {
+        "key": "MODE",
+        "value": "FAST",
+        "version": 6,
+        "writer": "C"
+      },
+      "S2": {
+        "key": "MODE",
+        "value": "ECO",
+        "version": 6,
+        "writer": "B"
+      },
+      "S3": {
+        "key": "MODE",
+        "value": "SAFE",
+        "version": 6,
+        "writer": "A"
+      }
+    },
+    "expected_label": "S3"
+  },
+  {
+    "id": "R02",
+    "family": "conflict_write",
+    "runtime_rules": [
+      "Higher version always wins, regardless of writer priority.",
+      "Writer priority breaks ties only when versions are equal.",
+      "Lower-version replays are rejected."
+    ],
+    "runtime_config": {
+      "writer_priority": {
+        "A": 3,
+        "B": 2,
+        "C": 1
+      }
+    },
+    "initial_state": {
+      "key": "MODE",
+      "value": "SLOW",
+      "version": 8,
+      "writer": "A"
+    },
+    "events": [
+      "B writes MODE=FAST with version 9.",
+      "C publishes MODE=ECO with the newer version 10.",
+      "A later replays MODE=SAFE at version 9."
+    ],
+    "oracle_events": [
+      {
+        "event_type": "WRITE",
+        "key": "MODE",
+        "value": "FAST",
+        "version": 9,
+        "writer": "B",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "WRITE",
+        "key": "MODE",
+        "value": "ECO",
+        "version": 10,
+        "writer": "C",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "WRITE",
+        "key": "MODE",
+        "value": "SAFE",
+        "version": 9,
+        "writer": "A",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      }
+    ],
+    "domains": {
+      "event_type": [
+        "WRITE",
+        "NONE"
+      ],
+      "key": [
+        "MODE",
+        "NONE"
+      ],
+      "value": [
+        "SLOW",
+        "FAST",
+        "ECO",
+        "SAFE",
+        "NONE"
+      ],
+      "version": [
+        "8",
+        "9",
+        "10",
+        "NONE"
+      ],
+      "writer": [
+        "A",
+        "B",
+        "C",
+        "NONE"
+      ],
+      "txid": [
+        "NONE"
+      ],
+      "event_time": [
+        "NONE"
+      ],
+      "expected_version": [
+        "NONE"
+      ]
+    },
+    "candidate_states": {
+      "S0": {
+        "key": "MODE",
+        "value": "SLOW",
+        "version": 8,
+        "writer": "A"
+      },
+      "S1": {
+        "key": "MODE",
+        "value": "FAST",
+        "version": 9,
+        "writer": "B"
+      },
+      "S2": {
+        "key": "MODE",
+        "value": "ECO",
+        "version": 10,
+        "writer": "C"
+      },
+      "S3": {
+        "key": "MODE",
+        "value": "SAFE",
+        "version": 9,
+        "writer": "A"
+      }
+    },
+    "expected_label": "S2"
+  },
+  {
+    "id": "R03",
+    "family": "revocation",
+    "runtime_rules": [
+      "Only a strictly newer version may change canonical state.",
+      "REVOKE creates a tombstone at its version.",
+      "A stale write at an older or equal version cannot resurrect revoked state.",
+      "A strictly newer WRITE may replace the tombstone."
+    ],
+    "runtime_config": {},
+    "initial_state": {
+      "key": "TOKEN",
+      "value": "ALPHA",
+      "version": 1,
+      "revoked": false,
+      "writer": "A"
+    },
+    "events": [
+      "A revokes TOKEN at version 2.",
+      "A delayed replay tries to write TOKEN=ALPHA again at old version 1.",
+      "B writes TOKEN=BETA at the strictly newer version 3."
+    ],
+    "oracle_events": [
+      {
+        "event_type": "REVOKE",
+        "key": "TOKEN",
+        "value": null,
+        "version": 2,
+        "writer": "A",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "WRITE",
+        "key": "TOKEN",
+        "value": "ALPHA",
+        "version": 1,
+        "writer": "A",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "WRITE",
+        "key": "TOKEN",
+        "value": "BETA",
+        "version": 3,
+        "writer": "B",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      }
+    ],
+    "domains": {
+      "event_type": [
+        "WRITE",
+        "REVOKE",
+        "NONE"
+      ],
+      "key": [
+        "TOKEN",
+        "NONE"
+      ],
+      "value": [
+        "ALPHA",
+        "BETA",
+        "NONE"
+      ],
+      "version": [
+        "1",
+        "2",
+        "3",
+        "NONE"
+      ],
+      "writer": [
+        "A",
+        "B",
+        "NONE"
+      ],
+      "txid": [
+        "NONE"
+      ],
+      "event_time": [
+        "NONE"
+      ],
+      "expected_version": [
+        "NONE"
+      ]
+    },
+    "candidate_states": {
+      "S0": {
+        "key": "TOKEN",
+        "value": "ALPHA",
+        "version": 1,
+        "revoked": false,
+        "writer": "A"
+      },
+      "S1": {
+        "key": "TOKEN",
+        "value": "REVOKED",
+        "version": 2,
+        "revoked": true,
+        "writer": "A"
+      },
+      "S2": {
+        "key": "TOKEN",
+        "value": "BETA",
+        "version": 3,
+        "revoked": false,
+        "writer": "B"
+      },
+      "S3": {
+        "key": "TOKEN",
+        "value": "ALPHA",
+        "version": 3,
+        "revoked": false,
+        "writer": "A"
+      }
+    },
+    "expected_label": "S2"
+  },
+  {
+    "id": "R04",
+    "family": "revocation",
+    "runtime_rules": [
+      "Only strictly newer versions apply.",
+      "A revoke tombstone prevents stale resurrection.",
+      "A delayed write with a version equal to or below the tombstone is rejected."
+    ],
+    "runtime_config": {},
+    "initial_state": {
+      "key": "FLAG",
+      "value": "ON",
+      "version": 5,
+      "revoked": false,
+      "writer": "A"
+    },
+    "events": [
+      "B updates FLAG to OFF at version 6.",
+      "A revokes FLAG at version 7.",
+      "A delayed copy of the old write tries FLAG=ON at version 6."
+    ],
+    "oracle_events": [
+      {
+        "event_type": "WRITE",
+        "key": "FLAG",
+        "value": "OFF",
+        "version": 6,
+        "writer": "B",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "REVOKE",
+        "key": "FLAG",
+        "value": null,
+        "version": 7,
+        "writer": "A",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "WRITE",
+        "key": "FLAG",
+        "value": "ON",
+        "version": 6,
+        "writer": "A",
+        "txid": null,
+        "event_time": null,
+        "expected_version": null
+      }
+    ],
+    "domains": {
+      "event_type": [
+        "WRITE",
+        "REVOKE",
+        "NONE"
+      ],
+      "key": [
+        "FLAG",
+        "NONE"
+      ],
+      "value": [
+        "ON",
+        "OFF",
+        "NONE"
+      ],
+      "version": [
+        "5",
+        "6",
+        "7",
+        "NONE"
+      ],
+      "writer": [
+        "A",
+        "B",
+        "NONE"
+      ],
+      "txid": [
+        "NONE"
+      ],
+      "event_time": [
+        "NONE"
+      ],
+      "expected_version": [
+        "NONE"
+      ]
+    },
+    "candidate_states": {
+      "S0": {
+        "key": "FLAG",
+        "value": "ON",
+        "version": 5,
+        "revoked": false,
+        "writer": "A"
+      },
+      "S1": {
+        "key": "FLAG",
+        "value": "OFF",
+        "version": 6,
+        "revoked": false,
+        "writer": "B"
+      },
+      "S2": {
+        "key": "FLAG",
+        "value": "REVOKED",
+        "version": 7,
+        "revoked": true,
+        "writer": "A"
+      },
+      "S3": {
+        "key": "FLAG",
+        "value": "ON",
+        "version": 6,
+        "revoked": false,
+        "writer": "A"
+      }
+    },
+    "expected_label": "S2"
+  },
+  {
+    "id": "R05",
+    "family": "staleness",
+    "runtime_rules": [
+      "Accept SENSOR only if sequence is strictly newer than canonical seq.",
+      "event_time must be within [now-ttl, now].",
+      "Stale, future, or non-increasing sequence events are rejected."
+    ],
+    "runtime_config": {
+      "now": 100,
+      "ttl": 10
+    },
+    "initial_state": {
+      "key": "TEMP",
+      "value": "10",
+      "seq": 3,
+      "event_time": 90,
+      "writer": "S1"
+    },
+    "events": [
+      "Sensor S1 reports TEMP=20 with sequence 4, but its event time is 80.",
+      "Sensor S2 reports TEMP=15 with sequence 5 at event time 95.",
+      "Sensor S1 reports TEMP=18 with sequence 4 at event time 99."
+    ],
+    "oracle_events": [
+      {
+        "event_type": "SENSOR",
+        "key": "TEMP",
+        "value": "20",
+        "version": 4,
+        "writer": "S1",
+        "txid": null,
+        "event_time": 80,
+        "expected_version": null
+      },
+      {
+        "event_type": "SENSOR",
+        "key": "TEMP",
+        "value": "15",
+        "version": 5,
+        "writer": "S2",
+        "txid": null,
+        "event_time": 95,
+        "expected_version": null
+      },
+      {
+        "event_type": "SENSOR",
+        "key": "TEMP",
+        "value": "18",
+        "version": 4,
+        "writer": "S1",
+        "txid": null,
+        "event_time": 99,
+        "expected_version": null
+      }
+    ],
+    "domains": {
+      "event_type": [
+        "SENSOR",
+        "NONE"
+      ],
+      "key": [
+        "TEMP",
+        "NONE"
+      ],
+      "value": [
+        "10",
+        "15",
+        "18",
+        "20",
+        "NONE"
+      ],
+      "version": [
+        "3",
+        "4",
+        "5",
+        "NONE"
+      ],
+      "writer": [
+        "S1",
+        "S2",
+        "NONE"
+      ],
+      "txid": [
+        "NONE"
+      ],
+      "event_time": [
+        "80",
+        "90",
+        "95",
+        "99",
+        "100",
+        "NONE"
+      ],
+      "expected_version": [
+        "NONE"
+      ]
+    },
+    "candidate_states": {
+      "S0": {
+        "key": "TEMP",
+        "value": "10",
+        "seq": 3,
+        "event_time": 90,
+        "writer": "S1"
+      },
+      "S1": {
+        "key": "TEMP",
+        "value": "20",
+        "seq": 4,
+        "event_time": 80,
+        "writer": "S1"
+      },
+      "S2": {
+        "key": "TEMP",
+        "value": "15",
+        "seq": 5,
+        "event_time": 95,
+        "writer": "S2"
+      },
+      "S3": {
+        "key": "TEMP",
+        "value": "18",
+        "seq": 4,
+        "event_time": 99,
+        "writer": "S1"
+      }
+    },
+    "expected_label": "S2"
+  },
+  {
+    "id": "R06",
+    "family": "staleness",
+    "runtime_rules": [
+      "A SENSOR event must have a strictly increasing sequence number.",
+      "The event timestamp must not be older than now-ttl and must not be in the future."
+    ],
+    "runtime_config": {
+      "now": 200,
+      "ttl": 15
+    },
+    "initial_state": {
+      "key": "LEVEL",
+      "value": "LOW",
+      "seq": 10,
+      "event_time": 190,
+      "writer": "S1"
+    },
+    "events": [
+      "S2 reports LEVEL=HIGH, sequence 11, event time 189.",
+      "S1 reports LEVEL=MID, sequence 12, event time 180.",
+      "S2 reports LEVEL=MID, sequence 13, event time 201."
+    ],
+    "oracle_events": [
+      {
+        "event_type": "SENSOR",
+        "key": "LEVEL",
+        "value": "HIGH",
+        "version": 11,
+        "writer": "S2",
+        "txid": null,
+        "event_time": 189,
+        "expected_version": null
+      },
+      {
+        "event_type": "SENSOR",
+        "key": "LEVEL",
+        "value": "MID",
+        "version": 12,
+        "writer": "S1",
+        "txid": null,
+        "event_time": 180,
+        "expected_version": null
+      },
+      {
+        "event_type": "SENSOR",
+        "key": "LEVEL",
+        "value": "MID",
+        "version": 13,
+        "writer": "S2",
+        "txid": null,
+        "event_time": 201,
+        "expected_version": null
+      }
+    ],
+    "domains": {
+      "event_type": [
+        "SENSOR",
+        "NONE"
+      ],
+      "key": [
+        "LEVEL",
+        "NONE"
+      ],
+      "value": [
+        "LOW",
+        "MID",
+        "HIGH",
+        "NONE"
+      ],
+      "version": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "NONE"
+      ],
+      "writer": [
+        "S1",
+        "S2",
+        "NONE"
+      ],
+      "txid": [
+        "NONE"
+      ],
+      "event_time": [
+        "180",
+        "189",
+        "190",
+        "200",
+        "201",
+        "NONE"
+      ],
+      "expected_version": [
+        "NONE"
+      ]
+    },
+    "candidate_states": {
+      "S0": {
+        "key": "LEVEL",
+        "value": "LOW",
+        "seq": 10,
+        "event_time": 190,
+        "writer": "S1"
+      },
+      "S1": {
+        "key": "LEVEL",
+        "value": "HIGH",
+        "seq": 11,
+        "event_time": 189,
+        "writer": "S2"
+      },
+      "S2": {
+        "key": "LEVEL",
+        "value": "MID",
+        "seq": 12,
+        "event_time": 180,
+        "writer": "S1"
+      },
+      "S3": {
+        "key": "LEVEL",
+        "value": "MID",
+        "seq": 13,
+        "event_time": 201,
+        "writer": "S2"
+      }
+    },
+    "expected_label": "S1"
+  },
+  {
+    "id": "R07",
+    "family": "transaction",
+    "runtime_rules": [
+      "TX_WRITE proposals are buffered by txid.",
+      "A transaction commits atomically only if AUTH and COMMIT are both present.",
+      "All required keys must have writes under the same txid.",
+      "Every expected_version must agree with the current canonical version.",
+      "On success all required keys update together and version increments by one."
+    ],
+    "runtime_config": {
+      "required_keys": [
+        "LEFT",
+        "RIGHT"
+      ]
+    },
+    "initial_state": {
+      "version": 7,
+      "values": {
+        "LEFT": "L0",
+        "RIGHT": "R0"
+      },
+      "last_txid": "NONE"
+    },
+    "events": [
+      "Transaction T1 stages LEFT=L1, expecting state version 7; writer A submits this TX_WRITE.",
+      "Writer B stages RIGHT=R1 in transaction T1, also expecting version 7.",
+      "Authorization service AUTH approves transaction T1.",
+      "Writer A issues COMMIT for T1 against expected version 7."
+    ],
+    "oracle_events": [
+      {
+        "event_type": "TX_WRITE",
+        "key": "LEFT",
+        "value": "L1",
+        "version": null,
+        "writer": "A",
+        "txid": "T1",
+        "event_time": null,
+        "expected_version": 7
+      },
+      {
+        "event_type": "TX_WRITE",
+        "key": "RIGHT",
+        "value": "R1",
+        "version": null,
+        "writer": "B",
+        "txid": "T1",
+        "event_time": null,
+        "expected_version": 7
+      },
+      {
+        "event_type": "AUTH",
+        "key": null,
+        "value": null,
+        "version": null,
+        "writer": "AUTH",
+        "txid": "T1",
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "COMMIT",
+        "key": null,
+        "value": null,
+        "version": null,
+        "writer": "A",
+        "txid": "T1",
+        "event_time": null,
+        "expected_version": 7
+      }
+    ],
+    "domains": {
+      "event_type": [
+        "TX_WRITE",
+        "AUTH",
+        "COMMIT",
+        "NONE"
+      ],
+      "key": [
+        "LEFT",
+        "RIGHT",
+        "NONE"
+      ],
+      "value": [
+        "L0",
+        "R0",
+        "L1",
+        "R1",
+        "NONE"
+      ],
+      "version": [
+        "7",
+        "NONE"
+      ],
+      "writer": [
+        "A",
+        "B",
+        "AUTH",
+        "NONE"
+      ],
+      "txid": [
+        "T1",
+        "NONE"
+      ],
+      "event_time": [
+        "NONE"
+      ],
+      "expected_version": [
+        "7",
+        "NONE"
+      ]
+    },
+    "candidate_states": {
+      "S0": {
+        "version": 7,
+        "values": {
+          "LEFT": "L0",
+          "RIGHT": "R0"
+        },
+        "last_txid": "NONE"
+      },
+      "S1": {
+        "version": 8,
+        "values": {
+          "LEFT": "L1",
+          "RIGHT": "R1"
+        },
+        "last_txid": "T1"
+      },
+      "S2": {
+        "version": 8,
+        "values": {
+          "LEFT": "L1",
+          "RIGHT": "R0"
+        },
+        "last_txid": "T1"
+      },
+      "S3": {
+        "version": 8,
+        "values": {
+          "LEFT": "L0",
+          "RIGHT": "R1"
+        },
+        "last_txid": "T1"
+      }
+    },
+    "expected_label": "S1"
+  },
+  {
+    "id": "R08",
+    "family": "transaction",
+    "runtime_rules": [
+      "Transactions are atomic and keyed by txid.",
+      "A transaction missing any required key must not partially commit.",
+      "AUTH and COMMIT are both required.",
+      "expected_version must match the canonical state version when the transaction commits.",
+      "A later complete valid transaction may commit after an earlier incomplete one was rejected."
+    ],
+    "runtime_config": {
+      "required_keys": [
+        "LEFT",
+        "RIGHT"
+      ]
+    },
+    "initial_state": {
+      "version": 4,
+      "values": {
+        "LEFT": "L0",
+        "RIGHT": "R0"
+      },
+      "last_txid": "NONE"
+    },
+    "events": [
+      "Transaction X stages LEFT=LX with expected version 4.",
+      "AUTH approves transaction X.",
+      "COMMIT is requested for X at expected version 4.",
+      "Transaction Y stages LEFT=L2 with expected version 4.",
+      "Transaction Y also stages RIGHT=R2 with expected version 4.",
+      "AUTH approves transaction Y.",
+      "COMMIT is requested for Y at expected version 4."
+    ],
+    "oracle_events": [
+      {
+        "event_type": "TX_WRITE",
+        "key": "LEFT",
+        "value": "LX",
+        "version": null,
+        "writer": "A",
+        "txid": "X",
+        "event_time": null,
+        "expected_version": 4
+      },
+      {
+        "event_type": "AUTH",
+        "key": null,
+        "value": null,
+        "version": null,
+        "writer": "AUTH",
+        "txid": "X",
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "COMMIT",
+        "key": null,
+        "value": null,
+        "version": null,
+        "writer": "A",
+        "txid": "X",
+        "event_time": null,
+        "expected_version": 4
+      },
+      {
+        "event_type": "TX_WRITE",
+        "key": "LEFT",
+        "value": "L2",
+        "version": null,
+        "writer": "A",
+        "txid": "Y",
+        "event_time": null,
+        "expected_version": 4
+      },
+      {
+        "event_type": "TX_WRITE",
+        "key": "RIGHT",
+        "value": "R2",
+        "version": null,
+        "writer": "B",
+        "txid": "Y",
+        "event_time": null,
+        "expected_version": 4
+      },
+      {
+        "event_type": "AUTH",
+        "key": null,
+        "value": null,
+        "version": null,
+        "writer": "AUTH",
+        "txid": "Y",
+        "event_time": null,
+        "expected_version": null
+      },
+      {
+        "event_type": "COMMIT",
+        "key": null,
+        "value": null,
+        "version": null,
+        "writer": "B",
+        "txid": "Y",
+        "event_time": null,
+        "expected_version": 4
+      }
+    ],
+    "domains": {
+      "event_type": [
+        "TX_WRITE",
+        "AUTH",
+        "COMMIT",
+        "NONE"
+      ],
+      "key": [
+        "LEFT",
+        "RIGHT",
+        "NONE"
+      ],
+      "value": [
+        "L0",
+        "R0",
+        "LX",
+        "L2",
+        "R2",
+        "NONE"
+      ],
+      "version": [
+        "4",
+        "NONE"
+      ],
+      "writer": [
+        "A",
+        "B",
+        "AUTH",
+        "NONE"
+      ],
+      "txid": [
+        "X",
+        "Y",
+        "NONE"
+      ],
+      "event_time": [
+        "NONE"
+      ],
+      "expected_version": [
+        "4",
+        "NONE"
+      ]
+    },
+    "candidate_states": {
+      "S0": {
+        "version": 4,
+        "values": {
+          "LEFT": "L0",
+          "RIGHT": "R0"
+        },
+        "last_txid": "NONE"
+      },
+      "S1": {
+        "version": 5,
+        "values": {
+          "LEFT": "LX",
+          "RIGHT": "R0"
+        },
+        "last_txid": "X"
+      },
+      "S2": {
+        "version": 5,
+        "values": {
+          "LEFT": "L2",
+          "RIGHT": "R2"
+        },
+        "last_txid": "Y"
+      },
+      "S3": {
+        "version": 6,
+        "values": {
+          "LEFT": "L2",
+          "RIGHT": "R2"
+        },
+        "last_txid": "Y"
+      }
+    },
+    "expected_label": "S2"
+  }
+]

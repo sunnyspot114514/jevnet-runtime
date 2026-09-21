@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sar-runtime"
+version = "0.1.0"
+description = "Model-agnostic State-Aware Runtime primitives extracted from Jev topology and agent-runtime experiments."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Xiwei Chen" }]
+keywords = ["llm-agents", "agent-runtime", "authorization", "idempotency", "fencing", "distributed-systems", "ai-reliability"]
+dependencies = []
+
+[project.optional-dependencies]
+research = ["networkx>=3.2", "requests>=2.31", "pandas>=2.2", "pyarrow>=15", "pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["sar_runtime*"]
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+python_files = ["test_*.py"]

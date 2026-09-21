@@ -1,0 +1,128 @@
+{
+  "n_permutations": 720,
+  "authorization": {
+    "auth_id": "AUTH-42",
+    "dispatch_id": "DISP-42",
+    "idempotency_key": "ORDER-7"
+  },
+  "observations": [
+    {
+      "obs_id": "O1",
+      "auth_id": "AUTH-42",
+      "dispatch_id": "DISP-42",
+      "idempotency_key": "ORDER-7",
+      "seq": 1,
+      "status": "RUNNING",
+      "result": "NONE"
+    },
+    {
+      "obs_id": "O2",
+      "auth_id": "AUTH-42",
+      "dispatch_id": "DISP-42",
+      "idempotency_key": "ORDER-7",
+      "seq": 2,
+      "status": "SUCCEEDED",
+      "result": "R1"
+    },
+    {
+      "obs_id": "O3",
+      "auth_id": "AUTH-42",
+      "dispatch_id": "DISP-42",
+      "idempotency_key": "ORDER-7",
+      "seq": 3,
+      "status": "ROLLED_BACK",
+      "result": "NONE"
+    },
+    {
+      "obs_id": "O3-DUP",
+      "auth_id": "AUTH-42",
+      "dispatch_id": "DISP-42",
+      "idempotency_key": "ORDER-7",
+      "seq": 3,
+      "status": "ROLLED_BACK",
+      "result": "NONE"
+    },
+    {
+      "obs_id": "SPOOF",
+      "auth_id": "AUTH-FAKE",
+      "dispatch_id": "DISP-42",
+      "idempotency_key": "ORDER-7",
+      "seq": 4,
+      "status": "SUCCEEDED",
+      "result": "EVIL"
+    },
+    {
+      "obs_id": "O2-CONFLICT",
+      "auth_id": "AUTH-42",
+      "dispatch_id": "DISP-42",
+      "idempotency_key": "ORDER-7",
+      "seq": 2,
+      "status": "FAILED",
+      "result": "E2"
+    }
+  ],
+  "naive_outcomes": [
+    {
+      "outcome": [
+        "FAILED",
+        "E2",
+        2
+      ],
+      "count": 120,
+      "fraction": 0.16666666666666666
+    },
+    {
+      "outcome": [
+        "ROLLED_BACK",
+        "NONE",
+        3
+      ],
+      "count": 240,
+      "fraction": 0.3333333333333333
+    },
+    {
+      "outcome": [
+        "RUNNING",
+        "NONE",
+        1
+      ],
+      "count": 120,
+      "fraction": 0.16666666666666666
+    },
+    {
+      "outcome": [
+        "SUCCEEDED",
+        "EVIL",
+        4
+      ],
+      "count": 120,
+      "fraction": 0.16666666666666666
+    },
+    {
+      "outcome": [
+        "SUCCEEDED",
+        "R1",
+        2
+      ],
+      "count": 120,
+      "fraction": 0.16666666666666666
+    }
+  ],
+  "canonical_outcomes": [
+    {
+      "outcome": [
+        "ROLLED_BACK",
+        "NONE",
+        3
+      ],
+      "count": 720,
+      "fraction": 1.0
+    }
+  ],
+  "canonical_diagnostic_variants": 1,
+  "expected_canonical": [
+    "ROLLED_BACK",
+    "NONE",
+    3
+  ]
+}

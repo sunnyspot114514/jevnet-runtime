@@ -1,0 +1,306 @@
+{
+  "same_action_with_idempotency": {
+    "provider_calls": 2,
+    "effect_count": 1,
+    "receipt_ids": [
+      "R-1",
+      "R-1"
+    ],
+    "same_receipt": true
+  },
+  "same_action_without_idempotency": {
+    "effect_count": 2
+  },
+  "stale_owner_without_fencing": {
+    "f1": 1,
+    "f2": 2,
+    "final_value": "VALUE-A",
+    "accepted": [
+      {
+        "replica": "R2",
+        "fence": 2,
+        "action_id": "B",
+        "idem_key": "IDEM-B",
+        "value": "VALUE-B",
+        "status": "APPLIED"
+      },
+      {
+        "replica": "R1",
+        "fence": 1,
+        "action_id": "A",
+        "idem_key": "IDEM-A",
+        "value": "VALUE-A",
+        "status": "APPLIED"
+      }
+    ],
+    "rejected": [],
+    "r2_result": {
+      "replica": "R2",
+      "fence": 2,
+      "action_id": "B",
+      "idem_key": "IDEM-B",
+      "value": "VALUE-B",
+      "status": "APPLIED"
+    },
+    "stale_r1_result": {
+      "replica": "R1",
+      "fence": 1,
+      "action_id": "A",
+      "idem_key": "IDEM-A",
+      "value": "VALUE-A",
+      "status": "APPLIED"
+    }
+  },
+  "stale_owner_with_fencing": {
+    "f1": 1,
+    "f2": 2,
+    "final_value": "VALUE-B",
+    "accepted": [
+      {
+        "replica": "R2",
+        "fence": 2,
+        "action_id": "B",
+        "idem_key": "IDEM-B",
+        "value": "VALUE-B",
+        "status": "APPLIED"
+      }
+    ],
+    "rejected": [
+      {
+        "replica": "R1",
+        "fence": 1,
+        "action_id": "A",
+        "idem_key": "IDEM-A",
+        "value": "VALUE-A",
+        "reason": "STALE_FENCE"
+      }
+    ],
+    "r2_result": {
+      "replica": "R2",
+      "fence": 2,
+      "action_id": "B",
+      "idem_key": "IDEM-B",
+      "value": "VALUE-B",
+      "status": "APPLIED"
+    },
+    "stale_r1_result": {
+      "status": "REJECTED_STALE_FENCE",
+      "replica": "R1",
+      "fence": 1,
+      "action_id": "A",
+      "idem_key": "IDEM-A",
+      "value": "VALUE-A"
+    }
+  },
+  "late_retry_after_handoff": {
+    "final_value": "VALUE-B",
+    "accepted": [
+      {
+        "replica": "R1",
+        "fence": 1,
+        "action_id": "A",
+        "idem_key": "IDEM-A",
+        "value": "VALUE-A",
+        "status": "APPLIED"
+      },
+      {
+        "replica": "R2",
+        "fence": 2,
+        "action_id": "B",
+        "idem_key": "IDEM-B",
+        "value": "VALUE-B",
+        "status": "APPLIED"
+      }
+    ],
+    "rejected": [
+      {
+        "replica": "R1",
+        "fence": 1,
+        "action_id": "A",
+        "idem_key": "IDEM-A",
+        "value": "VALUE-A",
+        "reason": "STALE_FENCE"
+      }
+    ],
+    "late_result": {
+      "status": "REJECTED_STALE_FENCE",
+      "replica": "R1",
+      "fence": 1,
+      "action_id": "A",
+      "idem_key": "IDEM-A",
+      "value": "VALUE-A"
+    }
+  },
+  "post_handoff_without_fencing": [
+    {
+      "order": [
+        "B",
+        "A1",
+        "A2"
+      ],
+      "final_value": "VALUE-A",
+      "accepted_actions": [
+        "B",
+        "A"
+      ],
+      "rejected_actions": []
+    },
+    {
+      "order": [
+        "B",
+        "A2",
+        "A1"
+      ],
+      "final_value": "VALUE-A",
+      "accepted_actions": [
+        "B",
+        "A"
+      ],
+      "rejected_actions": []
+    },
+    {
+      "order": [
+        "A1",
+        "B",
+        "A2"
+      ],
+      "final_value": "VALUE-B",
+      "accepted_actions": [
+        "A",
+        "B"
+      ],
+      "rejected_actions": []
+    },
+    {
+      "order": [
+        "A1",
+        "A2",
+        "B"
+      ],
+      "final_value": "VALUE-B",
+      "accepted_actions": [
+        "A",
+        "B"
+      ],
+      "rejected_actions": []
+    },
+    {
+      "order": [
+        "A2",
+        "B",
+        "A1"
+      ],
+      "final_value": "VALUE-B",
+      "accepted_actions": [
+        "A",
+        "B"
+      ],
+      "rejected_actions": []
+    },
+    {
+      "order": [
+        "A2",
+        "A1",
+        "B"
+      ],
+      "final_value": "VALUE-B",
+      "accepted_actions": [
+        "A",
+        "B"
+      ],
+      "rejected_actions": []
+    }
+  ],
+  "post_handoff_with_fencing": [
+    {
+      "order": [
+        "B",
+        "A1",
+        "A2"
+      ],
+      "final_value": "VALUE-B",
+      "accepted_actions": [
+        "B"
+      ],
+      "rejected_actions": [
+        "A",
+        "A"
+      ]
+    },
+    {
+      "order": [
+        "B",
+        "A2",
+        "A1"
+      ],
+      "final_value": "VALUE-B",
+      "accepted_actions": [
+        "B"
+      ],
+      "rejected_actions": [
+        "A",
+        "A"
+      ]
+    },
+    {
+      "order": [
+        "A1",
+        "B",
+        "A2"
+      ],
+      "final_value": "VALUE-B",
+      "accepted_actions": [
+        "B"
+      ],
+      "rejected_actions": [
+        "A",
+        "A"
+      ]
+    },
+    {
+      "order": [
+        "A1",
+        "A2",
+        "B"
+      ],
+      "final_value": "VALUE-B",
+      "accepted_actions": [
+        "B"
+      ],
+      "rejected_actions": [
+        "A",
+        "A"
+      ]
+    },
+    {
+      "order": [
+        "A2",
+        "B",
+        "A1"
+      ],
+      "final_value": "VALUE-B",
+      "accepted_actions": [
+        "B"
+      ],
+      "rejected_actions": [
+        "A",
+        "A"
+      ]
+    },
+    {
+      "order": [
+        "A2",
+        "A1",
+        "B"
+      ],
+      "final_value": "VALUE-B",
+      "accepted_actions": [
+        "B"
+      ],
+      "rejected_actions": [
+        "A",
+        "A"
+      ]
+    }
+  ]
+}

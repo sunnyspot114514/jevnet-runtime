@@ -1,0 +1,41 @@
+{
+  "worlds": {
+    "effect_happened": {
+      "hidden_effect_count_after_timeout": 1,
+      "observable_runtime_state": "TIMEOUT_NO_RECEIPT"
+    },
+    "effect_did_not_happen": {
+      "hidden_effect_count_after_timeout": 0,
+      "observable_runtime_state": "TIMEOUT_NO_RECEIPT"
+    }
+  },
+  "decision_table": {
+    "RETRY": {
+      "effect_happened": {
+        "final_effect_count": 2,
+        "exactly_once": false
+      },
+      "effect_did_not_happen": {
+        "final_effect_count": 1,
+        "exactly_once": true
+      }
+    },
+    "DO_NOT_RETRY": {
+      "effect_happened": {
+        "final_effect_count": 1,
+        "exactly_once": true
+      },
+      "effect_did_not_happen": {
+        "final_effect_count": 0,
+        "exactly_once": false
+      }
+    }
+  },
+  "conclusion": "Exactly-once cannot be guaranteed after ambiguous timeout if the provider offers neither idempotency nor a queryable durable receipt.",
+  "sufficient_external_primitives_to_escape_ambiguity": [
+    "idempotency key recognized by provider",
+    "queryable operation/receipt ID",
+    "transactional protocol/outbox with externally visible commit state",
+    "compensatable effect with durable compensation identity (gives eventual semantic repair, not literal exactly-once)"
+  ]
+}

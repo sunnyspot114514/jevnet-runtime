@@ -1,0 +1,84 @@
+{
+  "role_attack_matrix": {
+    "proposer_self_authorize": {
+      "accepted": false,
+      "rejected_count": 1,
+      "records": []
+    },
+    "dispatcher_without_dar": {
+      "accepted": false,
+      "rejected_count": 1,
+      "records": []
+    },
+    "dispatcher_writes_coc": {
+      "accepted": false,
+      "rejected_count": 1,
+      "records": []
+    },
+    "authorizer_dispatches": {
+      "accepted": false,
+      "rejected_count": 1,
+      "records": []
+    }
+  },
+  "forged_observation": {
+    "coc_present": true,
+    "effects": 1
+  },
+  "legitimate_permutation_outcomes": [
+    {
+      "effect_count": 1,
+      "coc": [
+        "SUCCEEDED",
+        "SAFE",
+        "AUTH-X",
+        "IDEM-X"
+      ]
+    },
+    {
+      "effect_count": 1,
+      "coc": [
+        "SUCCEEDED",
+        "SAFE",
+        "AUTH-X",
+        "IDEM-X"
+      ]
+    },
+    {
+      "effect_count": 1,
+      "coc": [
+        "SUCCEEDED",
+        "SAFE",
+        "AUTH-X",
+        "IDEM-X"
+      ]
+    },
+    {
+      "effect_count": 1,
+      "coc": [
+        "SUCCEEDED",
+        "SAFE",
+        "AUTH-X",
+        "IDEM-X"
+      ]
+    },
+    {
+      "effect_count": 1,
+      "coc": [
+        "SUCCEEDED",
+        "SAFE",
+        "AUTH-X",
+        "IDEM-X"
+      ]
+    },
+    {
+      "effect_count": 1,
+      "coc": [
+        "SUCCEEDED",
+        "SAFE",
+        "AUTH-X",
+        "IDEM-X"
+      ]
+    }
+  ]
+}

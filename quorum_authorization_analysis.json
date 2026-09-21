@@ -1,0 +1,319 @@
+{
+  "threshold": 2,
+  "authorizers": [
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "good_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+  "bad_hash": "a450bd2efd75a12f9d1403d39642bd86adcd76a14c46ab0f9ea027d624a506a7",
+  "scenarios": {
+    "two_honest_approve_good": {
+      "reduced": {
+        "dar": {
+          "kind": "DAR",
+          "action_id": "ACT-Q",
+          "epoch": 7,
+          "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+          "approvers": [
+            "A1",
+            "A2"
+          ],
+          "threshold": 2
+        },
+        "quarantined": [],
+        "valid_votes": [
+          {
+            "authorizer": "A1",
+            "decision": "APPROVE",
+            "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          },
+          {
+            "authorizer": "A2",
+            "decision": "APPROVE",
+            "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          }
+        ],
+        "approvals": {
+          "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1": [
+            "A1",
+            "A2"
+          ]
+        },
+        "rejections": {}
+      },
+      "permutation_outcomes": [
+        [
+          "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+          [
+            "A1",
+            "A2"
+          ],
+          7
+        ]
+      ],
+      "permutation_outcome_count": 1,
+      "quarantine_shape_count": 1
+    },
+    "one_malicious_only_bad": {
+      "reduced": {
+        "dar": null,
+        "quarantined": [],
+        "valid_votes": [
+          {
+            "authorizer": "A3",
+            "decision": "APPROVE",
+            "proposal_hash": "a450bd2efd75a12f9d1403d39642bd86adcd76a14c46ab0f9ea027d624a506a7",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          }
+        ],
+        "approvals": {
+          "a450bd2efd75a12f9d1403d39642bd86adcd76a14c46ab0f9ea027d624a506a7": [
+            "A3"
+          ]
+        },
+        "rejections": {}
+      },
+      "permutation_outcomes": [
+        null
+      ],
+      "permutation_outcome_count": 1,
+      "quarantine_shape_count": 1
+    },
+    "duplicate_vote_not_double_counted": {
+      "reduced": {
+        "dar": null,
+        "quarantined": [],
+        "valid_votes": [
+          {
+            "authorizer": "A1",
+            "decision": "APPROVE",
+            "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          }
+        ],
+        "approvals": {
+          "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1": [
+            "A1"
+          ]
+        },
+        "rejections": {}
+      },
+      "permutation_outcomes": [
+        null
+      ],
+      "permutation_outcome_count": 1,
+      "quarantine_shape_count": 1
+    },
+    "one_bad_one_good_no_quorum": {
+      "reduced": {
+        "dar": null,
+        "quarantined": [],
+        "valid_votes": [
+          {
+            "authorizer": "A1",
+            "decision": "APPROVE",
+            "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          },
+          {
+            "authorizer": "A3",
+            "decision": "APPROVE",
+            "proposal_hash": "a450bd2efd75a12f9d1403d39642bd86adcd76a14c46ab0f9ea027d624a506a7",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          }
+        ],
+        "approvals": {
+          "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1": [
+            "A1"
+          ],
+          "a450bd2efd75a12f9d1403d39642bd86adcd76a14c46ab0f9ea027d624a506a7": [
+            "A3"
+          ]
+        },
+        "rejections": {}
+      },
+      "permutation_outcomes": [
+        null
+      ],
+      "permutation_outcome_count": 1,
+      "quarantine_shape_count": 1
+    },
+    "two_good_plus_malicious_bad": {
+      "reduced": {
+        "dar": {
+          "kind": "DAR",
+          "action_id": "ACT-Q",
+          "epoch": 7,
+          "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+          "approvers": [
+            "A1",
+            "A2"
+          ],
+          "threshold": 2
+        },
+        "quarantined": [],
+        "valid_votes": [
+          {
+            "authorizer": "A1",
+            "decision": "APPROVE",
+            "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          },
+          {
+            "authorizer": "A2",
+            "decision": "APPROVE",
+            "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          },
+          {
+            "authorizer": "A3",
+            "decision": "APPROVE",
+            "proposal_hash": "a450bd2efd75a12f9d1403d39642bd86adcd76a14c46ab0f9ea027d624a506a7",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          }
+        ],
+        "approvals": {
+          "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1": [
+            "A1",
+            "A2"
+          ],
+          "a450bd2efd75a12f9d1403d39642bd86adcd76a14c46ab0f9ea027d624a506a7": [
+            "A3"
+          ]
+        },
+        "rejections": {}
+      },
+      "permutation_outcomes": [
+        [
+          "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+          [
+            "A1",
+            "A2"
+          ],
+          7
+        ]
+      ],
+      "permutation_outcome_count": 1,
+      "quarantine_shape_count": 1
+    },
+    "equivocator_excluded_but_two_honest_still_quorum": {
+      "reduced": {
+        "dar": {
+          "kind": "DAR",
+          "action_id": "ACT-Q",
+          "epoch": 7,
+          "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+          "approvers": [
+            "A1",
+            "A2"
+          ],
+          "threshold": 2
+        },
+        "quarantined": [
+          {
+            "authorizer": "A3",
+            "reason": "EQUIVOCATION",
+            "votes": [
+              [
+                "APPROVE",
+                "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1"
+              ],
+              [
+                "APPROVE",
+                "a450bd2efd75a12f9d1403d39642bd86adcd76a14c46ab0f9ea027d624a506a7"
+              ]
+            ]
+          }
+        ],
+        "valid_votes": [
+          {
+            "authorizer": "A1",
+            "decision": "APPROVE",
+            "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          },
+          {
+            "authorizer": "A2",
+            "decision": "APPROVE",
+            "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          }
+        ],
+        "approvals": {
+          "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1": [
+            "A1",
+            "A2"
+          ]
+        },
+        "rejections": {}
+      },
+      "permutation_outcomes": [
+        [
+          "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+          [
+            "A1",
+            "A2"
+          ],
+          7
+        ]
+      ],
+      "permutation_outcome_count": 1,
+      "quarantine_shape_count": 1
+    },
+    "equivocation_breaks_apparent_two_votes": {
+      "reduced": {
+        "dar": null,
+        "quarantined": [
+          {
+            "authorizer": "A3",
+            "reason": "EQUIVOCATION",
+            "votes": [
+              [
+                "APPROVE",
+                "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1"
+              ],
+              [
+                "APPROVE",
+                "a450bd2efd75a12f9d1403d39642bd86adcd76a14c46ab0f9ea027d624a506a7"
+              ]
+            ]
+          }
+        ],
+        "valid_votes": [
+          {
+            "authorizer": "A1",
+            "decision": "APPROVE",
+            "proposal_hash": "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1",
+            "action_id": "ACT-Q",
+            "epoch": 7
+          }
+        ],
+        "approvals": {
+          "5221fabfc95b4855c24b8d293fa64ccda7af7c07f3a22462eeb70517a12673e1": [
+            "A1"
+          ]
+        },
+        "rejections": {}
+      },
+      "permutation_outcomes": [
+        null
+      ],
+      "permutation_outcome_count": 1,
+      "quarantine_shape_count": 1
+    }
+  }
+}
