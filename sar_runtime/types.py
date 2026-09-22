@@ -86,6 +86,18 @@ class ReconciliationRecord:
 
 
 @dataclass(frozen=True)
+class UnresolvedOutcome:
+    """Durable fail-closed state for an externally ambiguous action."""
+
+    action_id: str
+    auth_id: str
+    idempotency_key: str
+    reason: str
+    retry_safe: bool
+    required_operator_action: str
+
+
+@dataclass(frozen=True)
 class CanonicalOutcomeCommit:
     action_id: str
     auth_id: str

@@ -1,0 +1,18 @@
+{
+  "evidence_type": "sqlite_cross_process_recovery_experiment",
+  "source": "sqlite_context_process_probe.py",
+  "cross_process_view_equal": true,
+  "writer_hash": "afe17b505d12af868c2187585625ec08acde287185deda86d1625116b13eca1d",
+  "reader_hash": "afe17b505d12af868c2187585625ec08acde287185deda86d1625116b13eca1d",
+  "recovered_action_status": "CANONICAL_SUCCEEDED",
+  "uncommitted_memory_leaked": false,
+  "backend": "SQLiteDurableStore",
+  "sqlite_pragmas": [
+    "journal_mode=WAL",
+    "synchronous=FULL"
+  ],
+  "limitations": [
+    "This is an independent-process reopen experiment.",
+    "It is not a physical power-loss, torn-write, disk-corruption, or filesystem-failure experiment."
+  ]
+}

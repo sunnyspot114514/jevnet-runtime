@@ -5,6 +5,10 @@ from typing import Any, Protocol, runtime_checkable
 from .types import ProviderCapabilities, ProviderReceipt
 
 
+class AmbiguousProviderOutcome(RuntimeError):
+    """Provider may have applied the effect but no trustworthy receipt arrived."""
+
+
 @runtime_checkable
 class ProviderAdapter(Protocol):
     """External side-effect adapter contract.

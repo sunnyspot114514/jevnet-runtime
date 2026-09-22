@@ -1,0 +1,24 @@
+{
+  "evidence_type": "finite_model_check",
+  "source": "replicated_log_5node_3ballot_reduced.py",
+  "model": {
+    "replicas": 5,
+    "quorum": 3,
+    "ballots": 3,
+    "values": [
+      "X",
+      "Y"
+    ],
+    "scope": "single replicated COC slot"
+  },
+  "states_explored": 442524,
+  "transitions_explored": 1818882,
+  "max_frontier": 96789,
+  "hit_state_limit": false,
+  "conflicting_coc_counterexample_found": false,
+  "limitations": [
+    "This result holds only for the stated reduced finite model.",
+    "It is not a full Paxos/Raft proof.",
+    "It does not establish liveness, arbitrary log correctness, disk-fault tolerance, or production reliability."
+  ]
+}

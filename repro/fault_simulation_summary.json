@@ -1,0 +1,21 @@
+{
+  "evidence_type": "simulation",
+  "source": "journal_recovery_stress.py",
+  "workloads": 200,
+  "actions_per_workload": 50,
+  "total_actions": 10000,
+  "total_authorized": 7896,
+  "total_unauthorized": 2104,
+  "total_crashes_injected": 6093,
+  "total_duplicate_records_injected": 473,
+  "unauthorized_effects": 0,
+  "missing_authorized_effects": 0,
+  "unauthorized_cocs": 0,
+  "missing_authorized_cocs": 0,
+  "digest_fixed_point_failures": 0,
+  "limitations": [
+    "This is an in-memory fault-injection simulation.",
+    "It is not evidence of real disk, process, network, or provider durability.",
+    "It must not be presented as a production reliability rate."
+  ]
+}

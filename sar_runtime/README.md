@@ -34,9 +34,12 @@ Reference implementations:
 
 ```text
 InMemoryDurableStore
+SQLiteDurableStore
 InMemoryProvider
 InMemoryLeaseCoordinator
 ```
+
+`SQLiteDurableStore` uses WAL + `synchronous=FULL` and is intended for local/process-restart testing. It is not presented as a validated power-loss backend.
 
 ## Minimal execution flow
 
@@ -123,6 +126,12 @@ print(h.topology())
 The package does not implement a full agent loop, UI, MCP stack, or OS sandbox.
 
 See [../docs/DSH_INSPIRATION.md](../docs/DSH_INSPIRATION.md).
+
+## Ambiguous outcomes and model context
+
+If a provider has neither idempotency nor status query, an ambiguous post-dispatch timeout is persisted as `UnresolvedOutcome` and is never blindly retried.
+
+`ContextProjector` reconstructs model-visible conversation, committed memory, and action status from durable records. Uncommitted volatile beliefs do not become context after restart.
 
 ## Authority rule
 

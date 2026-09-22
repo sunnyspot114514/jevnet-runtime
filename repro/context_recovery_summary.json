@@ -1,0 +1,18 @@
+{
+  "evidence_type": "in_memory_event_log_projection_experiment",
+  "source": "context_recovery_experiment.py",
+  "normal_and_recovered_views_equal": true,
+  "volatile_false_belief_present_after_recovery": false,
+  "normal_provider_effects": 1,
+  "recovered_provider_effects": 1,
+  "projection_rules": [
+    "Only conversation/message events become conversation context.",
+    "Only memory/committed events become durable memory facts.",
+    "Only CanonicalOutcomeCommit becomes CANONICAL_SUCCEEDED.",
+    "UnresolvedOutcome becomes UNRESOLVED and never projects as success."
+  ],
+  "limitations": [
+    "Uses in-memory reference storage.",
+    "Tests logical replay/projection, not real power-loss persistence."
+  ]
+}

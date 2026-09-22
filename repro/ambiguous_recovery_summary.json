@@ -1,0 +1,17 @@
+{
+  "evidence_type": "regression_test",
+  "source": "test_sar_runtime_ambiguous_recovery.py",
+  "provider_capabilities": {
+    "supports_idempotency": false,
+    "supports_status_query": false
+  },
+  "scenario": "Provider applies the effect, then the response is lost.",
+  "expected_behavior": {
+    "effect_count_after_first_attempt": 1,
+    "effect_count_after_recovery": 1,
+    "canonical_outcome_committed": false,
+    "durable_status": "UnresolvedOutcome",
+    "retry_safe": false
+  },
+  "runtime_rule": "Do not blindly retry an ambiguous pre-existing DispatchIntent when the provider exposes no reconciliation primitive."
+}

@@ -53,7 +53,7 @@ Agent 最大的风险之一，是把“模型说可以”直接等同于“系�
 | 常见失败 | Runtime 机制 |
 |---|---|
 | 模型把危险工具判断成安全 | Runtime 自己维护 **Capability Manifest** |
-| timeout 后重复执行同一个动作 | **Idempotency** + provider query |
+| timeout 后重复执行同一个动作 | **Idempotency** + provider query；两者都没有则持久化为 **UNRESOLVED** |
 | failover 后旧 worker 又醒了 | **Lease fencing** |
 | 审批缺失或审批器坏了 | **Fail-closed approval** |
 | 执行一半进程崩溃 | **Event-sourced durable replay** |
@@ -298,6 +298,7 @@ unavailable
 Reference backend：
 
 - `InMemoryDurableStore`
+- `SQLiteDurableStore`（WAL + `synchronous=FULL` reference backend）
 - `InMemoryProvider`
 - `InMemoryLeaseCoordinator`
 - `EventSourcedStore`
@@ -309,11 +310,16 @@ Reference backend：
 和当前架构直接相关的几条结果：
 
 - 三个相同 Jev reviewer 在两个不同 frozen benchmark 中都曾一致误批真实 `chmod` 权限修改。
-- fresh benchmark 中，Planner + Capability Manifest 做到 **24/24 authorization 正确**；Planner 自己的 tool selection 并不完美。
-- 10,000-action crash/replay stress test 中：**0 unauthorized effect、0 missing authorized effect、0 replay digest drift**。
-- reduced 5-replica / quorum-3 / 3-ballot checker 穷尽了 **442,524 states / 1,818,882 transitions**，在声明的有限模型内没有 conflicting chosen COC。
+- 一组 **24-case preliminary paired comparison** 中，Direct semantic quorum 是 22/24，Planner + Capability Manifest 是 24/24。这里同时改变了 prompt、输出空间和 deterministic gate，**不是单变量消融**，不能把差异单独归因于 gate。
+- 10,000-action 结果是 **in-memory fault-injection simulation**：其中出现 0 unauthorized effect、0 missing authorized effect、0 replay digest drift。它不是生产可靠性统计。
+- 442,524-state / 1,818,882-transition 结果属于**给定 reduced finite model 内的 model checking**，不是完整 Paxos/Raft 证明，也不是生产可靠性保证。
+- 新增的 **runtime + model context 耦合恢复实验**表明：进程状态清空后，从 durable event log 重建出的模型可见 view 与正常 canonical projection 一致，未提交的 volatile 假记忆不会进入恢复后的 context。
+- 更进一步的 **SQLite 跨独立进程 reopen 实验**中，进程 A 写入后退出，进程 B 只依赖数据库文件重建出完全相同的 context hash。它仍然不是物理断电、torn write 或文件系统故障证明。
+- provider 同时缺少 idempotency 和 status query 时，ambiguous execution 现在会持久化为 **UNRESOLVED**，不会盲目重试。
 
-这些是研究证据，不是 production guarantee。
+脱敏后的公开复现摘要已经提交到 [repro/](repro/)。
+
+这些都是带明确边界的研究结果，不是 production guarantee。
 
 完整研究历史见 [RESEARCH_INDEX.md](RESEARCH_INDEX.md)。
 
@@ -322,6 +328,7 @@ Reference backend：
 ```text
 sar_runtime/              可复用 runtime package
 docs/                     架构与设计说明
+repro/                    脱敏公开复现摘要
 scripts/                  repo checks
 test_sar_runtime_*.py     package-level tests
 

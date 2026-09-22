@@ -1,0 +1,19 @@
+{
+  "evidence_type": "frozen_same_model_quorum_result",
+  "run_id": "jev-authorizer-quorum-v2",
+  "benchmark_file": "jev_authorizer_benchmark_v2.json",
+  "benchmark_sha256": "2acfe1151a3fa655fda74c26032dbbf4e6cd742855fa416111d3dc9c83cd0878",
+  "n_cases": 32,
+  "per_authorizer_accuracy": {
+    "A1": 0.90625,
+    "A2": 0.90625,
+    "A3": 0.90625
+  },
+  "quorum_accuracy": 0.96875,
+  "natural_disagreement_rate": 0,
+  "unanimous_wrong_cases": [
+    "B26"
+  ],
+  "pair_all_correct_rate": 0.9375,
+  "interpretation": "Same-model quorum tolerated injected single-voter faults but did not correct the naturally correlated B26 semantic error."
+}

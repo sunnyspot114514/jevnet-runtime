@@ -81,6 +81,14 @@ Human/operator approval has four outcomes:
 
 Only the first grants authority.
 
+## Ambiguous external outcomes
+
+A persisted `DispatchIntent` with no trustworthy receipt is not automatically retryable.
+
+If the provider exposes idempotency or an authoritative status query, recovery may reconcile or safely retry. If it exposes neither, the runtime persists `UnresolvedOutcome` with `retry_safe=False` and requires external reconciliation / operator escalation.
+
+`timeout` therefore means **unknown external outcome**, not failure.
+
 ## Provider contract
 
 Provider guarantees are explicit capabilities:
@@ -95,6 +103,19 @@ supports_transactional_commit
 
 The runtime must not claim exactly-once semantics if the provider exposes no
 primitive capable of resolving an ambiguous outcome.
+
+## Model context projection
+
+`ContextProjector` rebuilds the model-visible view from durable truth:
+
+- `conversation/message` -> conversation context;
+- `memory/committed` -> durable memory fact;
+- `CanonicalOutcomeCommit` -> canonical success;
+- `UnresolvedOutcome` -> explicit unresolved state.
+
+Uncommitted/proposed memory and volatile model beliefs are excluded.
+
+`SQLiteDurableStore` provides a file-backed reference backend using WAL and `synchronous=FULL`. The cross-process probe verifies reopen/replay semantics, but does not claim physical power-loss or filesystem-fault correctness.
 
 ## Distributed outcome
 

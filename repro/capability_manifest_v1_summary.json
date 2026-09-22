@@ -1,0 +1,29 @@
+{
+  "evidence_type": "preliminary_paired_comparison",
+  "run_id": "jev-capability-manifest-v1",
+  "benchmark_file": "jev_capability_benchmark_v1.json",
+  "benchmark_sha256": "f0cfaab8315b0a0073b8a76101b71393c0d1135582da4eef7cb9681327008898",
+  "n_cases": 24,
+  "direct_semantic_quorum": {
+    "authorization_accuracy": 0.9166666666666666,
+    "correct": 22,
+    "wrong_cases": [
+      "D02",
+      "D22"
+    ]
+  },
+  "planner_manifest": {
+    "authorization_accuracy": 1,
+    "correct": 24,
+    "wrong_cases": []
+  },
+  "planner_tool_vote_accuracy": 0.9305555555555556,
+  "planner_unanimous_wrong_tool_cases": [
+    "D21"
+  ],
+  "limitations": [
+    "The two pipelines change prompt, output space, and downstream gating simultaneously.",
+    "This result is not a single-variable ablation of the Capability Manifest gate.",
+    "The sample contains 24 hand-authored cases and should be treated as preliminary."
+  ]
+}

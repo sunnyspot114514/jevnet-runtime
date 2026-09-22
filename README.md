@@ -55,7 +55,7 @@ JevNet Runtime adds explicit runtime boundaries:
 | Failure mode | Runtime mechanism |
 |---|---|
 | Model says a risky tool is safe | Runtime-owned **Capability Manifest** |
-| Same action is retried after timeout | **Idempotency** + provider query |
+| Same action is retried after timeout | **Idempotency** + provider query; otherwise durable **UNRESOLVED** |
 | Old worker wakes up after failover | **Lease fencing** |
 | Approval is missing or broken | **Fail-closed approval** |
 | Process crashes mid-action | **Event-sourced durable replay** |
@@ -310,6 +310,7 @@ Only `allowed-once` grants authority. A missing or broken answerer resolves to `
 ### Reference implementations
 
 - `InMemoryDurableStore`
+- `SQLiteDurableStore` (WAL + `synchronous=FULL` reference backend)
 - `InMemoryProvider`
 - `InMemoryLeaseCoordinator`
 - `EventSourcedStore`
@@ -321,11 +322,16 @@ You do **not** need the research history to use the package.
 A few results that directly motivate the current design:
 
 - Three identical Jev reviewers unanimously approved a real `chmod` permission change in two separate frozen benchmarks.
-- Planner + Capability Manifest produced **24/24 authorization-correct outcomes** on a fresh benchmark, even though planner tool selection itself was imperfect.
-- A 10,000-action crash/replay stress test produced **0 unauthorized effects**, **0 missing authorized effects**, and **0 replay digest drift**.
-- A reduced 5-replica / quorum-3 / 3-ballot checker exhaustively explored **442,524 states / 1,818,882 transitions** with no conflicting chosen COC in that stated finite model.
+- A **preliminary 24-case paired comparison** produced 22/24 authorization-correct outcomes for direct semantic quorum and 24/24 for Planner + Capability Manifest. This is **not a single-variable ablation**: prompt, output space, and deterministic gate all change together, so the difference cannot be attributed to the gate alone.
+- An in-memory 10,000-action **fault-injection simulation** produced 0 unauthorized effects, 0 missing authorized effects, and 0 replay digest drift. This is a simulation result, not a production reliability rate.
+- A reduced 5-replica / quorum-3 / 3-ballot **finite-model checker** exhaustively explored **442,524 states / 1,818,882 transitions** with no conflicting chosen COC in that stated finite model. This is not a full Paxos/Raft proof.
+- A coupled **runtime + model-context replay experiment** reconstructs the same canonical model-visible view after process-state loss while excluding uncommitted volatile beliefs.
+- A stronger **SQLite cross-process reopen experiment** writes state in one Python process and reconstructs the identical context hash in a second process using only the database file. This is still not a physical power-loss / filesystem-fault result.
+- When a provider exposes neither idempotency nor status query, an ambiguous execution is now durably marked **UNRESOLVED** and is not blindly retried.
 
-These are research results, not production guarantees.
+Sanitized public summaries are committed under [repro/](repro/).
+
+These are research results with stated scopes and limitations, not production guarantees.
 
 Full chronology: [RESEARCH_INDEX.md](RESEARCH_INDEX.md).
 
@@ -334,6 +340,7 @@ Full chronology: [RESEARCH_INDEX.md](RESEARCH_INDEX.md).
 ```text
 sar_runtime/              reusable runtime package
 docs/                     architecture and design notes
+repro/                    sanitized public reproduction summaries
 scripts/                  repo checks
 test_sar_runtime_*.py     package-level tests
 

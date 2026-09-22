@@ -14,6 +14,7 @@ from .types import (
     DispatchIntent,
     ProviderReceipt,
     ReconciliationRecord,
+    UnresolvedOutcome,
     CanonicalOutcomeCommit,
     ProviderCapabilities,
     ReplicatedCommitCertificate,
@@ -24,7 +25,8 @@ from .provider import InMemoryProvider
 from .runtime import RuntimeEngine
 from .durable_runtime import DurableRuntime
 from .store import DurableStore, InMemoryDurableStore
-from .adapters import ProviderAdapter
+from .sqlite_store import SQLiteDurableStore
+from .adapters import ProviderAdapter, AmbiguousProviderOutcome
 from .lease import LeaseCoordinator, LeaseToken, InMemoryLeaseCoordinator
 from .consensus import build_commit_certificate, validate_commit_certificate
 from .builders import build_proposal, build_vote
@@ -32,6 +34,7 @@ from .events import SessionEvent, SessionLog, EventSourcedStore
 from .approval import ApprovalService, ApprovalRequest
 from .plugins import PluginManager, ServiceRegistry, ValuePlugin
 from .harness import Harness, build_default_harness
+from .context import ActionContextState, ModelContextView, ContextProjector
 
 __all__ = [
     "ToolCallProposal",
@@ -43,6 +46,7 @@ __all__ = [
     "DispatchIntent",
     "ProviderReceipt",
     "ReconciliationRecord",
+    "UnresolvedOutcome",
     "CanonicalOutcomeCommit",
     "ProviderCapabilities",
     "ReplicatedCommitCertificate",
@@ -53,7 +57,9 @@ __all__ = [
     "DurableRuntime",
     "DurableStore",
     "InMemoryDurableStore",
+    "SQLiteDurableStore",
     "ProviderAdapter",
+    "AmbiguousProviderOutcome",
     "LeaseCoordinator",
     "LeaseToken",
     "InMemoryLeaseCoordinator",
@@ -71,4 +77,7 @@ __all__ = [
     "ValuePlugin",
     "Harness",
     "build_default_harness",
+    "ActionContextState",
+    "ModelContextView",
+    "ContextProjector",
 ]
