@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import asdict
 
 from .manifest import CapabilityManifest
-from .provider import InMemoryProvider
+from .adapters import ProviderAdapter
 from .types import (
     CanonicalOutcomeCommit,
     DispatchIntent,
@@ -43,7 +43,7 @@ class RuntimeEngine:
         *,
         dar: DurableAuthorizationRecord,
         intent: DispatchIntent,
-        provider: InMemoryProvider,
+        provider: ProviderAdapter,
     ):
         if intent.action_id != dar.action_id:
             raise ValueError("ACTION_BINDING_MISMATCH")

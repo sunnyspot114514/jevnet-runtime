@@ -22,6 +22,7 @@ This file indexes the main experiment reports.
 | Round 12 | [ROUND12_RUNTIME_PACKAGE_FINDINGS.md](ROUND12_RUNTIME_PACKAGE_FINDINGS.md) | Reusable model-agnostic runtime package |
 | Round 13 | [ROUND13_CRASH_CONTEXT_RECOVERY_FINDINGS.md](ROUND13_CRASH_CONTEXT_RECOVERY_FINDINGS.md) | Ambiguous outcomes, coupled context replay, SQLite process recovery, hard-crash matrix |
 | Round 14 | [ROUND14_SQLITE_TRANSACTION_CRASH_FINDINGS.md](ROUND14_SQLITE_TRANSACTION_CRASH_FINDINGS.md) | SQLite process-crash transaction boundary and durable-record corruption detection |
+| Round 15 | [ROUND15_HTTP_PROVIDER_LEASE_FINDINGS.md](ROUND15_HTTP_PROVIDER_LEASE_FINDINGS.md) | HTTP provider/lease adapters and cross-process remote-boundary crash recovery |
 
 ## Formal / distributed artifacts
 

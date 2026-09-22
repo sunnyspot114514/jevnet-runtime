@@ -23,6 +23,7 @@ from .manifest import CapabilityManifest
 from .authorization import issue_dar
 from .provider import InMemoryProvider
 from .sqlite_provider import SQLiteProviderAdapter
+from .http_provider import HTTPProviderAdapter
 from .runtime import RuntimeEngine
 from .durable_runtime import DurableRuntime
 from .store import DurableStore, InMemoryDurableStore
@@ -30,6 +31,7 @@ from .sqlite_store import SQLiteDurableStore, DurableRecordCorruptionError
 from .adapters import ProviderAdapter, AmbiguousProviderOutcome
 from .lease import LeaseCoordinator, LeaseToken, InMemoryLeaseCoordinator
 from .sqlite_lease import SQLiteLeaseCoordinator
+from .http_lease import HTTPLeaseCoordinator, LeaseCoordinatorUnavailable
 from .consensus import build_commit_certificate, validate_commit_certificate
 from .builders import build_proposal, build_vote
 from .events import SessionEvent, SessionLog, EventSourcedStore
@@ -56,6 +58,7 @@ __all__ = [
     "issue_dar",
     "InMemoryProvider",
     "SQLiteProviderAdapter",
+    "HTTPProviderAdapter",
     "RuntimeEngine",
     "DurableRuntime",
     "DurableStore",
@@ -68,6 +71,8 @@ __all__ = [
     "LeaseToken",
     "InMemoryLeaseCoordinator",
     "SQLiteLeaseCoordinator",
+    "HTTPLeaseCoordinator",
+    "LeaseCoordinatorUnavailable",
     "build_commit_certificate",
     "validate_commit_certificate",
     "build_proposal",

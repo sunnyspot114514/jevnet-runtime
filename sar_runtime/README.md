@@ -37,8 +37,10 @@ InMemoryDurableStore
 SQLiteDurableStore
 InMemoryProvider
 SQLiteProviderAdapter
+HTTPProviderAdapter
 InMemoryLeaseCoordinator
 SQLiteLeaseCoordinator
+HTTPLeaseCoordinator
 ```
 
 The SQLite references use WAL + `synchronous=FULL`. `SQLiteDurableStore` also verifies a per-record SHA-256 during replay. These backends are intended for local/process-restart testing and are not presented as validated power-loss backends.
@@ -127,7 +129,7 @@ print(h.topology())
 
 The package does not implement a full agent loop, UI, MCP stack, or OS sandbox.
 
-See [../docs/DSH_INSPIRATION.md](../docs/DSH_INSPIRATION.md).
+See [../docs/DSH_INSPIRATION.md](../docs/DSH_INSPIRATION.md) and [../docs/HTTP_CONTRACT.md](../docs/HTTP_CONTRACT.md).
 
 ## Ambiguous outcomes and model context
 

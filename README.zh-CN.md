@@ -223,7 +223,7 @@ coc = runtime.recover_action(
 
 JevNet Runtime 刻意比 DSH 小得多：它不试图复刻完整 Agent Loop、UI、MCP、sandbox 或插件生态。
 
-设计对照见 [docs/DSH_INSPIRATION.md](docs/DSH_INSPIRATION.md)。
+设计对照见 [docs/DSH_INSPIRATION.md](docs/DSH_INSPIRATION.md)，provider / lease 的 HTTP wire contract 见 [docs/HTTP_CONTRACT.md](docs/HTTP_CONTRACT.md)。
 
 ## Plugin / Service 组合
 
@@ -301,8 +301,10 @@ Reference backend：
 - `SQLiteDurableStore`（WAL + `synchronous=FULL` + 每条 record SHA-256）
 - `InMemoryProvider`
 - `SQLiteProviderAdapter`
+- `HTTPProviderAdapter`
 - `InMemoryLeaseCoordinator`
 - `SQLiteLeaseCoordinator`
+- `HTTPLeaseCoordinator`
 - `EventSourcedStore`
 
 ## 为什么这些设计值得继续做？
@@ -361,8 +363,9 @@ JevNet Runtime 当前还是 **research prototype / developer preview**。
 ## Roadmap
 
 - Postgres `DurableStore`
-- 真实 HTTP/API `ProviderAdapter`
-- Redis/etcd 风格 `LeaseCoordinator`
+- 带 TLS / authentication 的 HTTP provider + lease 部署
+- Redis/etcd-backed `LeaseCoordinator`
+- multi-host network partition / delayed response fault harness
 - compensation / Saga interface
 - provider capability attestation
 - crash-safe replicated-log backend

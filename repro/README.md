@@ -52,6 +52,10 @@ This is still a process-crash experiment, not a physical power-loss or storage-c
 
 `sqlite_wal_crash_summary.json` kills a child process before or after SQLite `COMMIT`, for one-record and two-record transactions. Pre-commit batches are invisible after reopen; committed batches are fully visible; `PRAGMA integrity_check` reports `ok` in all four cases. This is a process-crash transaction-boundary test, not a physical power-loss test.
 
+### HTTP provider + lease crash boundary
+
+`http_runtime_crash_summary.json` summarizes a same-host cross-process probe where provider effects and lease ownership are accessed only through HTTP services. Runtime crash/recovery preserves one effect and the canonical context across all tested cuts. This is not a WAN, multi-host partition, TLS, or physical power-loss experiment.
+
 ### Ambiguous provider recovery
 
 `ambiguous_recovery_summary.json` records the regression for a provider with neither idempotency nor status query: ambiguous execution is kept unresolved and is not blindly retried.

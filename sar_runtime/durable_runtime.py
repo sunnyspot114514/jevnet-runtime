@@ -52,15 +52,21 @@ class DurableRuntime:
         stream_id: str,
         dar: DurableAuthorizationRecord,
         reason: str,
+        retry_safe: bool = False,
     ) -> UnresolvedOutcome:
         unresolved = UnresolvedOutcome(
             action_id=dar.action_id,
             auth_id=dar.auth_id,
             idempotency_key=dar.idempotency_key,
             reason=reason,
-            retry_safe=False,
+            retry_safe=retry_safe,
             required_operator_action=(
-                "RECONCILE_EXTERNALLY_OR_ESCALATE; DO_NOT_BLINDLY_RETRY"
+                "RETRY_OR_RECONCILE_LATER"
+                if retry_safe
+                else (
+                    "RECONCILE_EXTERNALLY_OR_ESCALATE; "
+                    "DO_NOT_BLINDLY_RETRY"
+                )
             ),
         )
         append_once(store, stream_id, unresolved)
@@ -88,7 +94,10 @@ class DurableRuntime:
             return existing_coc
 
         existing_unresolved = store.find_first(stream_id, "UnresolvedOutcome")
-        if existing_unresolved is not None:
+        if (
+            existing_unresolved is not None
+            and not existing_unresolved.retry_safe
+        ):
             return existing_unresolved
 
         dar = store.find_first(stream_id, "DurableAuthorizationRecord")
@@ -148,7 +157,20 @@ class DurableRuntime:
                 append_once(store, stream_id, intent)
 
             if provider.capabilities.supports_status_query:
-                receipt = provider.query(dar.idempotency_key)
+                try:
+                    receipt = provider.query(dar.idempotency_key)
+                except AmbiguousProviderOutcome:
+                    if not provider.capabilities.supports_idempotency:
+                        return self._unresolved(
+                            store=store,
+                            stream_id=stream_id,
+                            dar=dar,
+                            reason=(
+                                "PROVIDER_QUERY_UNAVAILABLE_"
+                                "WITHOUT_IDEMPOTENT_RETRY"
+                            ),
+                        )
+                    receipt = None
         else:
             intent = existing_intent
             if intent is None:
@@ -171,15 +193,31 @@ class DurableRuntime:
             except AmbiguousProviderOutcome:
                 # Timeout / lost response is UNKNOWN, not failure.
                 if provider.capabilities.supports_status_query:
-                    receipt = provider.query(dar.idempotency_key)
+                    try:
+                        receipt = provider.query(dar.idempotency_key)
+                    except AmbiguousProviderOutcome:
+                        receipt = None
+
                     if receipt is not None:
                         pass
                     elif provider.capabilities.supports_idempotency:
-                        receipt = self.engine.dispatch(
-                            dar=dar,
-                            intent=intent,
-                            provider=provider,
-                        )
+                        try:
+                            receipt = self.engine.dispatch(
+                                dar=dar,
+                                intent=intent,
+                                provider=provider,
+                            )
+                        except AmbiguousProviderOutcome:
+                            return self._unresolved(
+                                store=store,
+                                stream_id=stream_id,
+                                dar=dar,
+                                reason=(
+                                    "IDEMPOTENT_PROVIDER_TEMPORARILY_"
+                                    "UNREACHABLE"
+                                ),
+                                retry_safe=True,
+                            )
                     else:
                         return self._unresolved(
                             store=store,
@@ -191,11 +229,23 @@ class DurableRuntime:
                             ),
                         )
                 elif provider.capabilities.supports_idempotency:
-                    receipt = self.engine.dispatch(
-                        dar=dar,
-                        intent=intent,
-                        provider=provider,
-                    )
+                    try:
+                        receipt = self.engine.dispatch(
+                            dar=dar,
+                            intent=intent,
+                            provider=provider,
+                        )
+                    except AmbiguousProviderOutcome:
+                        return self._unresolved(
+                            store=store,
+                            stream_id=stream_id,
+                            dar=dar,
+                            reason=(
+                                "IDEMPOTENT_PROVIDER_TEMPORARILY_"
+                                "UNREACHABLE"
+                            ),
+                            retry_safe=True,
+                        )
                 else:
                     return self._unresolved(
                         store=store,

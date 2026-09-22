@@ -233,7 +233,7 @@ The package borrows several architectural ideas from [DeepSeek Harness](https://
 
 JevNet Runtime stays deliberately smaller. It does not try to reproduce DSH's full agent loop, UI, MCP stack, sandbox implementation, or plugin ecosystem.
 
-See [docs/DSH_INSPIRATION.md](docs/DSH_INSPIRATION.md) for the design crosswalk.
+See [docs/DSH_INSPIRATION.md](docs/DSH_INSPIRATION.md) for the design crosswalk and [docs/HTTP_CONTRACT.md](docs/HTTP_CONTRACT.md) for the provider/lease wire contract.
 
 ## Plugin and service composition
 
@@ -313,8 +313,10 @@ Only `allowed-once` grants authority. A missing or broken answerer resolves to `
 - `SQLiteDurableStore` (WAL + `synchronous=FULL`, per-record SHA-256)
 - `InMemoryProvider`
 - `SQLiteProviderAdapter`
+- `HTTPProviderAdapter`
 - `InMemoryLeaseCoordinator`
 - `SQLiteLeaseCoordinator`
+- `HTTPLeaseCoordinator`
 - `EventSourcedStore`
 
 ## Research evidence
@@ -375,8 +377,9 @@ It is not yet:
 The next practical backends are:
 
 - Postgres `DurableStore`
-- real HTTP/API `ProviderAdapter`
-- Redis/etcd-style `LeaseCoordinator`
+- TLS/authenticated HTTP provider + lease deployments
+- Redis/etcd-backed `LeaseCoordinator`
+- multi-host network-partition / delayed-response fault harness
 - compensation / Saga interface
 - provider capability attestation
 - crash-safe replicated-log backend

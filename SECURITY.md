@@ -22,4 +22,6 @@ Security guarantees depend on the capabilities of the configured backend.
 
 In particular, exactly-once-style recovery requires provider primitives such as idempotency or queryable durable receipts. The runtime cannot manufacture those guarantees when the external provider does not expose them.
 
-The in-memory reference backends are for protocol testing, not production isolation.
+The in-memory and SQLite/HTTP reference backends are for protocol testing, not production isolation.
+
+The bundled HTTP provider/lease reference servers bind to loopback in the test harness and do not implement TLS, authentication, multi-tenant authorization, or rate limiting. Do not expose them directly to an untrusted network.

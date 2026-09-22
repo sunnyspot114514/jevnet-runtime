@@ -1,0 +1,29 @@
+{
+  "evidence_type": "cross_process_http_provider_and_lease_crash_probe",
+  "source": "http_runtime_crash_probe.py",
+  "cut_points": [
+    "after_intent",
+    "after_http_effect",
+    "after_receipt",
+    "after_coc"
+  ],
+  "topology": {
+    "runtime_process": "SQLite runtime journal only",
+    "provider_service": "separate loopback HTTP process + SQLite effect ledger",
+    "lease_service": "separate loopback HTTP process + SQLite fence ledger"
+  },
+  "results": {
+    "all_effect_counts_one": true,
+    "all_contexts_match_no_crash_baseline": true,
+    "all_second_recoveries_fixed_point": true,
+    "after_intent_recovery_fence": 2,
+    "after_http_effect_recovery_fence": 2,
+    "provider_integrity_check": "ok",
+    "lease_integrity_check": "ok"
+  },
+  "limitations": [
+    "Provider and lease run as separate loopback HTTP processes on the same host.",
+    "Reference services do not use TLS or authentication.",
+    "This is not a WAN, multi-host partition, packet-loss, TLS, or physical power-loss experiment."
+  ]
+}
