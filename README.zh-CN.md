@@ -298,9 +298,11 @@ unavailable
 Reference backend：
 
 - `InMemoryDurableStore`
-- `SQLiteDurableStore`（WAL + `synchronous=FULL` reference backend）
+- `SQLiteDurableStore`（WAL + `synchronous=FULL` + 每条 record SHA-256）
 - `InMemoryProvider`
+- `SQLiteProviderAdapter`
 - `InMemoryLeaseCoordinator`
+- `SQLiteLeaseCoordinator`
 - `EventSourcedStore`
 
 ## 为什么这些设计值得继续做？
@@ -314,7 +316,8 @@ Reference backend：
 - 10,000-action 结果是 **in-memory fault-injection simulation**：其中出现 0 unauthorized effect、0 missing authorized effect、0 replay digest drift。它不是生产可靠性统计。
 - 442,524-state / 1,818,882-transition 结果属于**给定 reduced finite model 内的 model checking**，不是完整 Paxos/Raft 证明，也不是生产可靠性保证。
 - 新增的 **runtime + model context 耦合恢复实验**表明：进程状态清空后，从 durable event log 重建出的模型可见 view 与正常 canonical projection 一致，未提交的 volatile 假记忆不会进入恢复后的 context。
-- 更进一步的 **SQLite 跨独立进程 reopen 实验**中，进程 A 写入后退出，进程 B 只依赖数据库文件重建出完全相同的 context hash。它仍然不是物理断电、torn write 或文件系统故障证明。
+- 更进一步的 **SQLite 跨独立进程 reopen 实验**中，进程 A 写入后退出，进程 B 只依赖数据库文件重建出完全相同的 context hash。
+- 新增的 **7-cut hard-crash matrix** 会在 DAR、Intent、provider effect、Receipt、Reconciliation、COC、context projection 后直接结束子进程；runtime journal、provider effect、lease/fence 分别由独立 SQLite reference DB 持久化。所有场景恢复后 effect count 都保持 1，context 与无 crash baseline 一致。它仍然不是物理断电、torn write 或文件系统故障证明。
 - provider 同时缺少 idempotency 和 status query 时，ambiguous execution 现在会持久化为 **UNRESOLVED**，不会盲目重试。
 
 脱敏后的公开复现摘要已经提交到 [repro/](repro/)。
@@ -356,8 +359,8 @@ JevNet Runtime 当前还是 **research prototype / developer preview**。
 
 ## Roadmap
 
-- SQLite / Postgres `DurableStore`
-- HTTP/API `ProviderAdapter`
+- Postgres `DurableStore`
+- 真实 HTTP/API `ProviderAdapter`
 - Redis/etcd 风格 `LeaseCoordinator`
 - compensation / Saga interface
 - provider capability attestation

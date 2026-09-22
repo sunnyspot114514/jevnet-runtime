@@ -1,0 +1,34 @@
+{
+  "evidence_type": "cross_process_hard_crash_matrix",
+  "source": "sqlite_hard_crash_matrix.py",
+  "cut_points": [
+    "after_dar",
+    "after_intent",
+    "after_provider_effect",
+    "after_receipt",
+    "after_reconciliation",
+    "after_coc",
+    "after_context_projection"
+  ],
+  "reference_backends": {
+    "runtime_journal": "SQLiteDurableStore",
+    "provider_effects": "SQLiteProviderAdapter",
+    "lease_fencing": "SQLiteLeaseCoordinator"
+  },
+  "results": {
+    "all_effect_counts_one": true,
+    "all_contexts_match_no_crash_baseline": true,
+    "all_second_recoveries_fixed_point": true,
+    "recovery_after_intent_uses_higher_fence": true,
+    "recovery_after_provider_effect_uses_higher_fence": true
+  },
+  "journal_integrity": {
+    "record_sha256": true,
+    "corrupted_row_fails_closed_with": "DurableRecordCorruptionError"
+  },
+  "limitations": [
+    "Child processes are terminated abruptly, but the test does not simulate physical power loss.",
+    "The experiment does not inject torn SQLite pages, controller-cache loss, disk corruption, or filesystem reordering.",
+    "SQLite provider and lease adapters are local reference implementations, not independent remote services."
+  ]
+}

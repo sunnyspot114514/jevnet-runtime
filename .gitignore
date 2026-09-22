@@ -33,4 +33,5 @@ dist/
 tmp_*.html
 context_recovery_experiment_analysis.json
 sqlite_context_process_probe_analysis.json
+sqlite_hard_crash_matrix_analysis.json
 ROUND9_CAPABILITY_CORRELATED_ERROR_FINDINGS.md

@@ -99,8 +99,23 @@ class DurableRuntime:
         if not ok:
             raise ValueError(reason)
 
-        existing_intent = store.find_first(stream_id, "DispatchIntent")
-        existing_receipt = store.find_first(stream_id, "ProviderReceipt")
+        records = store.read(stream_id)
+        existing_intents = [
+            row for row in records
+            if isinstance(row, DispatchIntent)
+        ]
+        existing_intent = (
+            existing_intents[-1]
+            if existing_intents
+            else None
+        )
+        existing_receipt = next(
+            (
+                row for row in reversed(records)
+                if isinstance(row, ProviderReceipt)
+            ),
+            None,
+        )
 
         # A previous process may have crossed the provider boundary after
         # persisting intent but before persisting a receipt. With neither
@@ -118,20 +133,33 @@ class DurableRuntime:
                 reason="PREEXISTING_INTENT_WITHOUT_RECONCILIATION_PRIMITIVE",
             )
 
-        if existing_intent is None:
+        receipt = existing_receipt
+
+        if receipt is None:
+            # Recovery that may touch the provider must acquire fresh execution
+            # ownership. A new owner receives a higher fence and appends a
+            # superseding intent rather than silently reusing stale authority.
             lease = leases.acquire(resource_id, owner_id)
             intent = self.engine.build_dispatch_intent(
                 dar=dar,
                 fence=lease.fence,
             )
-            append_once(store, stream_id, intent)
+            if existing_intent != intent:
+                append_once(store, stream_id, intent)
+
+            if provider.capabilities.supports_status_query:
+                receipt = provider.query(dar.idempotency_key)
         else:
             intent = existing_intent
-
-        receipt = existing_receipt
-
-        if receipt is None and provider.capabilities.supports_status_query:
-            receipt = provider.query(dar.idempotency_key)
+            if intent is None:
+                # A durable receipt without an intent violates the execution
+                # protocol and must not be silently canonicalized.
+                return self._unresolved(
+                    store=store,
+                    stream_id=stream_id,
+                    dar=dar,
+                    reason="RECEIPT_WITHOUT_DISPATCH_INTENT",
+                )
 
         if receipt is None:
             try:

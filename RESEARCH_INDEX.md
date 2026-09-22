@@ -20,6 +20,7 @@ This file indexes the main experiment reports.
 | Round 10 | [ROUND10_END_TO_END_FINDINGS.md](ROUND10_END_TO_END_FINDINGS.md) | End-to-end runtime composition |
 | Round 11 | [ROUND11_CAPABILITY_MANIFEST_FINDINGS.md](ROUND11_CAPABILITY_MANIFEST_FINDINGS.md) | Capability Manifest + 3-ballot exhaustive checker |
 | Round 12 | [ROUND12_RUNTIME_PACKAGE_FINDINGS.md](ROUND12_RUNTIME_PACKAGE_FINDINGS.md) | Reusable model-agnostic runtime package |
+| Round 13 | [ROUND13_CRASH_CONTEXT_RECOVERY_FINDINGS.md](ROUND13_CRASH_CONTEXT_RECOVERY_FINDINGS.md) | Ambiguous outcomes, coupled context replay, SQLite process recovery, hard-crash matrix |
 
 ## Formal / distributed artifacts
 

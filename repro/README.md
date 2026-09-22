@@ -42,6 +42,12 @@ It is not a real power-loss / disk-durability experiment.
 
 `sqlite_context_process_summary.json` records a stronger reference test: one Python process writes canonical state to `SQLiteDurableStore`, exits, and a second Python process reconstructs the model-visible view from the database file alone. The recovered hash matches exactly. This still does **not** constitute a physical power-loss or filesystem-corruption test.
 
+### Cross-process hard-crash matrix
+
+`sqlite_hard_crash_matrix_summary.json` summarizes seven abrupt process-kill cut points across DAR, Intent, provider effect, Receipt, Reconciliation, COC, and model-context projection. Runtime journal, provider effects, and lease/fence state all use separate SQLite reference stores. Every recovered case keeps exactly one provider effect and reconstructs the no-crash context projection.
+
+This is still a process-crash experiment, not a physical power-loss or storage-corruption guarantee.
+
 ### Ambiguous provider recovery
 
 `ambiguous_recovery_summary.json` records the regression for a provider with neither idempotency nor status query: ambiguous execution is kept unresolved and is not blindly retried.

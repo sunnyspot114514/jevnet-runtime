@@ -91,19 +91,31 @@ class ContextProjector:
             None,
         )
         intent = next(
-            (r for r in records if isinstance(r, DispatchIntent)),
+            (
+                r for r in reversed(records)
+                if isinstance(r, DispatchIntent)
+            ),
             None,
         )
         receipt = next(
-            (r for r in records if isinstance(r, ProviderReceipt)),
+            (
+                r for r in reversed(records)
+                if isinstance(r, ProviderReceipt)
+            ),
             None,
         )
         unresolved = next(
-            (r for r in records if isinstance(r, UnresolvedOutcome)),
+            (
+                r for r in reversed(records)
+                if isinstance(r, UnresolvedOutcome)
+            ),
             None,
         )
         coc = next(
-            (r for r in records if isinstance(r, CanonicalOutcomeCommit)),
+            (
+                r for r in reversed(records)
+                if isinstance(r, CanonicalOutcomeCommit)
+            ),
             None,
         )
 

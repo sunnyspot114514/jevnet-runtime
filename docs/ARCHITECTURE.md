@@ -115,7 +115,11 @@ primitive capable of resolving an ambiguous outcome.
 
 Uncommitted/proposed memory and volatile model beliefs are excluded.
 
-`SQLiteDurableStore` provides a file-backed reference backend using WAL and `synchronous=FULL`. The cross-process probe verifies reopen/replay semantics, but does not claim physical power-loss or filesystem-fault correctness.
+`SQLiteDurableStore` provides a file-backed reference backend using WAL and `synchronous=FULL`, with a per-record SHA-256 checked during replay. `SQLiteProviderAdapter` and `SQLiteLeaseCoordinator` provide separate reference databases for provider reality and monotonic execution fences.
+
+The hard-crash matrix uses all three databases and kills child processes after DAR, Intent, provider effect, Receipt, Reconciliation, COC, and context projection. Recovery preserves one external effect and the no-crash context projection in every tested cut.
+
+These are process-restart reference semantics. They do not establish correctness under physical power loss, torn pages, disk corruption, controller-cache loss, or filesystem reordering.
 
 ## Distributed outcome
 

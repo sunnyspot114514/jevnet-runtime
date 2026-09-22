@@ -36,10 +36,12 @@ Reference implementations:
 InMemoryDurableStore
 SQLiteDurableStore
 InMemoryProvider
+SQLiteProviderAdapter
 InMemoryLeaseCoordinator
+SQLiteLeaseCoordinator
 ```
 
-`SQLiteDurableStore` uses WAL + `synchronous=FULL` and is intended for local/process-restart testing. It is not presented as a validated power-loss backend.
+The SQLite references use WAL + `synchronous=FULL`. `SQLiteDurableStore` also verifies a per-record SHA-256 during replay. These backends are intended for local/process-restart testing and are not presented as validated power-loss backends.
 
 ## Minimal execution flow
 
@@ -130,6 +132,8 @@ See [../docs/DSH_INSPIRATION.md](../docs/DSH_INSPIRATION.md).
 ## Ambiguous outcomes and model context
 
 If a provider has neither idempotency nor status query, an ambiguous post-dispatch timeout is persisted as `UnresolvedOutcome` and is never blindly retried.
+
+On process recovery, any execution that still needs to touch the provider acquires a fresh lease/fence and may append a superseding `DispatchIntent`. Old execution authority is not silently reused.
 
 `ContextProjector` reconstructs model-visible conversation, committed memory, and action status from durable records. Uncommitted volatile beliefs do not become context after restart.
 
