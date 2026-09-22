@@ -48,6 +48,10 @@ It is not a real power-loss / disk-durability experiment.
 
 This is still a process-crash experiment, not a physical power-loss or storage-corruption guarantee.
 
+### SQLite transaction/WAL crash boundary
+
+`sqlite_wal_crash_summary.json` kills a child process before or after SQLite `COMMIT`, for one-record and two-record transactions. Pre-commit batches are invisible after reopen; committed batches are fully visible; `PRAGMA integrity_check` reports `ok` in all four cases. This is a process-crash transaction-boundary test, not a physical power-loss test.
+
 ### Ambiguous provider recovery
 
 `ambiguous_recovery_summary.json` records the regression for a provider with neither idempotency nor status query: ambiguous execution is kept unresolved and is not blindly retried.

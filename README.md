@@ -329,7 +329,8 @@ A few results that directly motivate the current design:
 - A reduced 5-replica / quorum-3 / 3-ballot **finite-model checker** exhaustively explored **442,524 states / 1,818,882 transitions** with no conflicting chosen COC in that stated finite model. This is not a full Paxos/Raft proof.
 - A coupled **runtime + model-context replay experiment** reconstructs the same canonical model-visible view after process-state loss while excluding uncommitted volatile beliefs.
 - A stronger **SQLite cross-process reopen experiment** writes state in one Python process and reconstructs the identical context hash in a second process using only the database file.
-- A seven-cut **hard-crash matrix** abruptly terminates child processes after DAR, Intent, provider effect, Receipt, Reconciliation, COC, or context projection. Runtime journal, provider effects, and lease/fence state use separate SQLite reference databases; every recovered case keeps one provider effect and reconstructs the no-crash context. This is still not a physical power-loss / filesystem-fault result.
+- A seven-cut **hard-crash matrix** abruptly terminates child processes after DAR, Intent, provider effect, Receipt, Reconciliation, COC, or context projection. Runtime journal, provider effects, and lease/fence state use separate SQLite reference databases; every recovered case keeps one provider effect and reconstructs the no-crash context.
+- A smaller **SQLite transaction crash probe** kills the process before or after COMMIT for one-record and two-record batches. Pre-commit batches remain invisible after reopen; post-commit batches are fully visible; SQLite integrity checks remain `ok`. These are process-crash results, not physical power-loss / filesystem-fault guarantees.
 - When a provider exposes neither idempotency nor status query, an ambiguous execution is now durably marked **UNRESOLVED** and is not blindly retried.
 
 Sanitized public summaries are committed under [repro/](repro/).

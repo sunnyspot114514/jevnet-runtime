@@ -1,0 +1,39 @@
+{
+  "evidence_type": "sqlite_transaction_process_crash_probe",
+  "source": "sqlite_wal_crash_probe.py",
+  "cases": [
+    {
+      "name": "one_before_commit",
+      "records_attempted": 1,
+      "visible_after_reopen": 0,
+      "integrity": "ok"
+    },
+    {
+      "name": "one_after_commit",
+      "records_attempted": 1,
+      "visible_after_reopen": 1,
+      "integrity": "ok"
+    },
+    {
+      "name": "two_before_commit",
+      "records_attempted": 2,
+      "visible_after_reopen": 0,
+      "integrity": "ok"
+    },
+    {
+      "name": "two_after_commit",
+      "records_attempted": 2,
+      "visible_after_reopen": 2,
+      "integrity": "ok"
+    }
+  ],
+  "conclusions": {
+    "precommit_batch_visible_after_process_crash": false,
+    "postcommit_batch_fully_visible_after_process_crash": true,
+    "sqlite_integrity_check_ok_in_all_cases": true
+  },
+  "limitations": [
+    "Tests process termination around SQLite COMMIT.",
+    "Does not simulate physical power loss, torn pages, controller-cache loss, disk corruption, or filesystem reordering."
+  ]
+}

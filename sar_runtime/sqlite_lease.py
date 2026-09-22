@@ -101,6 +101,10 @@ class SQLiteLeaseCoordinator:
             fence=int(row[1]),
         )
 
+    def integrity_check(self) -> str:
+        with self._connect() as conn:
+            return str(conn.execute("PRAGMA integrity_check").fetchone()[0])
+
     def release(self, token: LeaseToken) -> bool:
         conn = self._connect()
         try:

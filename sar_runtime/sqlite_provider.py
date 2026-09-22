@@ -248,3 +248,7 @@ class SQLiteProviderAdapter:
     def call_count(self) -> int:
         with self._connect() as conn:
             return self._meta(conn, "call_count")
+
+    def integrity_check(self) -> str:
+        with self._connect() as conn:
+            return str(conn.execute("PRAGMA integrity_check").fetchone()[0])

@@ -254,6 +254,11 @@ def recover(
         "context_hash": stable_hash(view),
         "context": view,
         "runtime_record_types": record_types(runtime_db),
+        "integrity": {
+            "runtime": SQLiteDurableStore(runtime_db).integrity_check(),
+            "provider": provider.integrity_check(),
+            "lease": leases.integrity_check(),
+        },
         "current_lease": (
             None
             if leases.current("workspace") is None
@@ -352,6 +357,11 @@ def orchestrate() -> dict[str, Any]:
             assert second["context_hash"] == baseline["context_hash"], cut
             assert first["context"] == baseline["context"], cut
             assert "guessed-success" not in json.dumps(first["context"])
+            assert first["integrity"] == {
+                "runtime": "ok",
+                "provider": "ok",
+                "lease": "ok",
+            }, (cut, first["integrity"])
 
             types = first["runtime_record_types"]
             assert types.count("DurableAuthorizationRecord") == 1, (cut, types)
@@ -373,6 +383,7 @@ def orchestrate() -> dict[str, Any]:
                     "runtime_record_types": types,
                     "dispatch_intent_count": types.count("DispatchIntent"),
                     "current_lease": first["current_lease"],
+                    "integrity": first["integrity"],
                 }
             )
 
@@ -389,6 +400,10 @@ def orchestrate() -> dict[str, Any]:
             ),
             "all_second_recoveries_fixed_point": all(
                 r["second_recovery_fixed_point"] for r in rows
+            ),
+            "all_sqlite_integrity_checks_ok": all(
+                set(r["integrity"].values()) == {"ok"}
+                for r in rows
             ),
             "limitations": [
                 "Uses SQLite reference backends for runtime, provider, and lease/fence state.",

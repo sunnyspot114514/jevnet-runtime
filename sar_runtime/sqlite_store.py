@@ -215,3 +215,7 @@ class SQLiteDurableStore:
                 """
             ).fetchall()
         return tuple(row[0] for row in rows)
+
+    def integrity_check(self) -> str:
+        with self._connect() as conn:
+            return str(conn.execute("PRAGMA integrity_check").fetchone()[0])
