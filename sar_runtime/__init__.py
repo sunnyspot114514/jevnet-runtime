@@ -28,6 +28,10 @@ from .adapters import ProviderAdapter
 from .lease import LeaseCoordinator, LeaseToken, InMemoryLeaseCoordinator
 from .consensus import build_commit_certificate, validate_commit_certificate
 from .builders import build_proposal, build_vote
+from .events import SessionEvent, SessionLog, EventSourcedStore
+from .approval import ApprovalService, ApprovalRequest
+from .plugins import PluginManager, ServiceRegistry, ValuePlugin
+from .harness import Harness, build_default_harness
 
 __all__ = [
     "ToolCallProposal",
@@ -57,4 +61,14 @@ __all__ = [
     "validate_commit_certificate",
     "build_proposal",
     "build_vote",
+    "SessionEvent",
+    "SessionLog",
+    "EventSourcedStore",
+    "ApprovalService",
+    "ApprovalRequest",
+    "PluginManager",
+    "ServiceRegistry",
+    "ValuePlugin",
+    "Harness",
+    "build_default_harness",
 ]

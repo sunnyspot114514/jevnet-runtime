@@ -1,49 +1,57 @@
 # sar_runtime
 
-Minimal model-agnostic State-Aware Runtime research package extracted from the
-Jev topology/runtime experiments.
+Model-agnostic runtime primitives for turning AI-agent proposals into auditable, durable side effects.
 
-## Authority flow
+This package is the reusable core of [JevNet Runtime](../README.md).
 
-ProposalRecord
-→ CapabilityManifest validation
-→ AuthorizationVote quorum
-→ DurableAuthorizationRecord
-→ DispatchIntent
-→ ProviderReceipt
-→ ReconciliationRecord
-→ CanonicalOutcomeCommit
-→ ReplicatedCommitCertificate
+## Install
 
-The package intentionally does not depend on Jev/LLM APIs.
+```bash
+python -m pip install -e .
+```
 
-Models may:
-- propose tool calls;
-- produce semantic authorization votes.
+Run the zero-key demo:
 
-The runtime owns:
-- canonical capability identity;
-- deterministic policy validation;
-- authorization quorum counting;
-- manifest version/hash binding;
-- dispatch binding;
-- idempotency/fencing adapter behavior;
-- receipt reconciliation;
-- COC construction;
-- replicated commit certificate validation.
+```bash
+python -m sar_runtime demo
+```
 
-## Minimal example
+## Core interfaces
 
-~~~python
+```text
+CapabilityManifest
+DurableStore
+ProviderAdapter
+LeaseCoordinator
+RuntimeEngine
+DurableRuntime
+ApprovalService
+PluginManager
+EventSourcedStore
+```
+
+Reference implementations:
+
+```text
+InMemoryDurableStore
+InMemoryProvider
+InMemoryLeaseCoordinator
+```
+
+## Minimal execution flow
+
+```python
 from sar_runtime import (
     CapabilityManifest,
     CapabilityManifestEntry,
-    RuntimeEngine,
+    DurableRuntime,
+    InMemoryDurableStore,
+    InMemoryLeaseCoordinator,
+    InMemoryProvider,
     ToolCallProposal,
     build_proposal,
     build_vote,
     issue_dar,
-    InMemoryProvider,
 )
 
 manifest = CapabilityManifest(
@@ -64,14 +72,12 @@ proposal = build_proposal(
     [ToolCallProposal("local.write_file", {"path": "notes.md"})],
 )
 
-votes = [
-    build_vote("A1", proposal, True),
-    build_vote("A2", proposal, True),
-]
-
 dar = issue_dar(
     proposal=proposal,
-    votes=votes,
+    votes=[
+        build_vote("A1", proposal, True),
+        build_vote("A2", proposal, True),
+    ],
     threshold=2,
     manifest=manifest,
     action_id="ACT-1",
@@ -80,12 +86,62 @@ dar = issue_dar(
     auth_generation=1,
 )
 
-engine = RuntimeEngine(manifest)
+store = InMemoryDurableStore()
+leases = InMemoryLeaseCoordinator()
 provider = InMemoryProvider()
-intent = engine.build_dispatch_intent(dar=dar, fence=1)
-receipt = engine.dispatch(dar=dar, intent=intent, provider=provider)
-coc, reconciliation = engine.reconcile(dar=dar, receipts=[receipt])
-~~~
+runtime = DurableRuntime(manifest)
 
-This package remains a research prototype, not a production distributed-system
-implementation.
+runtime.persist_dar(store=store, stream_id="ACT-1", dar=dar)
+
+coc = runtime.recover_action(
+    store=store,
+    stream_id="ACT-1",
+    provider=provider,
+    leases=leases,
+    resource_id="workspace",
+    owner_id="worker-1",
+)
+```
+
+## DSH-inspired composition
+
+The optional `Harness` layer adds:
+
+- dependency-aware plugins;
+- named service seams;
+- append-only event-sourced storage;
+- fail-closed approval;
+- replaceable provider/store/lease services.
+
+```python
+from sar_runtime import build_default_harness
+
+h = build_default_harness(manifest)
+print(h.topology())
+```
+
+The package does not implement a full agent loop, UI, MCP stack, or OS sandbox.
+
+See [../docs/DSH_INSPIRATION.md](../docs/DSH_INSPIRATION.md).
+
+## Authority rule
+
+A model-generated value does not become authoritative merely because it is high-confidence.
+
+The package upgrades authority explicitly:
+
+```text
+proposal
+-> validated capability
+-> authorization
+-> durable dispatch intent
+-> observed receipt
+-> canonical outcome
+-> replicated commit evidence
+```
+
+## Status
+
+Research prototype / developer preview.
+
+The in-memory implementations are reference backends for testing protocol semantics. Production deployments should supply durable storage and real provider/lease adapters.

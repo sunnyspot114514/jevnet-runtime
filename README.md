@@ -1,209 +1,160 @@
-# JevNet Runtime: From Jev Topologies to a State-Aware Agent Runtime
+# JevNet Runtime
 
-[🇺🇸 English](README.md) | [🇨🇳 中文说明](README.zh-CN.md)
+[![CI](https://github.com/sunnyspot114514/jevnet-runtime/actions/workflows/ci.yml/badge.svg)](https://github.com/sunnyspot114514/jevnet-runtime/actions/workflows/ci.yml)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-blue)](pyproject.toml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
 
-JevNet Runtime began with a narrow question: **can Jev/SystemOne act as a typed computation primitive inside MLP-, RNN-, GNN-, Transformer-, and connectome-shaped graphs?**
+[🇺🇸 English](README.md) | [🇨🇳 中文](README.zh-CN.md)
 
-The experiments converged on a stronger systems result:
+**A durable side-effect runtime for AI agents.**
 
-> **Model output should have Proposal Authority, not State Authority.**
+JevNet Runtime sits between an agent and the outside world. The model may propose a tool call; the runtime decides whether that proposal is allowed to become a real, durable side effect.
 
-The current project focuses on a model-agnostic **State-Aware Runtime (SAR)** for long-horizon agents: typed proposals, capability manifests, durable authorization, idempotent and fenced execution, observation reconciliation, canonical outcome commits, and replicated commit safety.
+> **Models propose. The runtime authorizes, executes, observes, and commits.**
 
-The reusable core lives in [`sar_runtime/`](sar_runtime/). Jev is now an optional semantic proposer / router / authorizer above the runtime rather than part of the trusted runtime core.
+The reusable runtime is model-agnostic. **Jev is the historical origin of the research, not a dependency of the runtime package.**
 
-## Current Status
-
-- **Reusable `sar_runtime` package is working locally.**
-- Capability-manifest validation, quorum DAR, durable recovery, idempotency, fencing, receipt reconciliation, COC construction, and replicated commit certificates are implemented as model-agnostic interfaces.
-- Fresh capability benchmark: **Planner + Capability Manifest = 24/24 authorization-correct**; direct semantic quorum is **22/24** and repeats a correlated `chmod` permission-change false authorization.
-- Planner tool selection is imperfect (**67/72 tool votes correct**), yet capability gating still keeps all 24 authorization outcomes correct by failing closed.
-- Reduced 5-replica / quorum-3 / 3-ballot COC checker exhaustively explores **442,524 states / 1,818,882 transitions** with **0 conflicting chosen COCs** in the stated reduced single-slot model.
-- A broader crash/partition model remains explicitly **inconclusive** because it reaches the state cap.
-- Real MaleCNS type-level and body-level connectome motifs were also tested as Jev message-passing graphs; these experiments exposed soft-probability provenance leakage and motivated canonical runtime gating.
-- All committed regression tests pass locally.
-
-## Core Idea
-
-```text
-Natural-language intent
-        |
-        v
-Model / Jev proposal
-        |
-        v
-ToolCallProposal
-        |
-        v
-Capability Manifest
-        |
-        v
-Deterministic validation
-        |
-        v
-Authorization quorum
-        |
-        v
-Durable Authorization Record
-        |
-        v
-Dispatch Intent + lease/fence + idempotency
-        |
-        v
-External provider effect
-        |
-        v
-Provider Receipt
-        |
-        v
-Reconciliation
-        |
-        v
-Canonical Outcome Commit
-        |
-        v
-Replicated Commit Certificate
-        |
-        v
-Global canonical state
-```
-
-The model may be uncertain. The runtime decides when a model-generated interpretation acquires authority.
-
-## Why This Exists
-
-Long-horizon agents can fail before the final text surface:
-
-1. uncertain model output becomes durable state too early;
-2. the same action is retried after an ambiguous timeout;
-3. a stale runtime replica keeps acting after lease handoff;
-4. authorization is revoked while a command is in flight;
-5. duplicate, forged, or conflicting observations arrive out of order;
-6. a local COC is mistaken for global canonical truth;
-7. multiple same-model authorizers share the same semantic blind spot.
-
-JevNet Runtime turns these into explicit runtime contracts instead of treating them only as hidden model-behavior problems.
-
-## Reusable Runtime Package
-
-The [`sar_runtime`](sar_runtime/) package currently exposes typed records for proposals, capability validation, authorization, dispatch, receipts, reconciliation, COC, and replicated commit certificates.
-
-Core interfaces / reference implementations:
-
-```text
-CapabilityManifest
-DurableStore / InMemoryDurableStore
-ProviderAdapter / InMemoryProvider
-LeaseCoordinator / InMemoryLeaseCoordinator
-RuntimeEngine
-DurableRuntime
-build_commit_certificate()
-validate_commit_certificate()
-```
-
-The core package has no model dependency.
-
-## Key Experimental Results
-
-### Same-model quorum does not eliminate correlated semantic error
-
-Three identical Jev authorizers unanimously approved an actual permission-changing command, with roughly `P(APPROVE) ≈ 0.93`. A fresh benchmark reproduced the issue with different wording.
-
-This shows that 2-of-3 quorum handles one bad voter, but not a shared model misconception.
-
-### Capability Manifest contains the correlated error
-
-The planner+manifest path maps the fresh case to:
-
-```text
-filesystem.chmod
-    -> permission_change
-    -> forbidden
-    -> no DAR
-```
-
-Fresh benchmark:
-
-| Pipeline | Authorization accuracy |
-|---|---:|
-| Direct semantic quorum | 22/24 |
-| **Planner + Capability Manifest** | **24/24** |
-
-The planner itself is not perfect. Correctness comes from narrowing model authority, not from assuming a perfect planner.
-
-### Durable recovery survives process amnesia
-
-A 10,000-action stress run included 6,093 simulated crashes and 473 duplicate durable records.
-
-Final audit:
-- unauthorized effects: 0
-- missing authorized effects: 0
-- unauthorized COCs: 0
-- missing authorized COCs: 0
-- canonical digest drift after replay: 0
-
-### Idempotency and fencing solve different races
-
-- **Idempotency** prevents replay of the same authorized action.
-- **Fencing** prevents an old execution owner from issuing a different stale action after lease handoff.
-
-### Replicated COC safety
-
-Reduced 5-replica / quorum-3 / 3-ballot checker:
-
-```text
-states       = 442,524
-transitions  = 1,818,882
-state cap    = not hit
-conflicting COC states = 0
-```
-
-This is a finite single-slot safety result, not a full Paxos/Raft proof.
-
-## Repository Structure
-
-```text
-sar_runtime/
-  types.py
-  manifest.py
-  authorization.py
-  adapters.py
-  provider.py
-  store.py
-  lease.py
-  durable_runtime.py
-  runtime.py
-  consensus.py
-  builders.py
-  README.md
-
-ROUND*.md
-ReplicatedCOC.tla
-ReplicatedCOC_*.cfg
-
-jev_authorizer_*.py
-jev_capability_*.py
-replicated_log_*.py
-flygraph_*.py
-runtime_state_*.py
-test_*.py
-```
-
-Generated result directories and API secrets are intentionally ignored by Git.
-
-## Quick Start
-
-Python 3.12 is recommended.
+## 60-second demo
 
 ```bash
 git clone https://github.com/sunnyspot114514/jevnet-runtime.git
 cd jevnet-runtime
 python -m pip install -e .
+python -m sar_runtime demo
+```
+
+Expected shape of the output:
+
+```text
+1) Correlated model approval does not override capability policy
+   semantic votes: APPROVE / APPROVE / APPROVE
+   tool: filesystem.chmod -> permission_change
+   DAR issued: False
+
+2) Allowed local capability executes through durable runtime
+   external effects: 1
+   COC status: SUCCEEDED
+
+3) Restart/replay does not duplicate the effect
+   same COC: True
+   external effects after restart: 1
+
+4) Approval seam fails closed
+   no answerer -> unavailable
+   grants authority: False
+```
+
+No API key is required for this demo.
+
+## What problem does it solve?
+
+Agent tool calls become dangerous when model output is treated as execution authority.
+
+JevNet Runtime adds explicit runtime boundaries:
+
+| Failure mode | Runtime mechanism |
+|---|---|
+| Model says a risky tool is safe | Runtime-owned **Capability Manifest** |
+| Same action is retried after timeout | **Idempotency** + provider query |
+| Old worker wakes up after failover | **Lease fencing** |
+| Approval is missing or broken | **Fail-closed approval** |
+| Process crashes mid-action | **Event-sourced durable replay** |
+| Forged / conflicting receipts arrive | **Reconciliation** |
+| One replica claims a final result | **Replicated commit certificate** |
+
+The runtime narrows what a model mistake is allowed to do.
+
+## The mental model
+
+You only need five boxes to understand the project:
+
+```text
+Agent / Model
+     |
+     v
+  Proposal
+     |
+     v
+Policy + Capability Gate
+     |
+     v
+Durable Execution
+     |
+     v
+Observed Outcome
+     |
+     v
+Canonical Commit
+```
+
+Under the hood, those stages are represented by typed records such as:
+
+```text
+ToolCallProposal
+DurableAuthorizationRecord
+DispatchIntent
+ProviderReceipt
+CanonicalOutcomeCommit
+```
+
+The longer authority chain is documented in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## A concrete example
+
+Suppose an agent proposes:
+
+```python
+ToolCallProposal(
+    tool_id="filesystem.chmod",
+    args={"path": "deploy.sh", "mode": "755"},
+)
+```
+
+Even if three semantic reviewers all say "APPROVE", the runtime looks up the tool in its own manifest:
+
+```text
+filesystem.chmod
+-> effect_class = permission_change
+-> policy = forbidden
+-> no authorization record
+-> no external effect
+```
+
+The model does not get to redefine what the tool means.
+
+For an allowed tool such as `local.write_file`, the runtime can issue a durable authorization record, acquire an execution fence, dispatch idempotently, reconcile the provider receipt, and commit the outcome.
+
+## Install
+
+Python 3.12 is recommended.
+
+```bash
+python -m pip install -e .
+```
+
+For the research experiments:
+
+```bash
 python -m pip install -e ".[research]"
+```
+
+Run the full test suite:
+
+```bash
 python -m pytest -q
 ```
 
-Minimal crash-recoverable runtime:
+Or use the repository check scripts:
+
+```bash
+./scripts/check.sh
+```
+
+```powershell
+.\scripts\check.ps1
+```
+
+## Minimal API
 
 ```python
 from sar_runtime import (
@@ -236,7 +187,11 @@ proposal = build_proposal(
     "P1",
     [ToolCallProposal("local.write_file", {"path": "notes.md"})],
 )
-votes = [build_vote("A1", proposal, True), build_vote("A2", proposal, True)]
+
+votes = [
+    build_vote("reviewer-1", proposal, True),
+    build_vote("reviewer-2", proposal, True),
+]
 
 dar = issue_dar(
     proposal=proposal,
@@ -265,46 +220,164 @@ coc = runtime.recover_action(
 )
 ```
 
-## Running Jev Experiments
+The in-memory implementations are references. Replace them with real storage, provider, and lease backends through the same seams.
 
-The reusable runtime does not require Jev. Research experiments use a local, git-ignored `.env`:
+## DSH-inspired harness design
 
-```text
-TYPESAFE_API_KEY=...
+The package borrows several architectural ideas from [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) without copying its implementation:
+
+- **service/plugin seams** — runtime providers are replaceable rather than hard-coded;
+- **event-sourced sessions** — durable records are replayed from an append-only log;
+- **fail-closed approval** — missing or broken approval never becomes an implicit grant;
+- **per-call policy resolution** — execution policy is resolved at the capability boundary, not stored as mutable provider-global state.
+
+JevNet Runtime stays deliberately smaller. It does not try to reproduce DSH's full agent loop, UI, MCP stack, sandbox implementation, or plugin ecosystem.
+
+See [docs/DSH_INSPIRATION.md](docs/DSH_INSPIRATION.md) for the design crosswalk.
+
+## Plugin and service composition
+
+The default harness is assembled from replaceable services:
+
+```python
+from sar_runtime import build_default_harness
+
+harness = build_default_harness(manifest)
+print(harness.topology())
 ```
 
-Runner and benchmark hashes are recorded in the corresponding research reports.
+Default services include:
 
-## Research Archive
+```text
+manifest
+backing_store
+event-sourced store
+provider
+lease coordinator
+durable runtime
+```
 
-See [RESEARCH_INDEX.md](RESEARCH_INDEX.md) for the full experiment lineage from topology analogues and FlyGraph to crash recovery, distributed authorization, replicated COC, capability manifests, and the reusable runtime package.
+A plugin activates only after all declared dependencies exist. Missing dependencies and duplicate service providers fail loudly.
 
-## Reproduction Level
+## Event-sourced state
 
-This repository currently provides:
-- frozen Jev authorization benchmarks with runner/benchmark hashes;
-- model-agnostic runtime interfaces and in-memory references;
-- deterministic capability gating and quorum authorization;
-- durable crash recovery;
-- idempotent / fenced provider semantics;
-- receipt reconciliation and COC construction;
-- finite replicated-log safety checkers;
-- a TLA+ single-slot COC specification;
-- real MaleCNS-derived graph experiments;
-- regression tests for runtime and research invariants.
+`EventSourcedStore` records runtime transitions as append-only events:
 
-It does **not** claim:
-- production-grade consensus or storage correctness;
-- a complete Paxos/Raft proof;
-- liveness under arbitrary asynchronous scheduling;
-- Byzantine provider tolerance;
-- universal semantic authorization accuracy;
-- that repeated calls to one model provide independent evidence;
-- that biological connectome topology is generally superior to random topology.
+```text
+runtime/DurableAuthorizationRecord
+runtime/DispatchIntent
+runtime/ProviderReceipt
+runtime/ReconciliationRecord
+runtime/CanonicalOutcomeCommit
+```
 
-## Core Principle
+After a process restart, the runtime reconstructs execution from durable records and provider reality instead of trusting in-memory state.
 
-> **Probabilistic systems propose interpretations. Deterministic durable protocols decide when those interpretations acquire authority.**
+## Approval is fail-closed
+
+`ApprovalService` uses a closed outcome set:
+
+```text
+allowed-once
+rejected
+cancelled
+unavailable
+```
+
+Only `allowed-once` grants authority. A missing or broken answerer resolves to `unavailable`.
+
+## What is already implemented?
+
+### Runtime core
+
+- Capability Manifest
+- distinct-voter authorization quorum
+- Durable Authorization Record
+- DurableStore interface
+- event-sourced storage adapter
+- ProviderAdapter interface
+- LeaseCoordinator interface
+- idempotency
+- fencing
+- durable crash recovery
+- receipt reconciliation
+- Canonical Outcome Commit
+- replicated commit certificate helpers
+- plugin/service registry
+- fail-closed approval seam
+- CLI demo
+
+### Reference implementations
+
+- `InMemoryDurableStore`
+- `InMemoryProvider`
+- `InMemoryLeaseCoordinator`
+- `EventSourcedStore`
+
+## Research evidence
+
+You do **not** need the research history to use the package.
+
+A few results that directly motivate the current design:
+
+- Three identical Jev reviewers unanimously approved a real `chmod` permission change in two separate frozen benchmarks.
+- Planner + Capability Manifest produced **24/24 authorization-correct outcomes** on a fresh benchmark, even though planner tool selection itself was imperfect.
+- A 10,000-action crash/replay stress test produced **0 unauthorized effects**, **0 missing authorized effects**, and **0 replay digest drift**.
+- A reduced 5-replica / quorum-3 / 3-ballot checker exhaustively explored **442,524 states / 1,818,882 transitions** with no conflicting chosen COC in that stated finite model.
+
+These are research results, not production guarantees.
+
+Full chronology: [RESEARCH_INDEX.md](RESEARCH_INDEX.md).
+
+## Repository layout
+
+```text
+sar_runtime/              reusable runtime package
+docs/                     architecture and design notes
+scripts/                  repo checks
+test_sar_runtime_*.py     package-level tests
+
+RESEARCH_INDEX.md         research archive entry point
+ROUND*.md                 detailed experiment reports
+replicated_log_*.py       explicit-state consensus experiments
+jev_authorizer_*.py       frozen Jev authorization experiments
+flygraph_*.py             historical topology/connectome experiments
+```
+
+The root README intentionally does not explain the full research history.
+
+## What this is not
+
+JevNet Runtime is currently a **research prototype / developer preview**.
+
+It is not yet:
+
+- a production sandbox;
+- a complete agent framework;
+- a replacement for DSH, LangGraph, Claude Code, or an OS security boundary;
+- a complete Paxos/Raft implementation;
+- a proof that same-model voting gives independent evidence;
+- a claim that LLM hallucinations are "solved."
+
+## Roadmap
+
+The next practical backends are:
+
+- SQLite / Postgres `DurableStore`
+- HTTP/API `ProviderAdapter`
+- Redis/etcd-style `LeaseCoordinator`
+- compensation / Saga interface
+- provider capability attestation
+- crash-safe replicated-log backend
+- model adapters that emit `ToolCallProposal` and `AuthorizationVote`
+
+## Research history
+
+The project originally explored Jev in neural-network and connectome-shaped computation graphs. That work is preserved because it exposed failure modes such as state loss and soft-probability provenance leakage.
+
+It is no longer the main entry point.
+
+**Start with the runtime. Read the research archive only if you want the derivation.**
 
 ## License
 
