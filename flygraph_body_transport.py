@@ -9,13 +9,14 @@ biological readout in Fly, exact-degree, and random controls.
 from __future__ import annotations
 
 import csv
-import hashlib
 import json
 import os
 import statistics
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+
+from artifact_integrity import frozen_text_sha256
 
 from jevnet_experiment import post_jev, usage_tokens
 
@@ -27,7 +28,7 @@ VARIANTS = ("fly", "rewired", "random")
 
 
 def sha256(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return frozen_text_sha256(path)
 
 
 def load_graphs():

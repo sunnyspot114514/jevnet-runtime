@@ -1,10 +1,12 @@
-import hashlib, json
+import json
 from pathlib import Path
+
+from artifact_integrity import frozen_text_sha256
 import networkx as nx
 
 
 def sha(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    return frozen_text_sha256(path)
 
 
 def test_large_type_graph_hash():

@@ -48,6 +48,8 @@ Once a runner / benchmark has been frozen and executed:
 
 This repository intentionally preserves negative and inconclusive results.
 
+Early frozen text artifacts were hashed on a Windows CRLF worktree. Cross-platform integrity checks normalize checkout line endings back to that historical byte representation before hashing; the frozen artifact contents and published hashes remain unchanged.
+
 ## Pull requests
 
 A useful PR should include:

@@ -367,6 +367,11 @@ JevNet Runtime 当前还是 **research prototype / developer preview**。
 
 **第一次来看这个仓库，先看 Runtime；只有想追溯推导过程时再看研究记录。**
 
+## 贡献与安全
+
+- [贡献指南](CONTRIBUTING.md)
+- [安全策略](SECURITY.md)
+
 ## License
 
 Apache License 2.0。详见 [LICENSE](LICENSE)。

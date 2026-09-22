@@ -379,6 +379,11 @@ It is no longer the main entry point.
 
 **Start with the runtime. Read the research archive only if you want the derivation.**
 
+## Contributing and security
+
+- [Contributing](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).

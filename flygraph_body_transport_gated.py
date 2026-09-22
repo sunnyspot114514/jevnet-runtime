@@ -14,13 +14,14 @@ Thus weak soft probabilities do not become provenance.
 from __future__ import annotations
 
 import csv
-import hashlib
 import json
 import os
 import statistics
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+
+from artifact_integrity import frozen_text_sha256
 
 from jevnet_experiment import post_jev, usage_tokens
 
@@ -33,7 +34,7 @@ THRESHOLD = 0.5
 
 
 def sha256(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return frozen_text_sha256(path)
 
 
 if sha256(GRAPH_PATH) != GRAPH_SHA256:
